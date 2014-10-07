@@ -55,13 +55,13 @@ img {
 a { 
     color:{{ site.colors.link }};
     padding: 0;
-	margin: 0;
-	text-decoration: none; 
-	-webkit-transition: background-color .4s linear, color .4s linear;
-	-moz-transition: background-color .4s linear, color .4s linear;
-	-o-transition: background-color .4s linear, color .4s linear;
-	-ms-transition: background-color .4s linear, color .4s linear;
-	transition: background-color .4s linear, color .4s linear;
+		margin: 0;
+		text-decoration: none; 
+		-webkit-transition: background-color .4s linear, color .4s linear;
+		-moz-transition: background-color .4s linear, color .4s linear;
+		-o-transition: background-color .4s linear, color .4s linear;
+		-ms-transition: background-color .4s linear, color .4s linear;
+		transition: background-color .4s linear, color .4s linear;
 }
 a:hover,
 a:focus {
@@ -204,7 +204,6 @@ a:focus {
 
 .hline-w {
 	border-bottom: 2px solid #ffffff;
-	margin-bottom: 25px;
 }
 /*	################################################################
 	SITE WRAPS
@@ -303,9 +302,9 @@ a:focus {
 }
 
 #twrap {
-    background: url(../img/t-back.jpg) no-repeat center top;
-    position: relative;
-    margin-top: 0px;
+  background: url(../img/t-back.jpg) no-repeat center top;
+  position: relative;
+  margin-top: 0px;
 	padding-top:60px;
 	text-align:center;
 	background-attachment: relative;
@@ -313,15 +312,15 @@ a:focus {
 	min-height: 450px;
 	width: 100%;
 	
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
+  background-size: 100%;
 
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
 }
 
 #twrap i {
@@ -363,15 +362,29 @@ a:focus {
 	color: {{ site.colors.footer_heading }};
 }
 
-#footerwrap i {
+.btn-social i {
+	color: {{ site.colors.secondary }};
 	font-size: 30px;
-	color: {{ site.colors.footer_content }};
 	padding-right: 25px;
+	-webkit-transition: color .4s linear;
+	-moz-transition: color .4s linear;
+	-o-transition: color .4s linear;
+	-ms-transition: color .4s linear;
+	transition: color .4s linear;
+}
+
+.btn-social i:hover {
+	color: {{ site.colors.primary }}
+}
+
+#footerwrap i {
+	color: {{ site.colors.footer_content }};
 }
 
 #footerwrap i:hover {
 	color: {{ site.colors.primary }}
 }
+
 
 /*	################################################################
 	PAGE CONFIGURATIONS
@@ -411,28 +424,6 @@ a:focus {
 
 .badge-theme {
 	background: {{ site.colors.primary }};
-}
-
-/* Contact Page */
-#contactwrap {
-	background: url(../img/contact.jpg) no-repeat center top;
-	margin-top: -60px;
-	padding-top:0px;
-	text-align:center;
-	background-attachment: relative;
-	background-position: center center;
-	min-height: 400px;
-	width: 100%;
-	
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
-    background-size: 100%;
-
-    -webkit-background-size: cover;
-    -moz-background-size: cover;
-    -o-background-size: cover;
-    background-size: cover;
 }
 
 /* Blog Page */

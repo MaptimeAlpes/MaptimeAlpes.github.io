@@ -35,7 +35,7 @@ social:
   - title: github
     url: "https://github.com/maptime"
   - title: meetup
-    url: "www.meetup.com/MaptimeAlpes/"
+    url: "http://www.meetup.com/MaptimeAlpes/"
 
 # Postal address (add as many lines as necessary). Shown in footer and on Contact page.
 email: adamben.roberts@gmail.com
