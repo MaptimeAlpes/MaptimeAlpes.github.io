@@ -1,0 +1,13 @@
+{% if include.hline == 'white' %}
+  {% assign hline-tag = 'hline-w' %}
+{% else %}
+	{% assign hline-tag = 'hline' %}
+{% endif %}
+
+<h4>Social Links</h4>
+<div class="{{ hline-tag }}"></div>
+<p>
+    {% for network in site.social %}
+        <a href="{{ network.url }}" class="btn-social btn-outline"><i class="icon-{{ network.title }}"></i></a>
+    {% endfor %}
+</p>

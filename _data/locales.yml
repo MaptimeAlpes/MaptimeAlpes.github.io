@@ -1,0 +1,37 @@
+en:
+    nav:
+    - text:         "Home"
+      url:          "/"
+      class:        "home"
+    - text:         "Blog"
+      url:          "/blog/"
+      class:        "blog"
+      class:        "workshops"
+    - text:         "About"
+      url:          "/about/"
+      class:        "about"
+    - text:         "Maptime.io"
+      url:          "http://www.maptime.io"
+    header:      
+      title:        "It's Maptime Alpes!"
+      subtitle:     "come play with maps in the Alps!"
+    recent_work:    "LOOK WHAT WE'VE BEEN WORKING ON!"
+
+fr:
+    nav:
+    - text:         "Accueil"
+      url:          "/fr/"
+      class:        "home"
+    - text:         "Blog"
+      url:          "/fr/blog/"
+      class:        "blog"
+      class:        "ateliers"
+    - text:         "À propos"
+      url:          "/fr/apropos/"
+      class:        "about"
+    - text:         "Maptime.io"
+      url:          "http://www.maptime.io"
+    header:      
+      title:        "C'est Maptime Alpes!"
+      subtitle:     "veins jouer avec les cartes dans les Alpes!"
+    recent_work:    "REGARDE CE QU'ON FAISAIT!"

@@ -1,0 +1,33 @@
+{% comment %}Getting the locale from the url{% endcomment %}
+{% capture locale %}{{ page.url | truncate: 3, "" | remove: "/" }}{% endcapture %}
+
+{% unless site.authorized_locales contains locale %}
+{% assign locale = site.default_locale %}
+{% endunless %}
+
+<div class="container">
+    <div class="row">
+
+        <! -- BLOG POSTS LIST -->
+        <div class="col-md-10 col-md-offset-1">
+
+            {% for post in site.categories[locale] %}
+                <! -- Blog Post -->
+                <div class="recent-post row">
+                    <div class="col-xs-2">
+                        <a href="{{ post.url }}"><img src="{{ "/assets/img/blog/thumbs/" | prepend: site.baseurl }}{{ post.thumb }}" alt="Recent Post"></a>
+                    </div>
+                    <div class="col-xs-10">
+                        <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ post.title }}</h3></a>
+                        <p><csmall>{{ post.date | date: "%d %B, %Y" }}. | By: {{ post.author }}
+                        </csmall></p>
+                        {{ post.excerpt }}
+                        <p><a href="{{ post.url | prepend: site.baseurl }}">[Read More]</a></p>
+                    </div>
+                </div>
+            {% endfor %}
+
+        </div>
+
+    </div><! --/row -->
+</div><! --/container -->
