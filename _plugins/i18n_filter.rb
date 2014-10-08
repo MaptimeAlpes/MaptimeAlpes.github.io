@@ -1,3 +1,8 @@
+# Graciously borrowed from: 
+# https://github.com/nicoespeon/nicoespeon.github.io/blob/develop/_plugins/i18n_filter.rb
+# -- and fixed for 2.3 by using --
+# https://github.com/gacha/gacha.id.lv/blob/master/_plugins/i18n_filter.rb
+
 require 'i18n'
 
 LOCALE = :fr # set your locale
