@@ -1,29 +1,21 @@
 /*	################################################################
-
-	Author: Carlos Alvarez
-	URL: http://alvarez.is
-
-	Project Name: SOLID - Bootstrap 3 Theme
-	Version: 1.0
-	URL: http://alvarez.is
-	
+	CSS drastically different from, but based on:
+			SOLID - Bootstrap 3 Theme by Carlos Alvarez	
 ################################################################# */ 
+
 @import url(http://fonts.googleapis.com/css?family=Raleway:400,700,900);
 @import url(http://fonts.googleapis.com/css?family=Lato:400,900);
-@import url("prettyPhoto.css") screen;
-@import url("hoverex-all.css") screen;
 
 /*	################################################################
 	1. GENERAL STRUCTURES
 ################################################################# */
-	* { 
-		margin: 0;
-		padding: 0px;
-	} 
+* { 
+	margin: 0;
+	padding: 0px;
+} 
 
 body { 
-/*	background: #ffffff; */
-background-image: url('../img/old_mathematics.png');
+	background-image: url('../img/old_mathematics.png');
 	margin: 0; 
 	height: 100%; 
 	color: {{ site.colors.secondary }};
@@ -53,15 +45,15 @@ img {
 }
 
 a { 
-    color:{{ site.colors.link }};
-    padding: 0;
-		margin: 0;
-		text-decoration: none; 
-		-webkit-transition: background-color .4s linear, color .4s linear;
-		-moz-transition: background-color .4s linear, color .4s linear;
-		-o-transition: background-color .4s linear, color .4s linear;
-		-ms-transition: background-color .4s linear, color .4s linear;
-		transition: background-color .4s linear, color .4s linear;
+  color:{{ site.colors.link }};
+  padding: 0;
+	margin: 0;
+	text-decoration: none; 
+	-webkit-transition: background-color .4s linear, color .4s linear;
+	-moz-transition: background-color .4s linear, color .4s linear;
+	-o-transition: background-color .4s linear, color .4s linear;
+	-ms-transition: background-color .4s linear, color .4s linear;
+	transition: background-color .4s linear, color .4s linear;
 }
 a:hover,
 a:focus {
@@ -242,111 +234,6 @@ a:focus {
 	padding: 15px;
 }
 
-/* Portfolio Wrap */
-#portfoliowrap {
-	padding-top: 60px;
-	margin-bottom: 60px;
-	display: block;
-	text-align: center
-}
-
-#portfoliowrap h3 {
-	margin-bottom: 25px;
-}
-
-.portfolio {
-	padding:0 !important;
-	margin:0 !important;
-	display:block;
-}
-
-
-.portfolio-item .title:before {border-radius:0; display:none}
-.portfolio-item p {margin:0px 0 30px;}
-.portfolio-item h3 {margin:-10px 0 10px; font-size:16px; text-transform:uppercase;}
-
-
-.tpl6 h3
-{
-	color:#fff;
-	margin:0;
-	padding:40px 5px 0;
-	font-size:16px;
-	text-transform:uppercase;
-}
-.tpl6 .dmbutton
-{
-	display:inline-block;
-	margin:30px 5px 20px 5px;
-	font-size:13px;
-}
-
-.tpl6 .bg
-{
-	height:100%;
-	width:100%;
-	background-color:{{ site.colors.primary }};
-	background-color:rgba({{ site.colors.primary_rgb }},.9);
-	text-align:center;
-}
-
-/* Testimonials Wrap */
-#twrapback {
-    background-color: {{ site.colors.primary }};
-    background-color:rgba({{ site.colors.primary_rgb }},.8);
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-}
-
-#twrap {
-  background: url(../img/t-back.jpg) no-repeat center top;
-  position: relative;
-  margin-top: 0px;
-	padding-top:60px;
-	text-align:center;
-	background-attachment: relative;
-	background-position: center center;
-	min-height: 450px;
-	width: 100%;
-	
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background-size: 100%;
-
-  -webkit-background-size: cover;
-  -moz-background-size: cover;
-  -o-background-size: cover;
-  background-size: cover;
-}
-
-#twrap i {
-	font-size: 50px;
-	color: white;
-	margin-bottom: 25px;
-}
-
-#twrap p {
-	color: white;
-	font-size: 15px;
-	line-height: 30px;
-}
-
-/* clients logo */
-#cwrap {
-	background: #f7f7f7;
-	margin-top: 0px;
-	padding-top: 80px;
-	padding-bottom: 100px;
-}
-
-#cwrap h3 {
-	margin-bottom: 60px;
-}
-
 /* Footer */
 #footerwrap {
 	padding-top: 60px;
@@ -468,9 +355,6 @@ a:focus {
 /******** MT-A CUSTOM ********/
 .locale-links {
 	padding: 15px;
-}
-.navbar-brand {
-/*	padding: 5px;*/
 }
 .navbar-brand img {
 	height: 50px;
