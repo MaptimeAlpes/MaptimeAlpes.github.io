@@ -374,6 +374,11 @@ a:focus {
 .mini-text-block {
 	padding: 0;
 }
+@media (max-width: 380px) {
+  .mini-text-block h3 {
+    font-size: 16px;
+  }
+}
 .header-text-block {
 	background-color:rgba(0,179,254,.8);
 	height: 100px;
