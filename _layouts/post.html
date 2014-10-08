@@ -19,11 +19,11 @@ layout: default
             <a href="{{ page.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ page.title }}</h3></a>
             <p><csmall>
                 {% if locale == site.default_locale %}
-                    ({{ page.date | date: "%d %B, %Y" }})
+                    {{ page.date | date: "%d %B, %Y" }}
                 {% else %}
-                    ({{ page.date | localize: "%d %B, %Y" }})
+                    {{ page.date | localize: "%d %B, %Y" }}
                 {% endif %}
-                . | By: {{ page.author }}</csmall></p>
+                . | {{ site.data.locales[locale].by }}: {{ page.author }}</csmall></p>
               
             {{ content }}
 

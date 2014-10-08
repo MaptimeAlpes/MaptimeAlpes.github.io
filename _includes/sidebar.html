@@ -1,13 +1,27 @@
+{% comment %}Getting the locale from the url{% endcomment %}
+{% capture locale %}{{ page.url | truncate: 3, "" | remove: "/" }}{% endcapture %}
+
+{% unless site.authorized_locales contains locale %}
+{% assign locale = site.default_locale %}
+{% endunless %}
+
 <div class="col-lg-4">
     {% include social.html %}
-    <h4>Recent Posts</h4>
+    <h4>{{ site.data.locales[locale].recent}}</h4>
     <div class="hline"></div>
         <ul class="popular-posts">
             {% for post in site.categories[locale] limit:4 %}
                 <li>
                     <a href="{{ post.url }}"><img src="{{ "/assets/img/blog/thumbs/" | prepend: site.baseurl }}{{ post.thumb }}" alt="Popular Post"></a>
                     <p><a href="{{ post.url }}">{{ post.title }}</a></p>
-                <em>Posted on {{ post.date | date_to_string }}</em>
+                <em>
+                    {{ site.data.locales[locale].post_on }}
+                    {% if locale == site.default_locale %}
+                        {{ post.date | date: "%d %B, %Y" }}
+                    {% else %}
+                        {{ post.date | localize: "%d %B, %Y" }}
+                    {% endif %}
+                </em>
             </li>
             {% endfor %} 
         </ul>

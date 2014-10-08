@@ -4,7 +4,7 @@
 	{% assign hline-tag = 'hline' %}
 {% endif %}
 
-<h4>Social Links</h4>
+<h4>{{ site.data.locales[locale].social }}</h4>
 <div class="{{ hline-tag }}"></div>
 <p>
     {% for network in site.social %}

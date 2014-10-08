@@ -19,10 +19,16 @@
                     </div>
                     <div class="col-xs-10">
                         <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ post.title }}</h3></a>
-                        <p><csmall>{{ post.date | date: "%d %B, %Y" }}. | By: {{ post.author }}
+                        <p><csmall>
+                            {% if locale == site.default_locale %}
+                                {{ post.date | date: "%d %B, %Y" }}
+                            {% else %}
+                                {{ post.date | localize: "%d %B, %Y" }}
+                            {% endif %}
+                            . | {{ site.data.locales[locale].by }}: {{ post.author }}
                         </csmall></p>
                         {{ post.excerpt }}
-                        <p><a href="{{ post.url | prepend: site.baseurl }}">[Read More]</a></p>
+                        <p><a href="{{ post.url | prepend: site.baseurl }}">[{{ site.data.locales[locale].read_more }}]</a></p>
                     </div>
                 </div>
             {% endfor %}

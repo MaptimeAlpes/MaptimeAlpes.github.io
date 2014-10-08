@@ -16,6 +16,12 @@ en:
       title:        "It's Maptime Alpes!"
       subtitle:     "come play with maps in the Alps!"
     recent_work:    "LOOK WHAT WE'VE BEEN WORKING ON!"
+    about:          "about"
+    recent:         "recent posts"
+    social:         "social links"
+    by:             "by"
+    post_on:        "Posted on"
+    read_more:      "Read More"
 
 fr:
     nav:
@@ -35,3 +41,9 @@ fr:
       title:        "C'est Maptime Alpes!"
       subtitle:     "veins jouer avec les cartes dans les Alpes!"
     recent_work:    "REGARDE CE QU'ON FAISAIT!"
+    about:          "à propos"
+    recent:         "articles récent"
+    social:         "liens sociaux"
+    by:             "par"
+    post_on:        "Mis le"
+    read_more:      "Lis Encore"
