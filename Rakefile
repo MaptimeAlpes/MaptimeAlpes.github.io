@@ -72,7 +72,7 @@ task :commit do
   status = system("git commit -m \"#{message}\"")
   puts status ? "Success" : "Failed"
   puts "\n## Pushing commits to remote"
-  status = system("git push origin stage")
+  status = system("git push origin develop")
   puts status ? "Success" : "Failed"
 end
 
@@ -87,8 +87,8 @@ task :deploy do
   puts "\n## Forcing the _site subdirectory to be project root"
   status = system("git filter-branch --subdirectory-filter _site/ -f")
   puts status ? "Success" : "Failed"
-  puts "\n## Switching back to stage branch"
-  status = system("git checkout stage")
+  puts "\n## Switching back to develop branch"
+  status = system("git checkout develop")
   puts status ? "Success" : "Failed"
   puts "\n## Pushing all branches to origin"
   status = system("git push --all origin")
