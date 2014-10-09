@@ -1,3 +1,5 @@
+# Graciously borrowed from: https://github.com/davidensinger/davidensinger.github.io/blob/source/Rakefile
+
 desc "Delete _site/"
 task :delete do
   puts "\## Deleting _site/"

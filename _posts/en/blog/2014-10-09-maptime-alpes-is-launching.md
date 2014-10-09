@@ -1,11 +1,11 @@
 ---
 layout: post
-title: "Maptime-Alpes se lance!"
+title: "Maptime-Alpes is launching!"
 date: 2014-10-09 16:54:46
 author: abenrob
-lang: fr
+lang: en
 categories:
-- fr
+- en
 img: launch.png
 thumb: mta_thumb.png
 ---

@@ -222,18 +222,6 @@ a:focus {
 	margin: 0 auto;
 }
 
-/* Services Wrap */
-#service {
-	margin-top: 100px;
-	margin-bottom: 80px;
-}
-
-#service i {
-	color: #00b3fe;
-	font-size: 60px;
-	padding: 15px;
-}
-
 /* Footer */
 #footerwrap {
 	padding-top: 60px;
@@ -333,7 +321,8 @@ a:focus {
 .popular-posts li img {
 	float: left; 
 	margin-right: 20px;
-	}
+	max-width: 100px;
+}
 	
 .popular-posts li em {
 	font-family: 'Lato', sans-serif;
