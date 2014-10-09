@@ -1,4 +1,3 @@
-
 ---
 layout: post
 title: "Maptime-Alpes se lance!"
@@ -11,11 +10,11 @@ img: launch.png
 thumb: mta_thumb.png
 ---
 
-####Busy later this month?
-Come help launch Maptime-Alpes, the Rhône-Alpes chapter of [Maptime.io](www.maptime.io)! We will be meeting here in Grenoble at 7pm on October 28th, at [co-work](co-work.fr).
+####Vous êtes occupé plus tard ce mois-ci?
+Venez aider à lancer Maptime-Alpes, le chapitre Rhône-Alpes de [Maptime.io](www.maptime.io)! Nous allons nous réunir ici à Grenoble à 19 heures le 28 Octobre, à [co-work](co-work.fr).
 <!--more-->
 
-Everyone is welcome, from seasoned geo-professionals, to fresh beginners - this is a place to learn, teach and share your enthusiasm for (and knowledge of) maps, mapmaking and all things geo. 
-We will be talking about what we want Maptime-Alpes to be - this is a place for you, after all - so we want to know WHAT you want to learn, WHAT you want to share, WHAT you think is awesome. 
+Tout le monde est le bienvenu, de géo-professionnels, aux débutants - c'est un lieu pour apprendre, enseigner et partager ton enthousiasme pour (et connaissance des) cartes, la cartographie et de toutes les choses géo. 
+Nous allons parler de ce que nous voulons Maptime-Alpes d'être - c'est un endroit pour toi, après tout - nous voulons savoir ce que tu veut apprendre, ce que tu veut partager, ce que tu trouves génial. Nous allons aussi faire un présentation sur ce qui compose cartographie en ligne, et c'est vraiment classe!
 
-You can sign-up with [meetup](http://www.meetup.com/MaptimeAlpes/) simply drop in. 
+Vous pouvez vous inscrire avec [Meetup](http://www.meetup.com/MaptimeAlpes/) ou juste viens commme ça.
