@@ -2,7 +2,7 @@
 
 # Site settings
 title: MaptimeAlpes
-description: "We make maps in the Alps. On fait des cartes dans les Alpes!"
+description: "We make maps in the Alps. On fait de la cartographie dans les Alpes!"
 baseurl: ""
 url: "http://www.maptime-alpes.com"
 
@@ -33,7 +33,7 @@ social:
   - title: twitter
     url: "https://twitter.com/MaptimeAlpes"
   - title: github
-    url: "https://github.com/maptime"
+    url: "https://github.com/MaptimeAlpes"
   - title: meetup
     url: "http://www.meetup.com/MaptimeAlpes/"
 

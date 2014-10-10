@@ -231,8 +231,8 @@ a:focus {
 
 /* Footer */
 #footerwrap {
-	padding-top: 60px;
-	padding-bottom: 60px;
+	padding-top: 20px;
+	padding-bottom: 20px;
 	background: {{ site.colors.secondary }};
 }
 
@@ -387,7 +387,7 @@ a:focus {
 }
 @media (max-width: 380px) {
   .header-text-block h1 {
-    font-size: 26px;
+    font-size: 22px;
   }
 }
 .navbar-brand {
@@ -416,8 +416,7 @@ a:focus {
 	margin-bottom: 20px;
 }
 .recent-post h3 {
-	margin-top: 0;
-	margin-bottom: 6px;
+	margin: 6px 0;
 }
 .recent-post p {
 	margin-bottom: 4px;
