@@ -14,10 +14,10 @@
             {% for post in site.categories[locale] %}
                 <! -- Blog Post -->
                 <div class="recent-post row">
-                    <div class="col-md-2">
+                    <div class="col-sm-3">
                         <a href="{{ post.url }}"><img src="{{ "/assets/img/blog/thumbs/" | prepend: site.baseurl }}{{ post.thumb }}" alt="Recent Post"></a>
                     </div>
-                    <div class="col-md-10">
+                    <div class="col-sm-9">
                         <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ post.title }}</h3></a>
                         <p><csmall>
                             {% if locale == site.default_locale %}

@@ -375,6 +375,11 @@ a:focus {
     font-size: 16px;
   }
 }
+@media (min-width: 381px) and (max-width: 799px) {
+  .mini-text-block h3 {
+    font-size: 20px;
+  }
+}
 .header-text-block {
 	background-color:rgba(0,179,254,.8);
 	height: 100px;
@@ -388,6 +393,11 @@ a:focus {
 @media (max-width: 380px) {
   .header-text-block h1 {
     font-size: 22px;
+  }
+}
+@media (min-width: 381px) and (max-width: 799px) {
+  .header-text-block h1 {
+    font-size: 26px;
   }
 }
 .navbar-brand {
