@@ -11,7 +11,7 @@ thumb: mta_thumb.png
 ---
 
 ####Vous êtes occupé plus tard ce mois-ci?
-Venez aider à lancer Maptime-Alpes, le chapitre Rhône-Alpes de [Maptime.io](www.maptime.io)! Nous allons nous réunir ici à Grenoble à 19 heures le 28 Octobre, à [co-work](co-work.fr).
+Venez aider à lancer Maptime-Alpes, le chapitre Rhône-Alpes de [Maptime.io](http://www.maptime.io)! Nous allons nous réunir ici à Grenoble à 19 heures le 28 Octobre, à [co-work](http://www.co-work.fr).
 <!--more-->
 
 Tout le monde est le bienvenu, de géo-professionnels, aux débutants - c'est un lieu pour apprendre, enseigner et partager ton enthousiasme pour (et connaissance des) cartes, la cartographie et de toutes les choses géo. 

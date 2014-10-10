@@ -11,7 +11,7 @@ thumb: mta_thumb.png
 ---
 
 ####Busy later this month?
-Come help launch Maptime-Alpes, the Rhône-Alpes chapter of [Maptime.io](www.maptime.io)! We will be meeting here in Grenoble at 7pm on October 28th, at [co-work](co-work.fr).
+Come help launch Maptime-Alpes, the Rhône-Alpes chapter of [Maptime.io](http://www.maptime.io)! We will be meeting here in Grenoble at 7pm on October 28th, at [co-work](http://www.co-work.fr).
 <!--more-->
 
 Everyone is welcome, from seasoned geo-professionals, to fresh beginners - this is a place to learn, teach and share your enthusiasm for (and knowledge of) maps, mapmaking and all things geo. 
