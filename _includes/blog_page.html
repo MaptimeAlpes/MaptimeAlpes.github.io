@@ -19,9 +19,9 @@
                     {% if locale == site.default_locale %}
                         {{ post.date | date: "%d %B, %Y" }}
                     {% else %}
-                        {{ post.date | localize: "%d %B, %Y" }}
+                        {{ post.date | localize: "%d %B %Y" }}
                     {% endif %}
-                    . | {{ site.data.locales[locale].by }}: {{ post.author }}
+                     | {{ site.data.locales[locale].by }}: {{ post.author }}
                 </csmall></p>
                 {{ post.excerpt }}
                 <p><a href="{{ post.url | prepend: site.baseurl }}">[{{ site.data.locales[locale].read_more }}]</a></p>

@@ -19,7 +19,7 @@
                     {% if locale == site.default_locale %}
                         {{ post.date | date: "%d %B, %Y" }}
                     {% else %}
-                        {{ post.date | localize: "%d %B, %Y" }}
+                        {{ post.date | localize: "%d %B %Y" }}
                     {% endif %}
                 </em>
             </li>
