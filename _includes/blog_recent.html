@@ -1,9 +1,8 @@
-{% comment %}Getting the locale from the url{% endcomment %}
-{% capture locale %}{{ page.url | truncate: 3, "" | remove: "/" }}{% endcapture %}
+{% include get_local.html %}
 
-{% unless site.authorized_locales contains locale %}
-{% assign locale = site.default_locale %}
-{% endunless %}
+<div class="centered recent-activity">
+    <h4>{{ site.data.locales[locale].recent_work }}</h4>
+</div>
 
 <div class="container">
     <div class="row">
