@@ -6104,7 +6104,7 @@ a:focus {
 .popular-posts li {
 	list-style: none; 
 	margin-bottom: 20px; 
-	min-height: 70px;
+	min-height: 50px;
 }
 .popular-posts li a, 
 .popular-posts li a:hover {
@@ -6115,7 +6115,7 @@ a:focus {
 .popular-posts li img {
 	float: left; 
 	margin-right: 20px;
-	max-width: 100px;
+	max-height: 50px;
 }
 	
 .popular-posts li em {
