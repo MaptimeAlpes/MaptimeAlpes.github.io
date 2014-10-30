@@ -7,19 +7,15 @@
         <div class="col-md-8">
 
             {% for post in site.categories[locale] %}
+                {% assign blogpost = post %}
                 <! -- Blog Post -->
-                <p><img class="img-responsive" src="{{ "/assets/img/blog/" | prepend: site.baseurl }}{{ post.img }}"></p>
-                <a href="{{ post.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ post.title }}</h3></a>
+                <p><img class="img-responsive" src="{{ "/assets/img/blog/" | prepend: site.baseurl }}{{ blogpost.img }}"></p>
+                <a href="{{ blogpost.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ blogpost.title }}</h3></a>
                 <p><csmall>
-                    {% if locale == site.default_locale %}
-                        {{ post.date | date: "%d %B, %Y" }}
-                    {% else %}
-                        {{ post.date | localize: "%d %B %Y" }}
-                    {% endif %}
-                     | {{ site.data.locales[locale].by }}: {{ post.author }}
+                    {% include auth_date.html %}
                 </csmall></p>
-                {{ post.excerpt }}
-                <p><a href="{{ post.url | prepend: site.baseurl }}">[{{ site.data.locales[locale].read_more }}]</a></p>
+                {{ blogpost.excerpt }}
+                <p><a href="{{ blogpost.url | prepend: site.baseurl }}">[{{ site.data.locales[locale].read_more }}]</a></p>
                 <div class="hline"></div>
 
                 <div class="spacing"></div>
