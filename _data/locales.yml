@@ -19,7 +19,7 @@ en:
     about:          "About"
     recent:         "Recent posts"
     social:         "Social links"
-    by:             "By"
+    by:             "by"
     post_on:        "Posted on"
     read_more:      "Read more"
 
@@ -44,6 +44,6 @@ fr:
     about:          "À propos"
     recent:         "Derniers articles"
     social:         "Réseaux sociaux"
-    by:             "Par"
+    by:             "par"
     post_on:        "Publié le"
     read_more:      "Continuer la lecture"
