@@ -10,12 +10,12 @@ img: october_mtg.png
 thumb: watercolor.jpg
 ---
 
-####Première réunion a été bien - prochaine est annoncé !
-On a fait la première réunion mardi, et on avait bien 11 personnes - pas mal pour le premièr effort !
+####La première réunion a été un succès - la prochaine est annoncée !
+La première réunion a eu lieu mardi 28 Octobre et il y avait 11 personnes - pas mal pour un premier effort !
 <!--more-->
 
-On a parlé de pourquoi chacun était là, pourquoi chacun était interessé par Maptime, et quels sujets chacun voulait apprendre dans les prochaines réunions. Quelque sujets d'interet : [d3](htttp://www.d3js.com) et [TileMill](http://www.mapbox.com/tilemill).
+Nous avons parlé de pourquoi chacun était là, pourquoi chacun était interessé par Maptime, et quels sujets chacun voulait aborder au cours des prochaines réunions. Quelques sujets ont déjà été retenus : [d3](htttp://www.d3js.com) et [TileMill](http://www.mapbox.com/tilemill).
 
-On a aussi écouté une présentation [Anatomie de la cartographie sur l'internet](http://www.maptime.io/anatomy-of-a-web-map) (encore en anglais, mais j'espère que ça sera bientôt traduite) dans laquelle on a apprit les particuliers de la cartographie sur l'internet, et aussi les utils et donnés dont on peut utiliser.
+Nous avons aussi suivi une présentation [Anatomie de la cartographie sur l'internet](http://www.maptime.io/anatomy-of-a-web-map) (encore en anglais, mais j'espère que ça sera bientôt traduite) dans laquelle nous avons appris les composants de la cartographie sur Internet, et aussi les outils et donnés que l'on peut utiliser.
 
-La prochain réunion sera mardi 25 Novembre, et on va faire un atelier sur [TileMill](http://www.mapbox.com/tilemill). Plus de détails bientôt !
+La prochain réunion sera le mardi 25 Novembre et nous ferrons un atelier sur [TileMill](http://www.mapbox.com/tilemill). Plus de détails bientôt !
