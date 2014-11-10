@@ -1,0 +1,58 @@
+{
+  "checksum": {
+    "previous": "186cda13a3e3b7e019dd9116c3191dbad696df19c0f0f9bfa221352c318c44cd",
+    "current": "186cda13a3e3b7e019dd9116c3191dbad696df19c0f0f9bfa221352c318c44cd"
+  },
+  "fonts": [
+    "fontcustom/fonts/fontcustom_186cda13a3e3b7e019dd9116c3191dba.ttf",
+    "fontcustom/fonts/fontcustom_186cda13a3e3b7e019dd9116c3191dba.svg",
+    "fontcustom/fonts/fontcustom_186cda13a3e3b7e019dd9116c3191dba.woff",
+    "fontcustom/fonts/fontcustom_186cda13a3e3b7e019dd9116c3191dba.eot"
+  ],
+  "glyphs": {
+    "github": {
+      "codepoint": 61696,
+      "source": "./vectors/github.svg"
+    },
+    "meetup": {
+      "codepoint": 61697,
+      "source": "./vectors/meetup.svg"
+    },
+    "twitter": {
+      "codepoint": 61698,
+      "source": "./vectors/twitter.svg"
+    }
+  },
+  "options": {
+    "autowidth": false,
+    "config": "fontcustom.yml",
+    "css_selector": ".icon-{{glyph}}",
+    "debug": false,
+    "font_ascent": 448,
+    "font_descent": 64,
+    "font_design_size": 16,
+    "font_em": 512,
+    "font_name": "fontcustom",
+    "force": false,
+    "input": {
+      "templates": "./vectors/",
+      "vectors": "./vectors/"
+    },
+    "no_hash": false,
+    "output": {
+      "css": "fontcustom",
+      "fonts": "fontcustom/fonts",
+      "preview": "fontcustom"
+    },
+    "preprocessor_path": "",
+    "quiet": false,
+    "templates": [
+      "css",
+      "preview"
+    ]
+  },
+  "templates": [
+    "fontcustom/fontcustom.css",
+    "fontcustom/fontcustom-preview.html"
+  ]
+}
