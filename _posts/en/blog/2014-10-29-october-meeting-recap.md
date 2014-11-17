@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "October meeting recap"
-date: 2014-10-29 12:15:00
+date: 2014-11-17 12:15:00
 author: abenrob
 lang: en
 categories:
@@ -18,4 +18,4 @@ We talked about why each of us is interested in Maptime, and what we would like 
 
 We also watched a presentation called [Anatomy of a web map](http://www.maptime.io/anatomy-of-a-web-map) in which we learned about the components of a web map, and some of the tools and data people can use in web maps.
 
-The next meeting will be on Tuesday, November 25th, and we will be doing a workshop on [TileMill](http://www.mapbox.com/tilemill). More details coming soon!
+The next meeting will be on Tuesday, November 25th, and we will be doing a workshop on [TileMill](http://www.mapbox.com/tilemill). Come at 19:00, chez [Cowork in Grenoble](http://www.co-work.fr) 12 Rue Servan, and if possible, let me know via [Meetup](http://www.meetup.com/MaptimeAlpes/events/216214222/).

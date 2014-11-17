@@ -1,7 +1,7 @@
 ---
 layout: post
 title: "Octobre réunion notes"
-date: 2014-10-29 12:15:00
+date: 2014-11-17 12:15:00
 author: abenrob
 lang: fr
 categories:
@@ -10,12 +10,14 @@ img: october_mtg.png
 thumb: watercolor.jpg
 ---
 
-####Première réunion a été bien - prochaine est annoncé !
-On a fait la première réunion mardi, et on avait bien 11 personnes - pas mal pour le premièr effort !
+####La première réunion a été un succès - Voici la deuxième !
+On était 11 pour la première réunion de MapTime : pas mal pour une première !
 <!--more-->
 
-On a parlé de pourquoi chacun était là, pourquoi chacun était interessé par Maptime, et quels sujets chacun voulait apprendre dans les prochaines réunions. Quelque sujets d'interet : [d3](htttp://www.d3js.com) et [TileMill](http://www.mapbox.com/tilemill).
+On s'est présenté, parlé de nos motivations et de nos intérêts pour Maptime et de quoi on voulait discuter dans les prochaines réunions.
+Les principaux sujets d'intérêt sont : [d3](htttp://www.d3js.com) et [TileMill](http://www.mapbox.com/tilemill).
 
-On a aussi écouté une présentation [Anatomie de la cartographie sur l'internet](http://www.maptime.io/anatomy-of-a-web-map) (encore en anglais, mais j'espère que ça sera bientôt traduite) dans laquelle on a apprit les particuliers de la cartographie sur l'internet, et aussi les utils et donnés dont on peut utiliser.
 
-La prochain réunion sera mardi 25 Novembre, et on va faire un atelier sur [TileMill](http://www.mapbox.com/tilemill). Plus de détails bientôt !
+On a aussi regardé la présentation [Anatomy of a web map](http://www.maptime.io/anatomy-of-a-web-map)  qui explorait les composants, les outils et les données utilisés par les créateurs de cartes sur internet.
+
+La prochaine réunion aura lieu mardi 25 novembre, et on parlera de [TileMill](http://www.mapbox.com/tilemill). Viens à 19:00, chez [Cowork in Grenoble](http://www.co-work.fr) 12 Rue Servan, et si possible, previens-moi avec [Meetup](http://www.meetup.com/MaptimeAlpes/events/216214222/).
