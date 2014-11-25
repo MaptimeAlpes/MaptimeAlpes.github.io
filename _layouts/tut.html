@@ -1,0 +1,14 @@
+---
+layout: default
+---
+{% include get_local.html %}
+
+{% include wrap.html %}
+
+{% assign blogpost = page %}
+
+<div class="tutorial container" id="tutorial">
+  	{{ content }}
+</div>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+{% include tutorial_js.html %}

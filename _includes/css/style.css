@@ -279,6 +279,11 @@ a:focus {
 	margin-bottom: 60px;
 	padding-top: 10px;
 	padding-bottom: 10px;
+	position: fixed;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2000;
 }
 
 #blue h3 {
@@ -435,4 +440,39 @@ a:focus {
 }
 .recent-post img {
 	max-width: 150px;
+}
+.tutorial {
+	margin-top: 140px;
+	background-color: white;
+	padding: 10px 20px;
+	box-shadow: 0 0 14px #888;
+	-o-box-shadow: 0 0 14px #888;
+	-webkit-box-shadow: 0 0 14px #888;
+	-moz-box-shadow: 0 0 14px #888;
+	position: relative;
+}
+.tutorial-navs {
+	background-color: rgba(255,255,255,.8) !important;
+	color: #00b3fe !important;
+	font-size: 16px;
+	padding: 13px 0 11px 0;
+	margin: 10px 0;
+}
+#tutorial-nav {
+	display: inline-flex;
+	margin: 0;
+}
+.tutorial-navs li {
+	list-style: none;
+	padding: 0 10px;
+}
+.tutorial ol, .tutorial ul {
+	padding: 5px 20px;
+}
+.tutorial img {
+	display: block;
+	margin: 5px 0 10px;
+}
+.tutorial li {
+	width: 100%;
 }

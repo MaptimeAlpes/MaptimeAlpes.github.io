@@ -1,0 +1,22 @@
+{% include get_local.html %}
+
+<div class="row mtb">
+
+        <! -- TUT POSTS LIST -->
+        <div class="col-md-12">
+
+            {% for post in site.categories[locale] %}
+            {% if post.layout == 'tut' %}
+                {% assign workshop = post %}
+                <! -- Tut Post -->
+                <h3><a href="{{ workshop.url | prepend: site.baseurl }}">{{workshop.title}}</a></h3>
+                {{ workshop.excerpt }}
+                <p><a href="{{ workshop.url | prepend: site.baseurl }}">[{{ site.data.locales[locale].read_more }}]</a></p>
+                <div class="hline"></div>
+
+                <div class="spacing"></div>
+            {% endif %}
+            {% endfor %}
+
+        </div>
+</div><! --/container -->
