@@ -9,7 +9,7 @@ categories:
 ---
 With [TileMill](https://www.mapbox.com/tilemill/), you can make beautiful, interactive maps. We are going to be walking through a condensed version of the [MapBox](http://www.mapbox.com) crashcourse for TileMill, which is located [here](https://www.mapbox.com/tilemill/docs/crashcourse/introduction/) in it's original form. 
 
-
+<!--more-->
 
 We are moving it here for this workshop, to facilitate an upcoming French language translation.
 
