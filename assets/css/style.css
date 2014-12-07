@@ -6011,10 +6011,24 @@ a:focus {
 	color: white;
 }
 
-#headerwrap .img-responsive {
-	margin: 0 auto;
+#miniheaderwrap {
+	background: #384452;
+	margin-top: 60px;
+	margin-bottom: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	top: 0;
+	left: 0;
+	right: 0;
+	z-index: 2000;
 }
 
+#miniheaderwrap h3 {
+	color: white;
+	padding: 10px 15px;
+	margin: 10px 0;
+	background-color:rgba(0,179,254,.8);
+}
 /* Footer */
 #footerwrap {
 	padding-top: 20px;
@@ -6058,25 +6072,6 @@ a:focus {
 	PAGE CONFIGURATIONS
 ################################################################# */
 /* General Tweaks */
-
-#blue {
-	background: #384452;
-	margin-top: 60px;
-	margin-bottom: 10px;
-	padding-top: 10px;
-	padding-bottom: 10px;
-	top: 0;
-	left: 0;
-	right: 0;
-	z-index: 2000;
-}
-
-#blue h3 {
-	color: white;
-	padding: 10px 15px;
-	margin: 10px 0;
-	background-color:rgba(0,179,254,.8);
-}
 
 .mtb ul {
 	margin-left: 20px;
