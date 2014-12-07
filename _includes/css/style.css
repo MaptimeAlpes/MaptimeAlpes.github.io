@@ -185,7 +185,6 @@ a:focus {
 }
 
 .mtb {
-	margin-top: 150px;
 	margin-bottom: 80px;
 }
 
@@ -276,10 +275,9 @@ a:focus {
 #blue {
 	background: {{ site.colors.secondary }};
 	margin-top: 60px;
-	margin-bottom: 60px;
+	margin-bottom: 10px;
 	padding-top: 10px;
 	padding-bottom: 10px;
-	position: fixed;
 	top: 0;
 	left: 0;
 	right: 0;
