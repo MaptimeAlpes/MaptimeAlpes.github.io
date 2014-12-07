@@ -2,6 +2,7 @@
 layout: post
 title: "October meeting recap"
 date: 2014-11-17 12:15:00
+published: true
 author: abenrob
 lang: en
 categories:

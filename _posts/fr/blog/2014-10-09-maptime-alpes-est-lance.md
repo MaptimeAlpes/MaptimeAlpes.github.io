@@ -2,6 +2,7 @@
 layout: post
 title: "Maptime-Alpes est lancé!"
 date: 2014-10-09 16:54:46
+published: true
 author: abenrob
 lang: fr
 categories:

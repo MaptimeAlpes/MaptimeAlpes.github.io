@@ -6,6 +6,7 @@
     <div class="hline"></div>
         <ul class="popular-posts">
             {% for post in site.categories[locale] limit:4 %}
+                {% if post.layout == 'post' %}
                 <li>
                     <a href="{{ post.url }}"><img src="{{ "/assets/img/blog/thumbs/" | prepend: site.baseurl }}{{ post.thumb }}" alt="Popular Post"></a>
                     <p><a href="{{ post.url }}">{{ post.title }}</a></p>
@@ -17,7 +18,8 @@
                         {{ post.date | localize: "%d %B %Y" }}
                     {% endif %}
                 </em>
-            </li>
+                </li>
+                {% endif %}
             {% endfor %} 
         </ul>
 

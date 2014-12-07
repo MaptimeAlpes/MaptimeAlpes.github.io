@@ -2,6 +2,7 @@
 layout: post
 title: "Octobre réunion notes"
 date: 2014-11-17 12:15:00
+published: true
 author: abenrob
 lang: fr
 categories:
