@@ -5972,7 +5972,7 @@ a:focus {
 }
 
 .mtb {
-	margin-top: 0;
+	margin-top: 150px;
 	margin-bottom: 80px;
 }
 
@@ -6078,6 +6078,10 @@ a:focus {
 	padding: 10px 15px;
 	margin: 10px 0;
 	background-color:rgba(0,179,254,.8);
+}
+
+.mtb ul {
+	margin-left: 20px;
 }
 
 .ctitle {
@@ -6242,7 +6246,6 @@ a:focus {
 	background-color: rgba(255,255,255,.8) !important;
 	color: #00b3fe !important;
 	font-size: 16px;
-	padding: 13px 0 11px 0;
 	margin: 10px 0;
 }
 #tutorial-nav {
@@ -6251,7 +6254,7 @@ a:focus {
 }
 .tutorial-navs li {
 	list-style: none;
-	padding: 0 10px;
+	padding: 13px 10px 11px;
 }
 .tutorial ol, .tutorial ul {
 	padding: 5px 20px;
