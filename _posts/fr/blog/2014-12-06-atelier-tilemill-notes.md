@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Atelier TileMill Notes"
+title: "Atelier TileMill - notes"
 date: 2014-12-06 16:16:00
-published: false
+published: true
 author: abenrob
 lang: fr
 categories:

@@ -1,8 +1,8 @@
 ---
 layout: post
-title: "Tilemill Workshop recap"
+title: "Tilemill workshop recap"
 date: 2014-12-06 16:16:00
-published: false
+published: true
 author: abenrob
 lang: en
 categories:
@@ -18,7 +18,7 @@ A half-dozen folks come out for our [TileMill](http://www.mapbox.com/tilemill) w
 TileMill is a great program for making web-map tiles, or even for making beautiful exported images. We learned how to:
 
 * upload a CSV containing lat/long columns to point data
-* style points and polygons with the excellent [CartCSS](https://www.mapbox.com/tilemill/docs/manual/carto/) style language
+* style points and polygons with the excellent [CartoCSS](https://www.mapbox.com/tilemill/docs/manual/carto/) style language
 * add interactive tooltips to access the data behind the tiles
 * add legends to explain what we are displaying
 * export our maps to .mbtiles and .png/.pdf formats
