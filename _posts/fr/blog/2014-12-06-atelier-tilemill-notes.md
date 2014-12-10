@@ -11,16 +11,16 @@ img: november_mtg.png
 thumb: tilemill.png
 ---
 
-####Découpage des tuiles à la TileMill !
-Une sixaine de gens sont venus faire notre atelier [TileMill](http://www.mapbox.com/tilemill) pendent le réunion de novembre. On a apprit les tenants et aboutissants de TileMill de l'acquisition des donnés à l'incorporation de la fonctionnalité interactif. 
+####Découpage des tuiles avec TileMill !
+Une demie-douzaine de personnes sont venus suivre notre atelier [TileMill](http://www.mapbox.com/tilemill) lors de la réunion de novembre. Nous avons appris les tenants et aboutissants de TileMill de l'acquisition des données à l'utilisatoin de fonctionnalités interactives. 
 <!--more-->
 
-TileMill est un logiciel excellent pour la fabrication des tuiles fonds-de-carte, ou même pour exporter des belles images png. On a apprit comment :
+TileMill est un excellent logiciel pour réaliser des tuiles de fonds de plan, ou même pour exporter des belles cartes en images. Nous avons appris comment :
 
-* convertir un document CSV ( qui contient des colonnes latitude et longitude ) aux points géographiques
-* styliser les points et polygones avec la langage [CartCSS](https://www.mapbox.com/tilemill/docs/manual/carto/)
-* ajouter la fonctionnalité interactif pour acceder les donnes derrière les tuiles
-* ajouter une legende
-* exporter nos cartres en format .mbtiles et .png/.pdf
+* convertir un document CSV (contenant des colonnes latitude et longitude ) en points géographiques
+* styliser les points et polygones avec le langage [CartoCSS](https://www.mapbox.com/tilemill/docs/manual/carto/)
+* ajouter de l'interactivité pour acceder aux données attributaires
+* ajouter une légende
+* exporter nos cartes aux formats .mbtiles, .png et .pdf
 
-Le prochain maptime-alpes sera un atelier [Leaflet.js](http://leafletjs.com/) - soit prêt à to creér des visualizations cartographiques avec javascript ! Avec l'emploi du temps rempli avec tous les fêtes de fin d'année, la prochaine réunion sera fin janvier, date et location à déterminer. Garder un œil sur [Meetup](http://www.meetup.com/MaptimeAlpes/) et [Twitter](https://twitter.com/MaptimeAlpes).
+Le prochain maptime-alpes sera un atelier [Leaflet.js](http://leafletjs.com/) - soyez prêt à creér des cartes en javascript ! Avec les fêtes de fin d'année, la prochaine réunion sera fin janvier, date et location à déterminer. Gardez un œil sur [Meetup](http://www.meetup.com/MaptimeAlpes/) et [Twitter](https://twitter.com/MaptimeAlpes).
