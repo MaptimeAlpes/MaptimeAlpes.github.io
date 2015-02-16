@@ -9,26 +9,24 @@
 
         <! -- BLOG POSTS LIST -->
         <div class="col-md-10 col-md-offset-1">
-
-            {% for post in site.categories[locale] %}
-            {% if post.layout == 'post' %}
-                {% assign blogpost = post %}
-                <! -- Blog Post -->
-                <div class="recent-post row">
-                    <div class="col-sm-3">
-                        <a href="{{ blogpost.url }}"><img src="{{ "/assets/img/blog/thumbs/" | prepend: site.baseurl }}{{ blogpost.thumb }}" alt="Recent Post"></a>
-                    </div>
-                    <div class="col-sm-9">
-                        <a href="{{ blogpost.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ blogpost.title }}</h3></a>
-                        <p><csmall>
-                            {% include auth_date.html %}
-                        </csmall></p>
-                        {{ blogpost.excerpt }}
-                        <p><a href="{{ blogpost.url | prepend: site.baseurl }}">[{{ site.data.locales[locale].read_more }}]</a></p>
-                    </div>
+        {% assign posts = (site.categories[locale] | where: "layout" , "post") %}
+        {% for post in posts limit:3 %}
+            {% assign blogpost = post %}
+            <! -- Blog Post -->
+            <div class="recent-post row">
+                <div class="col-sm-3">
+                    <a href="{{ blogpost.url }}"><img src="{{ "/assets/img/blog/thumbs/" | prepend: site.baseurl }}{{ blogpost.thumb }}" alt="Recent Post"></a>
                 </div>
-            {% endif %}
-            {% endfor %}
+                <div class="col-sm-9">
+                    <a href="{{ blogpost.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ blogpost.title }}</h3></a>
+                    <p><csmall>
+                        {% include auth_date.html %}
+                    </csmall></p>
+                    {{ blogpost.excerpt }}
+                    <p><a href="{{ blogpost.url | prepend: site.baseurl }}">[{{ site.data.locales[locale].read_more }}]</a></p>
+                </div>
+            </div>
+        {% endfor %}
 
         </div>
 

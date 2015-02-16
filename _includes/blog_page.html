@@ -6,8 +6,8 @@
         <! -- BLOG POSTS LIST -->
         <div class="col-md-8">
 
-            {% for post in site.categories[locale] %}
-            {% if post.layout == 'post' %}
+            {% assign posts = (site.categories[locale] | where: "layout" , "post") %}
+            {% for post in posts %}
                 {% assign blogpost = post %}
                 <! -- Blog Post -->
                 <p><img class="img-responsive" src="{{ "/assets/img/blog/" | prepend: site.baseurl }}{{ blogpost.img }}"></p>
@@ -20,7 +20,6 @@
                 <div class="hline"></div>
 
                 <div class="spacing"></div>
-            {% endif %}
             {% endfor %}
 
         </div><! --/col-lg-8 -->
