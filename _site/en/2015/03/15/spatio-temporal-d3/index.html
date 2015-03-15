@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
 
-    <title>MaptimeAlpes - Accueil</title>
+    <title>MaptimeAlpes - Spatio-Temporal D3.js</title>
 
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -73,16 +73,16 @@
     <div class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
         
-        <li class="active">
-          <a href="/fr/">Accueil</a>
+        <li>
+          <a href="/">Home</a>
         </li>
         
         <li>
-          <a href="/fr/blog/">Blog</a>
+          <a href="/blog/">Blog</a>
         </li>
         
         <li>
-          <a href="/fr/apropos/">À propos</a>
+          <a href="/about/">About</a>
         </li>
         
         <li>
@@ -112,110 +112,123 @@
 
 
 
-
-
-
-
-
-<div id="headerwrap">
-    <div class="container map-banner">
-        <div class="header-text-block col-md-6 col-md-offset-3">
-            <h1>Bienvenue chez Maptime Alpes !</h1>
-            <h5>Rejoins le club des fans de cartographie </h5>			
+<div id="miniheaderwrap">
+    <div class="mini-map-banner">
+    	<div class="container">
+        	<div class="pull-left mini-text-block">
+            	<h3 id="page-title" class="pull-left">Spatio-Temporal D3.js</h3>
+            </div>
         </div>
     </div>
 </div>
 
-  
 
 
-
-
-
-
-
-
-
-<div class="centered recent-activity">
-    <h4>VOICI CE QU'ON T'A PRÉPARÉ :</h4>
-</div>
-
-<div class="container">
+<div class="container mtb">
     <div class="row">
-
-        <! -- BLOG POSTS LIST -->
-        <div class="col-md-10 col-md-offset-1">
-        
-        
-            
-            <! -- Blog Post -->
-            <div class="recent-post row">
-                <div class="col-sm-3">
-                    <a href="/fr/2015/03/15/spatio-temporelle-d3"><img src="/assets/img/blog/thumbs/d3.png" alt="Recent Post"></a>
-                </div>
-                <div class="col-sm-9">
-                    <a href="/fr/2015/03/15/spatio-temporelle-d3"><h3 class="ctitle">Spatio-Temporelle D3.js</h3></a>
-                    <p><csmall>
-                        
+        <! -- SINGLE POST -->
+        <div class="col-md-8">
+            <! -- Blog Post  -->
+            <p><img class="img-responsive" src="/assets/img/blog/march_mtg.png"></p>
+            <a href="/en/2015/03/15/spatio-temporal-d3"><h3 class="ctitle">Spatio-Temporal D3.js</h3></a>
+            <p><csmall>
+                
     15 March, 2015
- par 
+ by 
 <a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
-                    </csmall></p>
-                    <h4 id="spatio-temporelle-d3js">Spatio-Temporelle D3js</h4>
-<p><a href="http://d3js.org/">D3.js</a> always piques a lot of interest, and we had been eager to do a d3 session for a while. Since d3 excels at so much more than SVG charts, we really wanted to show what was possible, and get folks excited about the potential.</p>
+            </csmall></p>
+              
+            <h4 id="spatio-temporal-d3js">Spatio-Temporal D3js</h4>
+<p><a href="http://d3js.org/">D3.js</a> always piques a lot of interest, and we had been eager to do a d3 session for a while. Since d3 excels at so much more than SVG charts, we really wanted to show what was possible, and get folks excited about the potential.
+<!--more--></p>
+
+<p>For this session, <a href="https://twitter.com/abenroberts">Adam</a> put together a <a href="http://abenrob.com/Grippe-Narrative/">really neat demonstration</a> that showed the progress of the flu through France this season. We dissected the demo while learning about binding data to components, manipulating svg as well as html with d3, and using selections to tie actions to the different parts of the application.</p>
+
+<p>Check out the presentation <a href="http://maptime-alpes.com/d3-grippe-presentation/">here.</a></p>
+
+<p>Next month, we are going to take the ideas we discussed, and do an introductory workshop for d3.js, with a focus on the mapping functionalities. Make sure to keep current with <a href="http://www.meetup.com/MaptimeAlpes/">Meetup</a> and <a href="https://twitter.com/MaptimeAlpes">Twitter</a>.</p>
+
+<p>See you next month!</p>
 
 
-                    <p><a href="/fr/2015/03/15/spatio-temporelle-d3">[Continuer la lecture]</a></p>
-                </div>
-            </div>
+            <div class="spacing"></div>
+            <!-- <h6>SHARE:</h6>
+            <p class="share">
+                <a href="#"><i class="fa fa-twitter"></i></a>
+                <a href="#"><i class="fa fa-facebook"></i></a>
+                <a href="#"><i class="fa fa-tumblr"></i></a>
+                <a href="#"><i class="fa fa-google-plus"></i></a>		 		
+            </p> -->
+        </div><! --/col-lg-8 -->
         
+        
+
+
+
+
+<div class="col-md-4">
+    
+
+
+
+
+
+	
+
+
+<h4>Social links</h4>
+<div class="hline"></div>
+<p>
+    
+        <a href="https://twitter.com/MaptimeAlpes" class="btn-social btn-outline"><i class="icon-twitter"></i></a>
+    
+        <a href="https://github.com/MaptimeAlpes" class="btn-social btn-outline"><i class="icon-github"></i></a>
+    
+        <a href="http://www.meetup.com/MaptimeAlpes/" class="btn-social btn-outline"><i class="icon-meetup"></i></a>
+    
+</p>
+    <h4>Recent posts</h4>
+    <div class="hline"></div>
+        <ul class="popular-posts">
             
-            <! -- Blog Post -->
-            <div class="recent-post row">
-                <div class="col-sm-3">
-                    <a href="/fr/2015/02/16/atelier-leaflet-notes"><img src="/assets/img/blog/thumbs/leaflet.png" alt="Recent Post"></a>
-                </div>
-                <div class="col-sm-9">
-                    <a href="/fr/2015/02/16/atelier-leaflet-notes"><h3 class="ctitle">Atelier Leaflet - notes</h3></a>
-                    <p><csmall>
-                        
-    16 February, 2015
- par 
-<a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
-                    </csmall></p>
-                    <h4 id="leafletjs">LeafletJS</h4>
-<p>Pour cette nouvelle session, une douzaine de personnes ont répondu présent et on put découvrir <a href="http://leafletjs.com/">leafletJS</a> !
-Après un bon aperçu des concepts de cartographie Web et Leaflet.js, en passant par des bases de webmaps à l’intégration et le développement Leaflet.js, il était temps pour nous de passer aux choses sérieuses et commencer à coder.</p>
-
-
-                    <p><a href="/fr/2015/02/16/atelier-leaflet-notes">[Continuer la lecture]</a></p>
-                </div>
-            </div>
-        
             
-            <! -- Blog Post -->
-            <div class="recent-post row">
-                <div class="col-sm-3">
-                    <a href="/fr/2014/12/06/atelier-tilemill-notes"><img src="/assets/img/blog/thumbs/tilemill.png" alt="Recent Post"></a>
-                </div>
-                <div class="col-sm-9">
-                    <a href="/fr/2014/12/06/atelier-tilemill-notes"><h3 class="ctitle">Atelier TileMill - notes</h3></a>
-                    <p><csmall>
-                        
-    06 December, 2014
- par 
-<a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
-                    </csmall></p>
-                    <h4 id="dcoupage-des-tuiles-avec-tilemill-">Découpage des tuiles avec TileMill !</h4>
-<p>Une demie-douzaine de personnes sont venus suivre notre atelier <a href="http://www.mapbox.com/tilemill">TileMill</a> lors de la réunion de novembre. Nous avons appris les tenants et aboutissants de TileMill de l’acquisition des données à l’utilisatoin de fonctionnalités interactives. </p>
+                <li>
+                    <a href="/en/2015/03/15/spatio-temporal-d3"><img src="/assets/img/blog/thumbs/d3.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/03/15/spatio-temporal-d3">Spatio-Temporal D3.js</a></p>
+                <em>
+                    Posted on
+                    
+                        15 March, 2015
+                    
+                </em>
+                </li>
+            
+                <li>
+                    <a href="/en/2015/02/16/leaflet-workshop-recap"><img src="/assets/img/blog/thumbs/leaflet.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/02/16/leaflet-workshop-recap">Leaflet workshop recap</a></p>
+                <em>
+                    Posted on
+                    
+                        16 February, 2015
+                    
+                </em>
+                </li>
+            
+                <li>
+                    <a href="/en/2014/12/06/tilemill-workshop-recap"><img src="/assets/img/blog/thumbs/tilemill.png" alt="Popular Post"></a>
+                    <p><a href="/en/2014/12/06/tilemill-workshop-recap">Tilemill workshop recap</a></p>
+                <em>
+                    Posted on
+                    
+                        06 December, 2014
+                    
+                </em>
+                </li>
+             
+        </ul>
 
-
-                    <p><a href="/fr/2014/12/06/atelier-tilemill-notes">[Continuer la lecture]</a></p>
-                </div>
-            </div>
-        
-
-        </div>
+    <div class="spacing"></div>
+</div>
 
     </div><! --/row -->
 </div><! --/container -->
@@ -229,7 +242,7 @@ Après un bon aperçu des concepts de cartographie Web et Leaflet.js, en passant
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h4>À propos</h4>
+                <h4>About</h4>
                 <div class="hline-w"></div>
                 <p>We make maps in the Alps. On fait de la cartographie dans les Alpes!</p>
             </div>
@@ -243,7 +256,7 @@ Après un bon aperçu des concepts de cartographie Web et Leaflet.js, en passant
   
 
 
-<h4>Réseaux sociaux</h4>
+<h4>Social links</h4>
 <div class="hline-w"></div>
 <p>
     
@@ -281,7 +294,7 @@ Après un bon aperçu des concepts de cartographie Web et Leaflet.js, en passant
 	_gaq.push(['_setCustomVar',
       1,
       'Locale',
-      'fr',
+      'en',
       3                    // Sets the scope to page-level.  Optional parameter.
    ]);
 
