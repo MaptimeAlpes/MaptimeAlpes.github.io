@@ -12,13 +12,13 @@ thumb: d3.png
 ---
 
 ####Spatio-Temporelle D3js
-[D3.js](http://d3js.org/) always piques a lot of interest, and we had been eager to do a d3 session for a while. Since d3 excels at so much more than SVG charts, we really wanted to show what was possible, and get folks excited about the potential.
+[D3.js](http://d3js.org/) suscite toujours beaucoup d'interêt, et nous voulions depuis longtemps faire une session sur d3. Comme d3 est parfait pour des graphiques en SVG, nous voulions vraiment monter ce qu'il est possible de faire, et enthousiamer les participants avec les possibilités offertes.
 <!--more-->
 
-For this session, [Adam](https://twitter.com/abenroberts) put together a [really neat demonstration](http://abenrob.com/Grippe-Narrative/) that showed the progress of the flu through France this season. We dissected the demo while learning about binding data to components, manipulating svg as well as html with d3, and using selections to tie actions to the different parts of the application.
+Pour cette session, [Adam](https://twitter.com/abenroberts) a créé [une fantastique démonstration](http://abenrob.com/Grippe-Narrative/) qui montre la progression de la grippe en France cet hiver. En décorticant la démo nous avons pu appendre les concepts de liaison des composants avec les données et, manipuler des svg aussi bien en html qu'avec d3, et nous avons utilisé les sélection pour relier les différentes partie de l'application.
 
-Check out the presentation [here.](http://maptime-alpes.com/d3-grippe-presentation/)
+Vous trouverez la présentation [ici.](http://maptime-alpes.com/d3-grippe-presentation/)
 
-Next month, we are going to take the ideas we discussed, and do an introductory workshop for d3.js, with a focus on the mapping functionalities. Make sure to keep current with [Meetup](http://www.meetup.com/MaptimeAlpes/) and [Twitter](https://twitter.com/MaptimeAlpes).
+Le mois prochain, nous allons poursuivre la discussion, et réaliser un atelier technique d'introduction sur d3.js, avec  l'accent sur les capactiés liées aux cartes, bien sûr. Suivez nous sur [Meetup](http://www.meetup.com/MaptimeAlpes/) et [Twitter](https://twitter.com/MaptimeAlpes).
 
-See you next month!
+Au mois prochain!
