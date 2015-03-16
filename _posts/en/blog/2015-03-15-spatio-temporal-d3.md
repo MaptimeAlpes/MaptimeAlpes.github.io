@@ -19,6 +19,6 @@ For this session, [Adam](https://twitter.com/abenroberts) put together a [really
 
 Check out the presentation [here.](http://maptime-alpes.com/d3-grippe-presentation/)
 
-Next month, we are going to take the ideas we discussed, and do an introductory workshop for d3.js, with a focus on the mapping functionalities. Make sure to keep current with [Meetup](http://www.meetup.com/MaptimeAlpes/) and [Twitter](https://twitter.com/MaptimeAlpes).
+Next month ([April 2nd](http://www.meetup.com/MaptimeAlpes/events/221185352/)), we are going to take the ideas we discussed, and do an introductory workshop for d3.js, with a focus on the mapping functionalities. Make sure to keep current with [Meetup](http://www.meetup.com/MaptimeAlpes/) and [Twitter](https://twitter.com/MaptimeAlpes).
 
 See you next month!
