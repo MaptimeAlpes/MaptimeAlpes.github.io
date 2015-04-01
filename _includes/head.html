@@ -11,6 +11,9 @@
     <!-- Custom styles for this template -->
     <link href="{{ "/assets/css/style.css" | prepend: site.baseurl }}" rel="stylesheet">
     <link href="{{ "/assets/css/fontcustom/fontcustom.css" | prepend: site.baseurl }}" rel="stylesheet">
+    {% if page.posttype == 'tutorial' %}
+    <link href="{{ "/assets/css/prism.css" | prepend: site.baseurl }}" rel="stylesheet">
+    {% endif %}
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
     <!--[if lt IE 9]>
@@ -19,4 +22,5 @@
     <![endif]-->
 
     <script src="{{ "/assets/js/modernizr.js" | prepend: site.baseurl }}"></script>
+    <script src="{{ "/assets/js/prism.js" | prepend: site.baseurl }}"></script>
 </head>
