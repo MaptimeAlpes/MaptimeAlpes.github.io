@@ -5,9 +5,9 @@ date: 2015-04-02 12:15:00
 author: abenrob
 published: true
 posttype: tutorial
-lang: en
+lang: fr
 categories:
-- en
+- fr
 ---
 As a simple web search will tell you, [D3](http://d3js.org/) is a data visualization library that runs like lightening in your web browser. You may hear *data visualization* and think *I don't need a data viz lib, I make maps*. Well, maps run on data, plus D3 is actually pretty good with maps, so keep an open mind. You might also wonder why you would choose D3 over another library like [Leaflet.js](http://leafletjs.com/). The short answer is it really depends on your use case and the type of data you want to display. The long answer is this tutorial.
 
