@@ -9,17 +9,18 @@ lang: fr
 categories:
 - fr
 ---
-Une simple recherche sur internet vous indiquera que, [D3](http://d3js.org/) est une librairie dédiée à la visualisation des données fonctionnant à merveilles dans votre navigateur. Vous entendez *visualisation des données* et pensez *je n'ai pas besoin d'un lib de viz des données, je fais des cartes. Et bien , les cartes reposent sur des données, de plsu D3 est vraiement doué avec les cartes, nous garderons cela en tête. Pourquoi choisir D3 plutôt qu'une autre librairie comme [Leaflet.js](http://leafletjs.com/) par exemple. La réponse immédiate est que cela dépend du cas d'usage et de votre besoin d'afficahge. Dans ce tutoriel nous allons étudier plus amplement la réponse à apporter.
+Une simple recherche sur internet vous indiquera que, [D3](http://d3js.org/) est une librairie dédiée à la visualisation des données fonctionnant à merveilles dans votre navigateur. Vous entendez *visualisation des données* et pensez *je n'ai pas besoin d'un lib de viz des données*, je fais des cartes. Et bien, les cartes reposent sur des données, de plus D3 est vraiement doué avec les cartes, nous garderons cela en tête. Pourquoi choisir D3 plutôt qu'une autre librairie comme [Leaflet.js](http://leafletjs.com/) par exemple. La réponse immédiate est que cela dépend du cas d'usage et de votre besoin d'affichage. Dans ce tutoriel nous allons étudier plus amplement la réponse à apporter.
 
 D3 signifie  **Documents Dirigés par les Données (Data Driven Documents)**. Ainsi, nous allons découvrir cela en trois parties. Premièrement, nous allons regarder l'aspect **Documents**, puis l'aspect **Données** et enfin explorer l'aspect **Dirigés**. Au moment de nous plonger dans le vif du sujet de ce tutoriel, vous devriez avec une idée assez claire de la façon dont D3 se positionne par rapport à ce que vous connaisez jusqu'à présent.
+
 <!--more-->
 ## Avant propos
 
-Pour participer au mieux à ce tutoriel vous avez besion d'un éditeur de texte(comme Notepad++, Atom ou Sublime Text). Utiliser votre éditeur favoris, ou si vous n'en avez pas télépcharger [Sublime Text](http://www.sublimetext.com/).
+Pour participer au mieux à ce tutoriel vous avez besoin d'un éditeur de texte (comme Notepad++, Atom, Brackets ou Sublime Text). Utiliser votre éditeur favoris, ou si vous n'en avez pas télécharger [Sublime Text](http://www.sublimetext.com/).
 
 # Documents
 
-Au coeur de la librairie, D3 utlise les inforamtions et les transforme pour les afficher. Cet affichage est le document, et à toute fin pratique, le document est un [SVG](http://www.w3.org/TR/SVG/). Scalable Vector Graphics est un format de fichier encodant les informations vectorielle pour des usages multiples, incluant le naviagteur web. Les SVG sont utilisés partour pour afficher toutes sortes de données. Si vous avez déjà exporté une carte depuis [QGIS](http://www.qgis.org/en/site/) et stylisé celle-ci dans une [application graphique](https://inkscape.org/en/), les données ont été stockées en SVG à certaines étapes du processus.
+Au coeur de la librairie, D3 utlise les informations et les transforme pour les afficher. Cet affichage est le document, et à toute fin pratique, le document est un [SVG](http://www.w3.org/TR/SVG/). Scalable Vector Graphics est un format de fichier encodant les informations vectorielles pour des usages multiples, incluant le navigateur web. Les SVG sont utilisés partour pour afficher toutes sortes de données. Si vous avez déjà exporté une carte depuis [QGIS](http://www.qgis.org/en/site/) et stylisé celle-ci dans une [application graphique](https://inkscape.org/en/), les données ont été stockées en SVG à certaines étapes du processus.
 
 SVG sont lisibles, ce qui est bien pour nous : car nous ne sommes pas des machines. Ceci est un SVG:
 
@@ -156,9 +157,9 @@ Your data is waiting for you [here](https://gist.github.com/abenrob/ab3de11f6407
 
 Download the data and unpack it! If you don't have software to unzip the data, you can also copy the raw contents to a file on your computer and save as *worldtopo.js*. Move *world-50m.json* to the same location as *map.html*.
 
-## STEP 4: Load the data 
+## Etape 4: Charges les données 
 
-If you look at the beginning of the *worldtopo.js* file, you will see
+Si vous regardez le début du fichier *worldtopo.js*, vous allez voir
 
 ~~~javascript
 var worldtopo = {...}
