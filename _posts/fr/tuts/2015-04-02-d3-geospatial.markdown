@@ -9,20 +9,19 @@ lang: fr
 categories:
 - fr
 ---
-As a simple web search will tell you, [D3](http://d3js.org/) is a data visualization library that runs like lightening in your web browser. You may hear *data visualization* and think *I don't need a data viz lib, I make maps*. Well, maps run on data, plus D3 is actually pretty good with maps, so keep an open mind. You might also wonder why you would choose D3 over another library like [Leaflet.js](http://leafletjs.com/). The short answer is it really depends on your use case and the type of data you want to display. The long answer is this tutorial.
+Une simple recherche sur internet vous indiquera que, [D3](http://d3js.org/) est une librairie dédiée à la visualisation des données fonctionnant à merveilles dans votre navigateur. Vous entendez *visualisation des données* et pensez *je n'ai pas besoin d'un lib de viz des données, je fais des cartes. Et bien , les cartes reposent sur des données, de plsu D3 est vraiement doué avec les cartes, nous garderons cela en tête. Pourquoi choisir D3 plutôt qu'une autre librairie comme [Leaflet.js](http://leafletjs.com/) par exemple. La réponse immédiate est que cela dépend du cas d'usage et de votre besoin d'afficahge. Dans ce tutoriel nous allons étudier plus amplement la réponse à apporter.
 
-D3 stands for **Data Driven Documents**. We will unpack this title in three parts. First, we'll take a look at **Documents**, then check out **Data** and finally explore **Driven**. By the time we dive into the meat and potatoes of the tutorial, you should have a pretty clear sense of how D3 relates to technology you've used in the past.
+D3 signifie  **Documents Dirigés par les Données (Data Driven Documents)**. Ainsi, nous allons découvrir cela en trois parties. Premièrement, nous allons regarder l'aspect **Documents**, puis l'aspect **Données** et enfin explorer l'aspect **Dirigés**. Au moment de nous plonger dans le vif du sujet de ce tutoriel, vous devriez avec une idée assez claire de la façon dont D3 se positionne par rapport à ce que vous connaisez jusqu'à présent.
 <!--more-->
-## House keeping
+## Avant propos
 
-To successfully follow this tutorial you need a text editor (such as Notepad++ or Sublime Text). Go ahead and use your personal favorite, or if you don't have one installed,
-download [Sublime Text](http://www.sublimetext.com/).
+Pour participer au mieux à ce tutoriel vous avez besion d'un éditeur de texte(comme Notepad++, Atom ou Sublime Text). Utiliser votre éditeur favoris, ou si vous n'en avez pas télépcharger [Sublime Text](http://www.sublimetext.com/).
 
 # Documents
 
-At its core, D3 takes your information and transforms it into a visual output. That output is your document, and for all intents and purposes, your document is an [SVG](http://www.w3.org/TR/SVG/). Scalable Vector Graphics is a file format that encodes vector data for use in a wide array of applications, including your web browser. SVGs are used all over the place to display all kinds of data. If you've ever exported a map from [desktop GIS](http://www.qgis.org/en/site/) and styled it in a [graphics program](https://inkscape.org/en/), chances are your data was stored as SVG at some stage of the process.
+Au coeur de la librairie, D3 utlise les inforamtions et les transforme pour les afficher. Cet affichage est le document, et à toute fin pratique, le document est un [SVG](http://www.w3.org/TR/SVG/). Scalable Vector Graphics est un format de fichier encodant les informations vectorielle pour des usages multiples, incluant le naviagteur web. Les SVG sont utilisés partour pour afficher toutes sortes de données. Si vous avez déjà exporté une carte depuis [QGIS](http://www.qgis.org/en/site/) et stylisé celle-ci dans une [application graphique](https://inkscape.org/en/), les données ont été stockées en SVG à certaines étapes du processus.
 
-SVGs are human readable, which works well for us because we aren't computers. This is an SVG:
+SVG sont lisibles, ce qui est bien pour nous : car nous ne sommes pas des machines. Ceci est un SVG:
 
 ~~~markup
 <svg width="720" height="120">
@@ -32,17 +31,17 @@ SVGs are human readable, which works well for us because we aren't computers. Th
 </svg>
 ~~~
 
-This [circle example](http://bl.ocks.org/powersa/raw/dae5b2e58c5a813208f5/) is the same document embedded in a really simple web page. Right click one of the circles and select *Inspect element* from the drop down.
+Cet [exemple de cercles](http://bl.ocks.org/powersa/raw/dae5b2e58c5a813208f5/) utilise le même document embarqué dans une page web. Faites un clic droit sur l'un des cercles et sélectionner *Inspecter l'élément* du menu contextuel.
 
-Each of those circles is an element in your SVG, which has a width and height. This is the type of document D3 writes to your web browser. You can tell it to add circles or move circles or remove circles. Checkout this [selection](http://bost.ocks.org/mike/circles/) tutorial for more on the subject. It's also worth noting that D3 has the ability to write and edit many types of shapes, not just circles.
+Chacun de ces cercles est un élement du SVG, qui a une largeur et une hauteur. C'est le type de document que D3 produit dans le navigateur. On peut indiquer : ajouter des cercle, déplace des cercles et supprimer ces cercles. Regarder ce tutoriel sur la [sélection](http://bost.ocks.org/mike/circles/) pour approfondir le sujet. Il est également intéressant de noter que D3 a la possibilité d'écrire et d'éditer de nombreux types de formes, pas seulement des cercles!
 
-# Data
+# Données
 
-So, you have a tool that can write a Scalable Vector Graphic in your web browser... That doesn't really do anything for you unless you have something you want to draw. In D3, that *something* is almost always based on data.
+Donc, nous avons un outil qui peut écrire un SVG dans le navigateur... Cela ne va pas vraiment faire quelque chose, a moins que nous ayons quelque chose que vous voulez dessiner. En D3, ce que *quelque chose* est presque toujours basé sur des données.
 
-Let's take a look at this [scatterplot](http://bl.ocks.org/mbostock/3887118). This type of visualization is familiar to most and easy to understand. *Sepia Width* is plotted on the x-axis and *Sepia Length* is plotted on the y-axis. D3 draws the entire graphic. But how does it know what to draw and where to draw it? Scroll down the page until you see [**data.tsv**](http://bl.ocks.org/mbostock/3887118#data.tsv) (or just click that link). When this web page loads, D3 reads this file and adds each record as a circle in the scatter plot. Each circle's coordinates and color are defined by the data in the record.
+Regardons ce [diagramme de dispersion](http://bl.ocks.org/mbostock/3887118). Ce type de visualisation est famillère et facile à comprendre. *Sepal Width* est placé sur l'axe des x et *Sepal Length* est placé sur l'axe des y. D3 dessine l'ensemble du graphique. Mais comment D3 sait quoi et où le dessiner ? Faites défiler la page jusqu'à ce que vous voyez [**data.tsv**](http://bl.ocks.org/mbostock/3887118#data.tsv) (ou grâce à un clic sur ce lien). Quand la page web se charge, D3 lit ce fichier et ajoute chaque enregistrement comme un cercle dans le diagramme de dispersion. les coordonnées et couleur des cercles sont définies dans les enregistrements.
 
-# Driven
+# Dirigés
 
 At this point *Driven* might not make sense. If we stopped here, we could probably make a case to change *Driven* to *Defined*. Let's keep going. 
 
@@ -50,22 +49,22 @@ At this point *Driven* might not make sense. If we stopped here, we could probab
 
 That type of thing doesn't happen in D3. Not only does your data define the elements in your SVG, the data is also bound (joined) to the elements in your document. A circle isn't just a circle element with an x,y and radius, it's also the data that originated the element in the first place. This characteristic of D3 allows data to drive your visualization, not only upon creation, but throughout its life cycle.
 
-# Tips
+# Conseils
 
-* The learning curve can be pretty steep. Stay positive
-* Start simple, add complexity piece by piece
-* Refer to documentation/tutorials
-* **Cannibalize code** wherever/whenever you can. D3 has great examples and most the code is freely accessible. See something you like? Take a look at how it's done
+* La courbe d'apprentissage peut être assez raide. Restez positif
+* Commencez simplement, ajouter de la complexité petit à petit
+* Reportez vous sur la documentation les tutoriels
+* **Cannibaliser le code** où et quand vous pouvez. D3 dispose de très bons exempleset la plupart sont accessible gratuitement. Quelque chose vous intéresse ? Regarder comment cela a été fait.
 
-# Tutorial Time!
+# Début du tutoriel!
 
-By the time we finish this tutorial, we will have built our first (or nth) D3 web map! This will not be the prettiest map you've ever made, but hopefully once you've made it, you will have a launching pad to make an even better D3 map in the future.
+Au moment où nous terminons ce tutoriel, nous aurons construit notre première (ou énième) carte avec D3! Ce ne sera pas la carte la plus jolie que vous avez jamais fait, mais j'espère qu'une fois que vous l'aurez  fait, vous aurez une rampe de lancement pour faire encore mieux avec D3 à l'avenir.
 
-## STEP 1: Review Web Pages
+## Etape 1: Web Pages
 
-If you need a primer (or review) of wep page compenents, check out this [web map tutorial](http://maptimesea.github.io/2014/11/05/web-map-intro.html#let-s-get-started). While there, go through the steps to make an empty html file (through *Add a boilerplate to map.html*). 
+Si vous avez besoin d'aidepour les compsants d'une page web, consultez ce [tutoriel sur les webmap](http://maptimesea.github.io/2014/11/05/web-map-intro.html#let-s-get-started). A partir de là, nous allons suivre les étapes pour partir d'une page vierge et obtenir notre modèle *map.html*. 
 
-At this stage, you should have a *map.html* file on your machine that you can open in your web browser. Give that a shot by opening *map.html* in your web browser. This is what your file looks like:
+A ce stade, vous devriez avoir un fichier *map.html* sur votre poste que vous pouvez ouvrir dans votre navigateur Web. Ouvrez ce fichier *map.html* dans votre navigateur Web. Ce  fichier ressemble à ceci:
 
 ~~~markup
 <!doctype html>
@@ -90,7 +89,7 @@ At this stage, you should have a *map.html* file on your machine that you can op
 ~~~
 {: .line-numbers}
 
-Save your eyes. Feel free to change the background color to white:
+Prenez soin de vos yeux. N'hésitez pas à changer la couleur de fond en blanc:
 
 ~~~css
   body {
@@ -98,28 +97,28 @@ Save your eyes. Feel free to change the background color to white:
   }
 ~~~
 
-### Include the some javascript libraries
+### Ajoutez quelques librairies javascript 
 
-In order for our code to do awesome things, we want to use some existing tools (d3.js bing one of them...)
-Now you can insert D3 into your page. For now we'll use an externally hosted version of the library instead of copying it into a new file. We will also add the library to work with topojson. More on that later. Add the following directly after the `<head>` tag of `map.html`.
+Pour que notre code fasse des choses impressionnantes, nous allons utiliser des outils existants (d3 est l'un d'eux)
+Maintenant, vous pouvez insérer dans votre page D3. Pour l'instant, nous allons utiliser une version hébergée au lieu de le copier localement. Nous allons également ajouter la bibliothèque pour travailler avec topojson. Ajouter cela directement après la balise `<head>` de `map.html`.
 
 ~~~markup
   <script src="http://d3js.org/d3.v3.min.js"></script>
   <script src="http://d3js.org/topojson.v0.min.js"></script>
 ~~~
 
-## STEP 2: Build the document
+## Etape 2: Construction du document
 
-Before we add a map to our web page, we need to make a place to put it. The following work will take place between `<script>` tags.
+Avant d'ajouter une carte à notre page, nous allons lui préparer un emplacement. Ajoutez les lignes suivantes à l'intérieur de la section sript:
 
-### Define width and height of your graphic
+### Définir la largeur et la hauteur de votre graphique
 
 ~~~javascript
   var width = 960,
       height = 480;
 ~~~
 
-### Create your SVG
+### Créér votre SVG
 
 ~~~javascript
   var svg = d3.select("body").append("svg")
@@ -127,9 +126,9 @@ Before we add a map to our web page, we need to make a place to put it. The foll
         .attr("height", height);
 ~~~
 
-This chunk of code tells your browser that the variable *svg* is an SVG element under the body tag. If the SVG doesn't exist, D3 creates one. Add this to *map.html* and reload the page. Right click in the upper left region of the page. Select *Inspect Element*, and you'll see that your page contains an empty SVG element.
+Ce morceau de code indique à votre navigateur que la variable *svg* est un élément SVG sous la balise body. Si SVG n'existe pas, D3 en crée un. Ajoutez à cela *map.html* et rechargez la page. Faites un clic droit dans la partie supérieure gauche de la page. Sélectionnez *Inspectez l'élement*, et vous verrez que votre page contient un élément SVG vide.
 
-### Define your projection
+### Définir votre projection
 
 ~~~javascript
   var projection = d3.geo.equirectangular()
@@ -146,12 +145,10 @@ When you define a projection, you tell D3 how to transform your data from spheri
         .projection(projection);
 ~~~
 
-When D3 renders your SVG, it has to translate geo coordinates to pixel coordinates on your screen. This functionality is called a *path generator*. In this block, we store our path generator in the variable *path* so we can access it through out our code.
+Lorsque D3 déssine votre SVG, it traduit les coordonnées géographique en coordonnées de pixel sur l'écran. Cette fonctionnalité est appelé *path generator*. Dans ce block, nous stockons le path dans la variable *path* afin d'y accéder tout au long de notre code.
+A cette étape, nous avons un SVG vide sur notre page. Notre **document** est prêt, nous avons besoin des **données**.
 
-
-At this point, all you have is an empty SVG on your page. Now that our **document** is ready, we need **data**.
-
-## STEP 3: Grab map data
+## Etape 3: Ajouter les données
 
 The data we'll use for this map is stored in the TopoJSON format. We won't address specifics here, but if you want to learn more about the spatial format TopoJSON, take a look at the [wiki](https://github.com/mbostock/topojson/wiki).
 
@@ -190,15 +187,15 @@ When you complete this next step step, you will have a map. Below your path gene
 
 This chunk of code goes through *worldtopo.js* and appends two fetaures (land and boundaries) to the path generator. This is a great time to *Inspect Element* on your web page or dig into the TopoJSON. As you can see, your SVG has a "path" element (shape) for each feature in your TopoJSON. See how data drives this document?
 
-Now your map should look like this:
+Maintenant votre carte ressemble à cela:
 
 ![bw map](/assets/img/tutorials/bw_map.png)
 
-## STEP 5: Make it pretty
+## Etape 5: Make it pretty
 
-### add some basic styles
+### ajouter des styles basiques
 
-add these lines to the `<style></style>` section of the page to give a nice blue background and a border to the svg element, and to color the land and boundary elements
+ajouter ces lignes à votre section `<style></style>` pour donner une jolie couleur bleue au fond et une bordure à l'élement svg, et pour colorier aussi les payes et les frontières.
 
 ~~~css
   svg {
@@ -216,15 +213,15 @@ add these lines to the `<style></style>` section of the page to give a nice blue
   }
 ~~~
 
-Looking better:
+Plus joli:
 
 ![color map](/assets/img/tutorials/color_map.png)
 
 ### Add the graticule
 
-We don't need a graticule, but it is a nice thing that is available in d3, so let's use it!
+Nous ne avons pas besoin d'un réticule, mais c'e 'est une chose disponible dans d3, nous allons donc l'utiliser!
 
-insert this graticle code at the bottom of your current `<script></script>` section
+insérer ce code de réticule au bas de votre section `<script></script>`
 
 ~~~javascript
   var graticule = d3.geo.graticule();
@@ -237,7 +234,7 @@ insert this graticle code at the bottom of your current `<script></script>` sect
     .attr("d", path);
 ~~~
 
-and add thse stles to the `<style></style>` section
+et ajouter ces styles à la section `<style></style>`
 
 ~~~css
   .graticule {
@@ -251,21 +248,21 @@ and add thse stles to the `<style></style>` section
   }
 ~~~
 
-Hey - that looks like a real map! 
+Hé - cela ressemble à une vrai carte ! 
 
 ![graticule map](/assets/img/tutorials/grat_map.png)
 
 
-**Congratulations!** You built a web map in D3.js!
+**Félicitations!** Vous avez construit votre première webmap avec D3.js!
 
 ## STEP 6: Challenges
 
-1. **Change the translation**. Try .translate([400,600])  
-2. **Change the scale**. Try .scale(500)
-3. **Change the projection**. Try [something else](https://github.com/mbostock/d3/wiki/Geo-Projections). (this is a nice globe d3.geo.orthographic()!)
-4. **Find the data**. Use your JS console to access a element data. Hint: it involves a [selection](https://github.com/mbostock/d3/wiki/Selections)
-5. **Load data from file** Try this [TopoJSON](https://gist.github.com/abenrob/787723ca91772591b47e) - instead of defining it with `var worldjson =` , load it using [d3.json](https://github.com/mbostock/d3/wiki/Requests#d3_json). Examples outlined [here](http://bost.ocks.org/mike/map/)
-5. **Try rotating the projection** Here's a way to continuously update the rotation:
+1. **Changer la translation**. Essayer .translate([400,600])  
+2. **Changer l' échellee**. Essayer .scale(500)
+3. **Changer la projection**. Essayer [autre chose](https://github.com/mbostock/d3/wiki/Geo-Projections). (this is a nice globe d3.geo.orthographic()!)
+4. **Trouver les données**. Utiliser votre console Javascript pour accéder aux élements de données. Astuce: il s'agit d'une [sélection](https://github.com/mbostock/d3/wiki/Selections)
+5. **Charger les données à partir d'un fichier** Essayer ce [TopoJSON](https://gist.github.com/abenrob/787723ca91772591b47e) - au lieu de le définir avec `var worldjson =` , charger le en utilisant [d3.json](https://github.com/mbostock/d3/wiki/Requests#d3_json). Exemples [ici](http://bost.ocks.org/mike/map/)
+5. **Essayez de faire pivoter la projection** Voici une façon de mettre à jour la rotation en continue:
 
 ~~~javascript
   var lat = 0;
@@ -281,7 +278,7 @@ Hey - that looks like a real map!
   },50);
 ~~~
 
-# Resources
+# Ressources
 
 - [Basic map example](http://bl.ocks.org/abenrob/27290f6dd43de81578af)
 - [Rotating map example](http://bl.ocks.org/abenrob/2d7a99385e44db333da7)
@@ -289,4 +286,4 @@ Hey - that looks like a real map!
 
 ## Fin.
 
-Tutorial borrows HEAVILY from [MaptimeSea](http://maptimesea.github.io/2015/01/07/d3-mapping.html) and [maori.geek](http://www.maori.geek.nz/post/d3_js_geo_fun). Check out their other stuff!
+Tutoriel inspiré FORTEMENT de [MaptimeSea](http://maptimesea.github.io/2015/01/07/d3-mapping.html) et [maori.geek](http://www.maori.geek.nz/post/d3_js_geo_fun). Check out their other stuff!

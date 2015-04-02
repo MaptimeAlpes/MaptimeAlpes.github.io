@@ -175,7 +175,7 @@ we went ahead and defined the data as a javascript variable, so you wouldn't nee
   <script src="worldtopo.js"></script>
 ~~~
 
-When you complete this next step step, you will have a map. Below your path generator, insert the following:
+When you complete this next step, you will have a map. Below your path generator, insert the following:
 
 ~~~javascript
   svg.append("path")
@@ -237,7 +237,7 @@ insert this graticle code at the bottom of your current `<script></script>` sect
     .attr("d", path);
 ~~~
 
-and add thse stles to the `<style></style>` section
+and add these styles to the `<style></style>` section
 
 ~~~css
   .graticule {
