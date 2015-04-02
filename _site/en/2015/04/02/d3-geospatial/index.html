@@ -285,7 +285,7 @@ Now you can insert D3 into your page. For now we’ll use an externally hosted v
   &lt;script src="worldtopo.js"&gt;&lt;/script&gt;
 </code></pre>
 
-<p>When you complete this next step step, you will have a map. Below your path generator, insert the following:</p>
+<p>When you complete this next step, you will have a map. Below your path generator, insert the following:</p>
 
 <pre><code class="language-javascript">  svg.append("path")
       .datum(topojson.object(worldtopo, worldtopo.objects.land))
@@ -344,7 +344,7 @@ Now you can insert D3 into your page. For now we’ll use an externally hosted v
     .attr("d", path);
 </code></pre>
 
-<p>and add thse stles to the <code>&lt;style&gt;&lt;/style&gt;</code> section</p>
+<p>and add these styles to the <code>&lt;style&gt;&lt;/style&gt;</code> section</p>
 
 <pre><code class="language-css">  .graticule {
     fill: none;
