@@ -279,7 +279,7 @@ Now you can insert D3 into your page. For now we’ll use an externally hosted v
 
 <p>Your data is waiting for you <a href="https://gist.github.com/abenrob/ab3de11f64071ddc4f68">here</a>. <em>(click “Download Gist”)</em></p>
 
-<p>Download the data and unpack it! If you don’t have software to unzip the data, you can also copy the raw contents to a file on your computer and save as <em>worldtopo.js</em>. Move <em>world-50m.json</em> to the same location as <em>map.html</em>.</p>
+<p>Download the data and unpack it! If you don’t have software to unzip the data, you can also copy the raw contents to a file on your computer and save as <em>worldtopo.js</em>. Move <em>worldtopo.js</em> to the same location as <em>map.html</em>.</p>
 
 <h2 id="step-4-load-the-data">STEP 4: Load the data</h2>
 
@@ -307,7 +307,7 @@ Now you can insert D3 into your page. For now we’ll use an externally hosted v
       .attr("d", path);
 </code></pre>
 
-<p>This chunk of code goes through <em>worldtopo.js</em> and appends two fetaures (land and boundaries) to the path generator. This is a great time to <em>Inspect Element</em> on your web page or dig into the TopoJSON. As you can see, your SVG has a “path” element (shape) for each feature in your TopoJSON. See how data drives this document?</p>
+<p>This chunk of code goes through <em>worldtopo.js</em> and appends two features (land and boundaries) to the path generator. This is a great time to <em>Inspect Element</em> on your web page or dig into the TopoJSON. As you can see, your SVG has a “path” element (shape) for each feature in your TopoJSON. See how data drives this document?</p>
 
 <p>Now your map should look like this:</p>
 
