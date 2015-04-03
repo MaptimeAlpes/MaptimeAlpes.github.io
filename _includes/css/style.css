@@ -50,6 +50,17 @@ img {
   -moz-border-radius: 5px; 
   border-radius: 5px;
 }
+img.flag {
+	height: 11px;
+	max-width: 100%;
+	box-shadow: none;
+  -o-box-shadow: none;
+  -webkit-box-shadow: none;
+  -moz-box-shadow: none;
+  -webkit-border-radius: 0; 
+  -moz-border-radius: 0; 
+  border-radius: 0;
+}
 
 a { 
   color:{{ site.colors.link }};
@@ -357,6 +368,7 @@ a:focus {
 
 /******** MT-A CUSTOM ********/
 .locale-links {
+	line-height: 16px;
 	padding: 15px;
 }
 .navbar-brand img {

@@ -1,22 +1,32 @@
 {% include get_local.html %}
 
-<div class="row mtb">
+<div class="container mtb">
+    <div class="row">
 
         <! -- TUT POSTS LIST -->
-        <div class="col-md-12">
+        <div class="col-md-8">
 
-            {% for post in site.categories[locale] %}
-            {% if post.layout == 'tut' %}
-                {% assign workshop = post %}
-                <! -- Tut Post -->
-                <h3><a href="{{ workshop.url | prepend: site.baseurl }}">{{workshop.title}}</a></h3>
-                {{ workshop.excerpt }}
-                <p><a href="{{ workshop.url | prepend: site.baseurl }}">[{{ site.data.locales[locale].read_more }}]</a></p>
+            {% assign posts = (site.categories[locale] | where: "layout" , "tut") %}
+            {% for post in posts %}
+                {% assign blogpost = post %}
+                <! -- Blog Post -->
+                {% if blogpost.img %}
+                <p><img class="img-responsive" src="{{ "/assets/img/blog/" | prepend: site.baseurl }}{{ blogpost.img }}"></p>
+                {% endif %}
+                <a href="{{ blogpost.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ blogpost.title }}</h3></a>
+                <p><csmall>
+                    {% include auth_date.html %}
+                </csmall></p>
+                {{ blogpost.excerpt }}
+                <p><a href="{{ blogpost.url | prepend: site.baseurl }}">[{{ site.data.locales[locale].read_more }}]</a></p>
                 <div class="hline"></div>
 
                 <div class="spacing"></div>
-            {% endif %}
             {% endfor %}
 
-        </div>
+        </div><! --/col-lg-8 -->
+
+        {% include sidebar.html %}
+
+    </div><! --/row -->
 </div><! --/container -->

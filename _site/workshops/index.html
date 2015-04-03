@@ -87,6 +87,10 @@
           <a href="/blog/">Blog</a>
         </li>
         
+        <li class="active">
+          <a href="/workshops/">Workshops</a>
+        </li>
+        
         <li>
           <a href="/about/">About</a>
         </li>
@@ -98,14 +102,14 @@
         <li><div class="locale-links">
           
             
-              <a href="/">en
+              <a href="/"><img class="flag" src="/assets/img/United-States-of-America.png"/>
             
-             / </a>
+              </a>
           
             
-              <a href="/fr">fr
+              <a href="/fr"><img class="flag" src="/assets/img/France.png"/>
             
-            </a>
+              </a>
           
         </div></li>
       </ul>
@@ -128,12 +132,9 @@
             </div>
         </div>
     </div>
-</div>
+</div>    
 
-
-
-<div class="tutorial container" id="tutorial">
-  	
+    
 
 
 
@@ -147,16 +148,24 @@
 
 
 
-<div class="row mtb">
+<div class="container mtb">
+    <div class="row">
 
         <! -- TUT POSTS LIST -->
-        <div class="col-md-12">
+        <div class="col-md-8">
 
             
             
                 
-                <! -- Tut Post -->
-                <h3><a href="/en/2015/04/02/d3-geospatial">d3 Geospatial</a></h3>
+                <! -- Blog Post -->
+                
+                <a href="/en/2015/04/02/d3-geospatial"><h3 class="ctitle">d3 Geospatial</h3></a>
+                <p><csmall>
+                    
+    02 April, 2015
+ by 
+<a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
+                </csmall></p>
                 <p>As a simple web search will tell you, <a href="http://d3js.org/">D3</a> is a data visualization library that runs like lightening in your web browser. You may hear <em>data visualization</em> and think <em>I don’t need a data viz lib, I make maps</em>. Well, maps run on data, plus D3 is actually pretty good with maps, so keep an open mind. You might also wonder why you would choose D3 over another library like <a href="http://leafletjs.com/">Leaflet.js</a>. The short answer is it really depends on your use case and the type of data you want to display. The long answer is this tutorial.</p>
 
 <p>D3 stands for <strong>Data Driven Documents</strong>. We will unpack this title in three parts. First, we’ll take a look at <strong>Documents</strong>, then check out <strong>Data</strong> and finally explore <strong>Driven</strong>. By the time we dive into the meat and potatoes of the tutorial, you should have a pretty clear sense of how D3 relates to technology you’ve used in the past.</p>
@@ -167,86 +176,84 @@
 
                 <div class="spacing"></div>
             
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
-            
 
-        </div>
-</div><! --/container -->
+        </div><! --/col-lg-8 -->
+
+        
+
+
+
+
+
+
+<div class="col-md-4">
+    
+
+
+
+
+
+
+
+	
+
+
+<h4>Social links</h4>
+<div class="hline"></div>
+<p>
+    
+        <a href="https://twitter.com/MaptimeAlpes" class="btn-social btn-outline"><i class="icon-twitter"></i></a>
+    
+        <a href="https://github.com/MaptimeAlpes" class="btn-social btn-outline"><i class="icon-github"></i></a>
+    
+        <a href="http://www.meetup.com/MaptimeAlpes/" class="btn-social btn-outline"><i class="icon-meetup"></i></a>
+    
+</p>
+    <h4>Recent posts</h4>
+    <div class="hline"></div>
+        <ul class="popular-posts">
+            
+            
+                <li>
+                    <a href="/en/2015/03/15/spatio-temporal-d3"><img src="/assets/img/blog/thumbs/d3.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/03/15/spatio-temporal-d3">Spatio-Temporal D3.js</a></p>
+                <em>
+                    Posted on
+                    
+                        15 March, 2015
+                    
+                </em>
+                </li>
+            
+                <li>
+                    <a href="/en/2015/02/16/leaflet-workshop-recap"><img src="/assets/img/blog/thumbs/leaflet.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/02/16/leaflet-workshop-recap">Leaflet workshop recap</a></p>
+                <em>
+                    Posted on
+                    
+                        16 February, 2015
+                    
+                </em>
+                </li>
+            
+                <li>
+                    <a href="/en/2014/12/06/tilemill-workshop-recap"><img src="/assets/img/blog/thumbs/tilemill.png" alt="Popular Post"></a>
+                    <p><a href="/en/2014/12/06/tilemill-workshop-recap">Tilemill workshop recap</a></p>
+                <em>
+                    Posted on
+                    
+                        06 December, 2014
+                    
+                </em>
+                </li>
+             
+        </ul>
+
+    <div class="spacing"></div>
 </div>
-<script src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
-<script>
-  $(document).ready(function(){
-	  
-	  // sticky header with generated ids and anchors for <h1> tags
-	  var title = $("#page-title");
-	  title.after($("<div class='pull-left tutorial-navs'><ul id='tutorial-nav'></ul></div>"));
 
-	  var heads = document.getElementsByTagName("h1");
-	  var tutNav = document.getElementById("tutorial-nav");
-	  for (var i=0; i<heads.length; i++) {
-	    if(heads[i].className!="tutorial-title") {
-	      var text = heads[i].innerHTML;
-	      var target = nice(text);
-
-	      // create list item and anchor
-	      var item = document.createElement("li");
-	      var anchor = document.createElement("a");
-	      anchor.href = "#"+target;
-	      anchor.innerHTML = text;
-	      item.appendChild(anchor);
-	      tutNav.appendChild(item);
-
-	      // add id to h1 element in page
-	      heads[i].id = target;
-
-	    }
-	  }
-
-	  // collapse sections
-	  $(".collapse-button").on("click", function(){
-	    $(this).next(".collapse").slideToggle(200);
-	  });
-
-	  // click navigation anchors and animate scroll
-	  $('a').on('click', function(){
-	    if($(this).attr('href').indexOf('#')>-1) {
-	      event.preventDefault();
-	      var id = $(this).attr("href");
-	      var top = $(id).offset().top - 160;
-	      $("html, body").animate({
-	        scrollTop: top
-	      }, 500); // you can set any time here
-	    }
-	  });
-
-	  var nav = $("#tutorial-nav");
-	  $("#tutorial-nav li:eq(0) a").addClass('nav-active');
-	  var aChildren = $("#tutorial-nav li").children();
-	  var aArray = [];
-	  var top = nav.offset().top;
-
-	  for (var i=0; i < aChildren.length; i++) {    
-	      var aChild = aChildren[i];
-	      var ahref = $(aChild).attr('href');
-	      aArray.push(ahref);
-	  }
-
-	});
-
-	function nice(str) {
-	  var newString = str.replace(/[^A-Z0-9]+/ig, "-").toLowerCase();
-	  return newString;
-	}
-</script>
+    </div><! --/row -->
+</div><! --/container -->
 
         
 

@@ -26,12 +26,12 @@
         {% endfor %}
         <li><div class="locale-links">
           {% for loc in site.authorized_locales %}
-            {% if loc == site.default_locale %}
-              <a href="/">{{ loc }}
+            {% if loc.tag == site.default_locale %}
+              <a href="/"><img class="flag" src="/assets/img/{{loc.flag}}"/>
             {% else %}
-              <a href="/{{ loc }}">{{ loc }}
+              <a href="/{{ loc.tag }}"><img class="flag" src="/assets/img/{{loc.flag}}"/>
             {% endif %}
-            {% if forloop.index < forloop.length %} / {% endif %}</a>
+              </a>
           {% endfor %}
         </div></li>
       </ul>

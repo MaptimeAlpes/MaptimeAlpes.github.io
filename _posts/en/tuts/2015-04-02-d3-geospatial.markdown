@@ -230,11 +230,11 @@ insert this graticle code at the bottom of your current `<script></script>` sect
   var graticule = d3.geo.graticule();
 
   svg.append("g")
-    .attr("class", "graticule")
     .selectAll("path")
     .data(graticule.lines)
     .enter().append("path")
-    .attr("d", path);
+    .attr("d", path)
+    .attr("class", "graticule");
 ~~~
 
 and add these styles to the `<style></style>` section
