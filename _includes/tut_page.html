@@ -10,7 +10,9 @@
             {% for post in posts %}
                 {% assign blogpost = post %}
                 <! -- Blog Post -->
+                {% if blogpost.img %}
                 <p><img class="img-responsive" src="{{ "/assets/img/blog/" | prepend: site.baseurl }}{{ blogpost.img }}"></p>
+                {% endif %}
                 <a href="{{ blogpost.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ blogpost.title }}</h3></a>
                 <p><csmall>
                     {% include auth_date.html %}

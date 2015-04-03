@@ -24,7 +24,11 @@ colors:  #in hex code if not noted else
 
 # locale settings
 default_locale:     "en"
-authorized_locales: ["en", "fr"]
+authorized_locales: 
+  - tag: "en"
+    flag: "United-States-of-America.png"
+  - tag: "fr"
+    flag: "France.png"
 
 
 ### CONTACT SETTINGS ###
