@@ -3,6 +3,8 @@
 
 
 
+
+
 <!DOCTYPE html>
 <html>
 
@@ -35,6 +37,8 @@
 
     <body>
         
+
+
 
 
 
@@ -86,6 +90,10 @@
         </li>
         
         <li>
+          <a href="/workshops/">Workshops</a>
+        </li>
+        
+        <li>
           <a href="/about/">About</a>
         </li>
         
@@ -96,14 +104,14 @@
         <li><div class="locale-links">
           
             
-              <a href="/">en
+              <a href="/"><img class="flag" src="/assets/img/United-States-of-America.png"/>
             
-             / </a>
+              </a>
           
             
-              <a href="/fr">fr
+              <a href="/fr"><img class="flag" src="/assets/img/France.png"/>
             
-            </a>
+              </a>
           
         </div></li>
       </ul>
@@ -112,6 +120,8 @@
 </div>
 
             
+
+
 
 
 
@@ -337,11 +347,11 @@ Now you can insert D3 into your page. For now we’ll use an externally hosted v
 <pre><code class="language-javascript">  var graticule = d3.geo.graticule();
 
   svg.append("g")
-    .attr("class", "graticule")
     .selectAll("path")
     .data(graticule.lines)
     .enter().append("path")
-    .attr("d", path);
+    .attr("d", path)
+    .attr("class", "graticule");
 </code></pre>
 
 <p>and add these styles to the <code>&lt;style&gt;&lt;/style&gt;</code> section</p>
@@ -471,6 +481,8 @@ Now you can insert D3 into your page. For now we’ll use an externally hosted v
 
 
 
+
+
 <div id="footerwrap">
     <div class="container">
         <div class="row">
@@ -481,6 +493,8 @@ Now you can insert D3 into your page. For now we’ll use an externally hosted v
             </div>
             <div class="col-sm-6">
                 
+
+
 
 
 
@@ -506,6 +520,8 @@ Now you can insert D3 into your page. For now we’ll use an externally hosted v
 </div>
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
 <script src="/assets/js/bootstrap.min.js"></script>
+
+
 
 
 
