@@ -24,7 +24,8 @@ colors:  #in hex code if not noted else
 
 # locale settings
 default_locale:     "en"
-authorized_locales: 
+authorized_locales: ["en","fr"]
+locale_links:
   - tag: "en"
     flag: "United-States-of-America.png"
   - tag: "fr"

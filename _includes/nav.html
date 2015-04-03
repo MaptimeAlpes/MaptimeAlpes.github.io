@@ -25,7 +25,7 @@
         </li>
         {% endfor %}
         <li><div class="locale-links">
-          {% for loc in site.authorized_locales %}
+          {% for loc in site.locale_links %}
             {% if loc.tag == site.default_locale %}
               <a href="/"><img class="flag" src="/assets/img/{{loc.flag}}"/>
             {% else %}
