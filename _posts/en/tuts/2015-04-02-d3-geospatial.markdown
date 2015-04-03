@@ -157,7 +157,7 @@ The data we'll use for this map is stored in the TopoJSON format. We won't addre
 
 Your data is waiting for you [here](https://gist.github.com/abenrob/ab3de11f64071ddc4f68). _(click "Download Gist")_
 
-Download the data and unpack it! If you don't have software to unzip the data, you can also copy the raw contents to a file on your computer and save as *worldtopo.js*. Move *world-50m.json* to the same location as *map.html*.
+Download the data and unpack it! If you don't have software to unzip the data, you can also copy the raw contents to a file on your computer and save as *worldtopo.js*. Move *worldtopo.js* to the same location as *map.html*.
 
 ## STEP 4: Load the data 
 
@@ -188,7 +188,7 @@ When you complete this next step, you will have a map. Below your path generator
       .attr("d", path);
 ~~~
 
-This chunk of code goes through *worldtopo.js* and appends two fetaures (land and boundaries) to the path generator. This is a great time to *Inspect Element* on your web page or dig into the TopoJSON. As you can see, your SVG has a "path" element (shape) for each feature in your TopoJSON. See how data drives this document?
+This chunk of code goes through *worldtopo.js* and appends two features (land and boundaries) to the path generator. This is a great time to *Inspect Element* on your web page or dig into the TopoJSON. As you can see, your SVG has a "path" element (shape) for each feature in your TopoJSON. See how data drives this document?
 
 Now your map should look like this:
 
