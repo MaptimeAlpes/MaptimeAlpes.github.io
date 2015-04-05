@@ -1,6 +1,6 @@
 ---
 layout: tut
-title: "Créer une carte avec leaftlet"
+title: "Créer une carte avec leaflet"
 date: 2015-04-04 10:48:00
 author: tsamaya
 published: false
