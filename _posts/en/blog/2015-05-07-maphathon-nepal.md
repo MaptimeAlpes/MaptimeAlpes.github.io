@@ -4,9 +4,9 @@ title: "Mapathon OSM Humanitaire - Népal"
 date: 2015-05-07 16:16:00
 published: true
 author: tsamaya
-lang: fr
+lang: en
 categories:
-- fr
+- en
 img: 2015april_mtg.png
 thumb: hotosm_nepal.png
 ---
