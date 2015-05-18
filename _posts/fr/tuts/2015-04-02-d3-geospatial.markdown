@@ -1,6 +1,6 @@
 ---
 layout: tut
-title: "d3 Geospatial"
+title: "d3 Geospatiale"
 date: 2015-04-02 12:15:00
 author: abenrob
 published: true
@@ -14,6 +14,7 @@ Une simple recherche sur internet vous indiquera que, [D3](http://d3js.org/) est
 D3 signifie  **Documents Dirigés par les Données (Data Driven Documents)**. Ainsi, nous allons découvrir cela en trois parties. Premièrement, nous allons regarder l'aspect **Documents**, puis l'aspect **Données** et enfin explorer l'aspect **Dirigés**. Au moment de nous plonger dans le vif du sujet de ce tutoriel, vous devriez avec une idée assez claire de la façon dont D3 se positionne par rapport à ce que vous connaisez jusqu'à présent.
 
 <!--more-->
+
 ## Avant propos
 
 Pour participer au mieux à ce tutoriel vous avez besoin d'un éditeur de texte (comme Notepad++, Atom, Brackets ou Sublime Text). Utiliser votre éditeur favoris, ou si vous n'en avez pas télécharger [Sublime Text](http://www.sublimetext.com/).

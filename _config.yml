@@ -27,7 +27,7 @@ default_locale:     "en"
 authorized_locales: ["en","fr"]
 locale_links:
   - tag: "en"
-    flag: "United-States-of-America.png"
+    flag: "United-Kingdom.png"
   - tag: "fr"
     flag: "France.png"
 

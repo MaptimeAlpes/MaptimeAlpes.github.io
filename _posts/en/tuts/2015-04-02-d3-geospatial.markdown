@@ -9,10 +9,11 @@ lang: en
 categories:
 - en
 ---
-As a simple web search will tell you, [D3](http://d3js.org/) is a data visualization library that runs like lightening in your web browser. You may hear *data visualization* and think *I don't need a data viz lib, I make maps*. Well, maps run on data, plus D3 is actually pretty good with maps, so keep an open mind. You might also wonder why you would choose D3 over another library like [Leaflet.js](http://leafletjs.com/). The short answer is it really depends on your use case and the type of data you want to display. The long answer is this tutorial.
+As a simple web search will tell you, [D3](http://d3js.org/) is a data visualization library that runs like lightning in your web browser. You may hear *data visualization* and think *I don't need a data viz lib, I make maps*. Well, maps run on data, plus D3 is actually pretty good with maps, so keep an open mind. You might also wonder why you would choose D3 over another library like [Leaflet.js](http://leafletjs.com/). The short answer is it really depends on your use case and the type of data you want to display. The long answer is this tutorial.
 
 D3 stands for **Data Driven Documents**. We will unpack this title in three parts. First, we'll take a look at **Documents**, then check out **Data** and finally explore **Driven**. By the time we dive into the meat and potatoes of the tutorial, you should have a pretty clear sense of how D3 relates to technology you've used in the past.
 <!--more-->
+
 ## House keeping
 
 To successfully follow this tutorial you need a text editor (such as Notepad++ or Sublime Text). Go ahead and use your personal favorite, or if you don't have one installed,
