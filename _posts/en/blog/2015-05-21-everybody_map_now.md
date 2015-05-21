@@ -2,7 +2,7 @@
 layout: post
 title: "Everybody Map Now"
 date: 2015-05-21 16:16:00
-published: true
+published: false
 author: aroberts
 lang: en
 categories:
