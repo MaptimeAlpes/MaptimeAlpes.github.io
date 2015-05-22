@@ -27,9 +27,9 @@ default_locale:     "en"
 authorized_locales: ["en","fr"]
 locale_links:
   - tag: "en"
-    flag: "United-Kingdom.png"
+    flag: "us.png"
   - tag: "fr"
-    flag: "France.png"
+    flag: "fr.png"
 
 
 ### CONTACT SETTINGS ###
