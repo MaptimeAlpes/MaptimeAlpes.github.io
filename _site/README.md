@@ -11,6 +11,8 @@ Github pages does not support plugins, so the contents of the _site dir need to 
 
 All edits and work need to be done on the _develop_ branch.
 
+Including Images? Make sure to use [TinyPNG](https://tinypng.com/).
+
 Using rake for builds and deploys to help with the unique build scenario.
 
 (need to install rake: ```gem install rake```)
