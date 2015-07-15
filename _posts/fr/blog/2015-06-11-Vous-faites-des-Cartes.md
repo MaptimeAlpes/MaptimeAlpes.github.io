@@ -14,28 +14,28 @@ thumb:
 ####Atelier vous faites des cartes
 
 ## python et raster
-Adam présente des librairies pyhton pour travailler avec des fichiers Raster. Les fichiers Raster sont des images georéférencées. Ainis lors de son projet sur les données agricoles du Kazaksthan, Adam a mis en oeuvre un certain nombre de librairie python permettant de traiter les données afin d'en faire une analyse
+Adam présente des librairies pyhton pour travailler avec des fichiers Raster. Les fichiers Raster sont des images georéférencées. Ainis lors de son projet sur les données agricoles du Kazaksthan, Adam a mis en oeuvre un certain nombre de librairies python permettant de traiter les données afin d'en faire une analyse:
 - [fiona](https://pypi.python.org/pypi/Fiona) pour lire un shaprefile
 - [rasterio](https://github.com/mapbox/rasterio) pour lire les raster
-- [rasterstats](https://pypi.python.org/pypi/rasterstats) pour realiser des statistiques sur les rasters
+- [rasterstats](https://pypi.python.org/pypi/rasterstats) pour réaliser des statistiques sur les rasters
 - [matplotlib](http://matplotlib.org/) pour réaliser des imagettes
 
 ![image](/assets/img/blog/cartes/IMG_0198_tiny.jpg)
 
 ## ETL
-Vincent présente un ETL (kettle : [pentaho data integrator](http://community.pentaho.com/projects/data-integration/)). Il utilise cet ETL pour des besoins professionnels et à tout naturellement mis en oeuvre cet outil pour les besoins d'une association. La carte est basée sur leaflet et permet de locatiser des personnes de l'association. L'ETL sert ici à localiseer l'emplacement des personnes par recoupement des informations des communes avec les adresses des membres de l'association.
+Vincent présente un ETL (kettle : [pentaho data integrator](http://community.pentaho.com/projects/data-integration/)). Il utilise cet ETL pour des besoins professionnels et à tout naturellement mis en oeuvre cet outil pour les besoins d'une association. La carte est basée sur leaflet et permet de localiser des personnes de l'association. L'ETL sert ici à calculer l'emplacement des personnes par recoupement des informations des communes avec les adresses (codes postaux) des membres de l'association.
 
 ![image](/assets/img/blog/cartes/IMG_0199_tiny.jpg)
 
 ## ArcOpole
-Séverine et Mathieu présentent arcopole, le produit esri France sur lequel ils travaillent. L'exemple montre l'utilisation d'arcopole pour le cadastre et le PLU de Nice.
+Séverine et Mathieu présentent arcopole, le produit esri France sur lequel ils travaillent. L'exemple montre l'utilisation d'arcopole pour le cadastre et le PLU de Nice. Ce produit es flex est gratuit et téléchargeable sur le site http://www.arcopole.fr
 
 ![image](/assets/img/blog/cartes/IMG_0200_tiny.jpg)
 
 ## Cartes dynamiques avec Leaflet
 Fabien préente :
--une applicaion de visaulisation des données d'ouverture des magasin sous forme de heatmap
--une application mobile en cours de developpement dédier à la saisie des horaire de boutique et verser l'information dans [OSM](http://www.openstreetmap.org/).
+- une applicaion de visualisation des données d'ouverture des magasins sous forme de heatmap
+- une application mobile en cours de developpement dédier à la saisie des horaires de boutique et verser l'information dans [OSM](http://www.openstreetmap.org/).
 
 ![image](/assets/img/blog/cartes/IMG_0201_tiny.jpg)
 
@@ -57,12 +57,15 @@ Guillaume presente [UMap](http://umap.openstreetmap.fr/). Il s'agit d'un outil p
 
 ![image](/assets/img/blog/cartes/IMG_0204_tiny.jpg)
 
-# Des cartes statiques:
+# Des cartes statiques
 Site de voyageurs autour du continent africain, http://wasafiri.fr/ où la carte est dessinée, elle est statique : http://wasafiri.fr/IMG/jpg/AFRICA.jpg
 
 # Mes cartes dynamiques
-Dans mon travail chez Esri, il m'est arrivé de comparer l'api javascript esri et celle de leaflet : http://gis.tsamaya.net/alps-peaks-map/
-Intégration des données sur les vélos JCDecaux avec l'API ESRI http://gis.tsamaya.net/findbikes/
-Avant l'atelier D3 j'ai essayer de me familiariser avec D3 et l'actualité d'alors: les élections départementales : http://tsamaya.github.io/departementales-2015/
+Dans mon travail chez Esri, il m'est arrivé de comparer l'api javascript esri et celle de leaflet : http://gis.tsamaya.net/alps-peaks-map/.
 
-Rendez vous le mois prochain pour un atelier autour des données du Tour de France cycliste !
+Intégration des données sur les vélos JCDecaux avec l'API ESRI http://gis.tsamaya.net/findbikes/
+
+Avant l'atelier D3, j'ai essayé de me familiariser avec D3 et l'actualité d'alors, il s'agit des élections départementales avec une représentation en camembert de résultat par canton:  http://tsamaya.github.io/departementales-2015/
+
+# fin de l'atelier autour d'une mousse
+Rendez vous le mois prochain pour un atelier sur les données du Tour de France cycliste !
