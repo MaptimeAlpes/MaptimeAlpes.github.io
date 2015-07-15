@@ -1,0 +1,38 @@
+
+Adam:
+    presenation de python pour analyse de raster
+
+Vincent
+presentation d'un ETL (kettle) PDI pentao data integrator
+carte basée sr leaflet pour locatiser des personnes, il s'agit d'un projet personnel pour une association.
+
+Séverine et Mathieu  présente arcopole le pour le cadastre de et le PLU de Nice
+
+Fabien
+préente une applicaion de visaulisation des données d'ouverture des magasin sous forme de heatmap
+une application mobile en cours de developpement dédier à la saisie des horaire de boutique
+
+Thomas
+http://biblindex.imag.fr/ une visualisation des auteurs bibliques en 3 dimensions !
+Cesium
+Crossfilter
+Dc.js
+D3.js
+
+une application sur la mobilité travail-domicile
+utilise leaftletdvf
+
+Guillaume presente UMap avec un cas particulier  et overpass turbo une interface pour realiser des requetes dans la base de données openstreetmap voire exporter ces données en GeoJSON.
+
+
+
+Des cartes statiques:
+wasafiri - http://wasafiri.fr/
+http://wasafiri.fr/IMG/jpg/AFRICA.jpg
+
+
+Mes cartes dynamiques:
+    http://gis.tsamaya.net/findbikes/
+    http://gis.tsamaya.net/alps-peaks-map/
+    http://tsamaya.github.io/departementales-2015/
+    https://github.com/Esri/dojo-bootstrap-map-js
