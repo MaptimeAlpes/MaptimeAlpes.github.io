@@ -37,3 +37,12 @@ to commit/push changes to develop branch without the site deploy
 
 to deploy _site dir to master branch (which published GitHub page) without committing first
 ```rake deploy```
+
+
+============
+Maptime-Alpes.com (c) by Maptime-Alpes contributors (https://github.com/orgs/MaptimeAlpes/people)
+
+Maptime-Alpes.com is licensed under a
+Creative Commons Attribution-NonCommercial-ShareAlike 4.0 International (CC BY-NC-SA 4.0) License.
+
+View license at <http://creativecommons.org/licenses/by-nc-sa/4.0/>.
