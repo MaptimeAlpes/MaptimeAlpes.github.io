@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
 
-    <title>MaptimeAlpes - Spatio-Temporelle D3.js</title>
+    <title>MaptimeAlpes - Tour de France 2015</title>
 
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -122,7 +122,7 @@
     <div class="mini-map-banner">
     	<div class="container">
         	<div class="pull-left mini-text-block">
-            	<h3 id="page-title" class="pull-left">Spatio-Temporelle D3.js</h3>
+            	<h3 id="page-title" class="pull-left">Tour de France 2015</h3>
             </div>
         </div>
     </div>
@@ -135,26 +135,63 @@
         <! -- SINGLE POST -->
         <div class="col-md-8">
             <! -- Blog Post  -->
-            <p><img class="img-responsive" src="/assets/img/blog/march_mtg.png"></p>
-            <a href="/fr/2015/03/15/spatio-temporelle-d3"><h3 class="ctitle">Spatio-Temporelle D3.js</h3></a>
+            <p><img class="img-responsive" src="/assets/img/blog/launch.png"></p>
+            <a href="/fr/2015/07/07/Tour-de-France-2015"><h3 class="ctitle">Tour de France 2015</h3></a>
             <p><csmall>
                 
-    15 March, 2015
+    07 July, 2015
  par 
-<a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
+<a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
             </csmall></p>
               
-            <h4 id="spatio-temporelle-d3js">Spatio-Temporelle D3js</h4>
-<p><a href="http://d3js.org/">D3.js</a> suscite toujours beaucoup d’interêt, et nous voulions depuis longtemps faire une session sur d3. Comme d3 est capable de bien plus que de ‘simples’ graphiques en SVG, nous voulions vraiment montrer ce qu’il est possible de faire, et enthousiamer les participants avec les possibilités offertes.
+            <h4 id="tour-de-france-2015">Tour de France 2015</h4>
+<p>C’est le début du tour de France, notre idée est de partager une ou plusiseurs cartes autour du parcours du tour de France
 <!--more--></p>
 
-<p>Pour cette session, <a href="https://twitter.com/abenroberts">Adam</a> a créé <a href="http://abenrob.com/Grippe-Narrative/">une fantastique démonstration</a> qui montre la progression de la grippe en France cet hiver. En décorticant la démo nous avons pu appendre les concepts de liaison des composants avec les données et, manipuler des svg aussi bien en html qu’avec d3, et nous avons utilisé les sélection pour relier les différentes partie de l’application.</p>
+<p>Nous avons trouvé les données du tour de France 2015 au format GPX. Ce format standard des GPS. Le référentiel github <a href="https://github.com/MaptimeAlpes/tour-de-france-2015">tour-de-france-2015</a> contient les étapes dans différents formats. Ces données proviennent de <a href="http://www.mapmytracks.com/">MapMyTracks</a> et en particulier de l’éévenement <a href="https://www.mapmytracks.com/events/tour-de-force-2015">tour-de-force-2015</a></p>
 
-<p>Vous trouverez la présentation <a href="http://maptime-alpes.com/d3-grippe-presentation/">ici.</a></p>
+<p>Ainsi, Adam, Laurent et moi même avons fait un petit peu de javascript pour présenter les différentes étpaes du tour.</p>
 
-<p>Le mois prochain (<a href="http://www.meetup.com/MaptimeAlpes/events/221185352/">2 Avril</a>), nous allons poursuivre la discussion, et réaliser un atelier technique d’introduction sur d3.js, avec  l’accent sur les capactiés liées aux cartes, bien sûr. Suivez nous sur <a href="http://www.meetup.com/MaptimeAlpes/">Meetup</a> et <a href="https://twitter.com/MaptimeAlpes">Twitter</a>.</p>
+<ul>
+  <li>
+    <p>Adam a utilisé un exemple de Tom McWright (<a href="https://github.com/tmcw">@tmcw</a>) avec son <a href="https://github.com/mapbox/running-map-example">running-map-example</a> et voici la version tour de france : <a href="http://abenrob.com/tdf-maptime/#1">tdf-maptime</a></p>
+  </li>
+  <li>
+    <p>j’ai utilisé des plugins leaflet pour le GPX et afficher l’élévation : <a href="http://maptime-alpes.com/tour-de-france-2015/visu/gpx-and-elevation/">gpx-and-elevation</a></p>
+  </li>
+  <li>
+    <p>Laurent a habillé sa visualisation d’informations sur l’étape <a href="http://maptime-alpes.com/tour-de-france-2015/visu/gpx-elevation-and-custom-js/">gpx-elevation-and-custom-js</a></p>
+  </li>
+</ul>
 
-<p>Au mois prochain!</p>
+<p><img src="https://raw.githubusercontent.com/MaptimeAlpes/tour-de-france-2015/master/visu/gpx-elevation-and-custom-js/preview.png" alt="laurent" /></p>
+
+<p>Lors de cet atelier le but n’était pas forcement de programmer mais bien d’utiliser des outils pour présenter les étapes du tour. Trois outils étaient prévus:</p>
+
+<p>-<a href="https://cartodb.com/">cartodb</a> et <a href="http://cartodb.github.io/odyssey.js/">odyssey</a></p>
+
+<p>-<a href="http://arcgis.com">arcgis</a> et <a href="http://storymaps.arcgis.com/">storymaps</a></p>
+
+<p>-<a href="umap.openstreetmap.fr">umap</a></p>
+
+<h4 id="cartodb">CartoDB</h4>
+<p>Adam a démarré le travail sur cartodb. Sa conclusion est que ce n’est pas encore fiabilisé.</p>
+
+<h4 id="storymaps">Storymaps</h4>
+<p>J’ai réalisé ma premiere storymap sur arcgis online: le résultat est le suivant : <a href="http://arcg.is/1glDZs1">http://arcg.is/1glDZs1</a>. Il n’est pas nécessaire d’avoir un compte payant pour réaliser une storymap, voire utiliser les possibilités de la plateforme arcgis. La création d’un compte developer permet de disposer d’un crédit mensuel de 50 crédits de d’accéder à la plateforme esri. La création d’un compte développeur s’effectue sur <a href="https://developers.arcgis.com">developers.arcgis.com</a></p>
+
+<p>Pour réaliser votre application sur les mêmes données, celles-ci se trouvent à l’adresse <a href="http://d8esrifrance.maps.arcgis.com/home/item.html?id=2bb274896a75435286e1e27f143a2718">suivante</a></p>
+
+<h4 id="umap">Umap</h4>
+<p>Nous n’avons pas abordé véritable umap en l’absence de Guillaume. Ce sera pour un prochain sujet, un prochain atelier.</p>
+
+<h4 id="divers">Divers</h4>
+<p>Thomas nous a trouvé une petite application intéressante. Cela permet de charger un GPX et suivre la route en 3D. Vous pouvez essayer sur <a href="http://www.doarama.com/">http://www.doarama.com/</a></p>
+
+<p>Jérôme nous a présenté son travail sur un site de partage de parcours cycliste et en particulier les temps de parcours de cols. Un très beau travail de R&amp;D française avant Strava !</p>
+
+<h4 id="le-verre-de-la-fin">le verre de la fin</h4>
+<p>L’atelier s’est terminé autour d’une mousse dans un pub du quartier. Le mois prochain la réunion sera dédiée à l’élaboration du calendrier de la nouvelle saison #maptime.</p>
 
 
             <div class="spacing"></div>

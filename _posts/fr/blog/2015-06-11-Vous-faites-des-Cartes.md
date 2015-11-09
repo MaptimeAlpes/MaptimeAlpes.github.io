@@ -2,13 +2,13 @@
 layout: post
 title: "Vous faites des cartes"
 date: 2015-06-11 19:00:00
-published: false
+published: true
 author: tsamaya
 lang: fr
 categories:
 - fr
-img:
-thumb:
+img: launch.png
+thumb: mta_thumb.png
 ---
 
 ####Atelier vous faites des cartes
