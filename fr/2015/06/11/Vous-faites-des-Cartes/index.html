@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
 
-    <title>MaptimeAlpes - Spatio-Temporelle D3.js</title>
+    <title>MaptimeAlpes - Vous faites des cartes</title>
 
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -122,7 +122,7 @@
     <div class="mini-map-banner">
     	<div class="container">
         	<div class="pull-left mini-text-block">
-            	<h3 id="page-title" class="pull-left">Spatio-Temporelle D3.js</h3>
+            	<h3 id="page-title" class="pull-left">Vous faites des cartes</h3>
             </div>
         </div>
     </div>
@@ -135,26 +135,98 @@
         <! -- SINGLE POST -->
         <div class="col-md-8">
             <! -- Blog Post  -->
-            <p><img class="img-responsive" src="/assets/img/blog/march_mtg.png"></p>
-            <a href="/fr/2015/03/15/spatio-temporelle-d3"><h3 class="ctitle">Spatio-Temporelle D3.js</h3></a>
+            <p><img class="img-responsive" src="/assets/img/blog/launch.png"></p>
+            <a href="/fr/2015/06/11/Vous-faites-des-Cartes"><h3 class="ctitle">Vous faites des cartes</h3></a>
             <p><csmall>
                 
-    15 March, 2015
+    11 June, 2015
  par 
-<a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
+<a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
             </csmall></p>
               
-            <h4 id="spatio-temporelle-d3js">Spatio-Temporelle D3js</h4>
-<p><a href="http://d3js.org/">D3.js</a> suscite toujours beaucoup d’interêt, et nous voulions depuis longtemps faire une session sur d3. Comme d3 est capable de bien plus que de ‘simples’ graphiques en SVG, nous voulions vraiment montrer ce qu’il est possible de faire, et enthousiamer les participants avec les possibilités offertes.
+            <h4 id="atelier-vous-faites-des-cartes">Atelier vous faites des cartes</h4>
+<p>Durant cet atelier, chacun est invité à partler de ses expériences cartographique.
 <!--more--></p>
 
-<p>Pour cette session, <a href="https://twitter.com/abenroberts">Adam</a> a créé <a href="http://abenrob.com/Grippe-Narrative/">une fantastique démonstration</a> qui montre la progression de la grippe en France cet hiver. En décorticant la démo nous avons pu appendre les concepts de liaison des composants avec les données et, manipuler des svg aussi bien en html qu’avec d3, et nous avons utilisé les sélection pour relier les différentes partie de l’application.</p>
+<h4 id="python-et-raster">python et raster</h4>
+<p>Adam présente des librairies pyhton pour travailler avec des fichiers Raster. Les fichiers Raster sont des images georéférencées. Ainis lors de son projet sur les données agricoles du Kazaksthan, Adam a mis en oeuvre un certain nombre de librairies python permettant de traiter les données afin d’en faire une analyse:</p>
 
-<p>Vous trouverez la présentation <a href="http://maptime-alpes.com/d3-grippe-presentation/">ici.</a></p>
+<p>-<a href="https://pypi.python.org/pypi/Fiona">fiona</a> pour lire un shaprefile</p>
 
-<p>Le mois prochain (<a href="http://www.meetup.com/MaptimeAlpes/events/221185352/">2 Avril</a>), nous allons poursuivre la discussion, et réaliser un atelier technique d’introduction sur d3.js, avec  l’accent sur les capactiés liées aux cartes, bien sûr. Suivez nous sur <a href="http://www.meetup.com/MaptimeAlpes/">Meetup</a> et <a href="https://twitter.com/MaptimeAlpes">Twitter</a>.</p>
+<p>-<a href="https://github.com/mapbox/rasterio">rasterio</a> pour lire les raster</p>
 
-<p>Au mois prochain!</p>
+<p>-<a href="https://pypi.python.org/pypi/rasterstats">rasterstats</a> pour réaliser des statistiques sur les rasters</p>
+
+<p>-<a href="http://matplotlib.org/">matplotlib</a> pour réaliser des imagettes</p>
+
+<p><img src="/assets/img/blog/cartes/IMG_0198_tiny.JPG" alt="image" /></p>
+
+<h4 id="etl">ETL</h4>
+<p>Vincent présente un ETL (kettle : <a href="http://community.pentaho.com/projects/data-integration/">pentaho data integrator</a>). Il utilise cet ETL pour des besoins professionnels et à tout naturellement mis en oeuvre cet outil pour les besoins d’une association. La carte est basée sur leaflet et permet de localiser des personnes de l’association. L’ETL sert ici à calculer l’emplacement des personnes par recoupement des informations des communes avec les adresses (codes postaux) des membres de l’association.</p>
+
+<p><img src="/assets/img/blog/cartes/IMG_0199_tiny.JPG" alt="image" /></p>
+
+<h4 id="arcopole">ArcOpole</h4>
+<p>Séverine et Mathieu présentent arcopole, le produit esri France sur lequel ils travaillent. L’exemple montre l’utilisation d’arcopole pour le cadastre et le PLU de Nice. Ce produit es flex est gratuit et téléchargeable sur le site <a href="http://www.arcopole.fr">www.arcopole.fr</a>.</p>
+
+<p><img src="/assets/img/blog/cartes/IMG_0200_tiny.JPG" alt="image" /></p>
+
+<h4 id="cartes-dynamiques-avec-leaflet">Cartes dynamiques avec Leaflet</h4>
+<p>Fabien préente :</p>
+
+<ul>
+  <li>
+    <p>une applicaion de visualisation des données d’ouverture des magasins sous forme de heatmap</p>
+  </li>
+  <li>
+    <p>une application mobile en cours de developpement dédier à la saisie des horaires de boutique et verser l’information dans <a href="http://www.openstreetmap.org/">OSM</a>.</p>
+  </li>
+</ul>
+
+<p><img src="/assets/img/blog/cartes/IMG_0201_tiny.JPG" alt="image" /></p>
+
+<h4 id="de-la-3d-biblique-">De la 3D biblique !</h4>
+<p>Thomas présente son travail de postdoc avec une visualisation des auteurs bibliques en 3 dimensions! Le site est accesible à cette adresse http://biblindex.imag.fr/
+Il a utilisé les technos suivantes:</p>
+
+<ul>
+  <li>
+    <p><a href="http://cesiumjs.org/">Cesium</a></p>
+  </li>
+  <li>
+    <p><a href="http://square.github.io/crossfilter/">Crossfilter</a></p>
+  </li>
+  <li>
+    <p><a href="https://dc-js.github.io/dc.js/">Dc.js</a></p>
+  </li>
+  <li>
+    <p><a href="http://d3js.org/">D3.js</a></p>
+  </li>
+</ul>
+
+<p>Thomas travaille actuellement sur une application sur la mobilité travail-domicile.</p>
+
+<p><img src="/assets/img/blog/cartes/IMG_0202_tiny.JPG" alt="image" /></p>
+
+<h4 id="umap-et-overpass-turbo">Umap et overpass turbo</h4>
+<p>Guillaume presente <a href="http://umap.openstreetmap.fr/">UMap</a>. Il s’agit d’un outil permettant de créer des cartes sur des fonds OSM. Cet outil est opensource : <a href="https://bitbucket.org/yohanboniface/umap">https://bitbucket.org/yohanboniface/umap</a>.</p>
+
+<p><a href="http://overpass-turbo.eu/">Overpass turbo</a> est une interface web pour realiser des requêtes dans la base de données openstreetmap et permet d’exporter ces données en GeoJSON.</p>
+
+<p><img src="/assets/img/blog/cartes/IMG_0204_tiny.JPG" alt="image" /></p>
+
+<h4 id="des-cartes-statiques">Des cartes statiques</h4>
+<p>Site de voyageurs autour du continent africain, <a href="http://wasafiri.fr/">wasafiri.fr</a> où la carte est dessinée, elle est statique : <a href="http://wasafiri.fr/IMG/jpg/AFRICA.JPG">AFRICA.JPG</a></p>
+
+<h4 id="mes-cartes-dynamiques">Mes cartes dynamiques</h4>
+<p>Dans mon travail chez Esri, il m’est arrivé de comparer l’api javascript esri et celle de leaflet : <a href="http://gis.tsamaya.net/alps-peaks-map/">alps-peaks-map</a>.</p>
+
+<p>Intégration des données sur les vélos JCDecaux avec l’API ESRI <a href="http://gis.tsamaya.net/findbikes/">findbikes</a></p>
+
+<p>Avant l’atelier D3, j’ai essayé de me familiariser avec D3 et l’actualité d’alors, il s’agit des élections départementales avec une représentation en camembert de résultat par canton: <a href="http://tsamaya.github.io/departementales-2015/">departementales-2015</a></p>
+
+<h4 id="fin-de-latelier-autour-dune-mousse">fin de l’atelier autour d’une mousse</h4>
+<p>Rendez vous le mois prochain pour un atelier sur les données du Tour de France cycliste !</p>
 
 
             <div class="spacing"></div>
