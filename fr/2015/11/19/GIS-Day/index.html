@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
 
-    <title>MaptimeAlpes - Atelier D3.js Geospatiale</title>
+    <title>MaptimeAlpes - GIS Day 2015</title>
 
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -122,7 +122,7 @@
     <div class="mini-map-banner">
     	<div class="container">
         	<div class="pull-left mini-text-block">
-            	<h3 id="page-title" class="pull-left">Atelier D3.js Geospatiale</h3>
+            	<h3 id="page-title" class="pull-left">GIS Day 2015</h3>
             </div>
         </div>
     </div>
@@ -135,24 +135,45 @@
         <! -- SINGLE POST -->
         <div class="col-md-8">
             <! -- Blog Post  -->
-            <p><img class="img-responsive" src="/assets/img/blog/april_mtg.png"></p>
-            <a href="/fr/2015/04/03/d3-geospatiale"><h3 class="ctitle">Atelier D3.js Geospatiale</h3></a>
+            <p><img class="img-responsive" src="/assets/img/blog/maptimealpes-gisday.jpg"></p>
+            <a href="/fr/2015/11/19/GIS-Day"><h3 class="ctitle">GIS Day 2015</h3></a>
             <p><csmall>
                 
-    03 Avril, 2015
+    19 Novembre, 2015
  par 
-<a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
+<a href="http://www.github.com/paul desgranges" target="_blank">paul desgranges</a>
             </csmall></p>
               
-            <h4 id="d3js-fait-des-cartes-">D3js fait des cartes !</h4>
-<p>Après la présentation sur <a href="http://www.meetup.com/MaptimeAlpes/events/221185352/">d3js pour les visualisations spatio-temporelles</a>, on voulait pousuivre et faire un atelier d3. Comme c’est Maptime-Alpes, et pas Graphiquetime-Alpes, on a fait un atelier sur les capacités géographiqe de d3.
-<!--more--></p>
+            <h2 id="gis-day-2015">GIS Day 2015</h2>
+<p>Le 3iéme Mercredi de Novembre, c’est le <a href="http://www.gisday.com/">GIS Day</a>
+<!--more-->
+Arnaud a commencé par une <a href="http://tsamaya.github.io/intro-sig/">présentation générale des SIG</a>.
+- Ce sont des systèmes pour représenter des données spatiales et géographiques, présentation des données vecteur et raster, des différents types de fichiers, des différents types de projection et la difficulté à représenter un globe sur une surface plane.
+- Quelques disgressions sur la République de NullIsland (lat 0°, long 0°) qui est l’endroit où les erreurs d’algo de geocoding nous renvoient parfois … Voir sur <a href="https://en.wikipedia.org/wiki/Null_Island">l’article sur wikipedia</a>
+- Inventaire des différents logiciels de SIG pour finalement arriver à celui qui nous intéresse : QGIS</p>
 
-<p>Comme il ne faut jamais avoir peur de démander de l’aide, on a beaucoup emprunté de <a href="http://maptimesea.github.io/2015/01/07/d3-mapping.html">MaptimeSea</a> et <a href="http://www.maori.geek.nz/post/d3_js_geo_fun">maori.geek</a>, comme ils ont fait, tous les deux, du bon travail pour pésenter d3 d’une façon <em>accessible</em>, et l’accessibilié est une des choses le plus frustrante pour débuter avec d3.</p>
+<p>Adam nous propose ensuite deux ateliers issus de <a href="http://www.qgistutorials.com">qgistutorials.com</a>.
+Il faut avoir téléchargé QGIS, et on démarre avec le premier tuto :</p>
 
-<p>On a re-examiné les éléments de d3: Documents, Data, &amp; Driven - by data (documents,données, &amp; dirigé - par les données), et puis fait un petit <a href="/fr/2015/04/02/d3-geospatial">tutoriel</a>, puis pour finir avec des challenges pour les participants les plus avancés.</p>
+<p>1) <a href="http://www.qgistutorials.com/en/docs/working_with_attributes.html">Travailler avec les attributs</a>
+Il s’agit d’exploiter des données pour in fine savoir trouver les villes de plus de 1 million d’habitants qui sont aussi capitales de leur état. Atelier qui nous fait faire des manips de base dans QGIS, atelier réussi par tous les participants!</p>
 
-<p>Cunsultez le <a href="/fr/2015/04/02/d3-geospatial">tutoriel</a> si vous n’étiez pas présent lors de la session , et rejoinez-nous pour la <a href="http://www.meetup.com/MaptimeAlpes/events/222128203/">prochaine</a> : cartographie OSM humanitaire pour aidez les efforts au Népal !</p>
+<p>On enchaîne avec le deuxième :</p>
+
+<p>2) <a href="http://www.qgistutorials.com/en/docs/points_in_polygon.html">Comptabiliser le nombres de points dans un polygone</a>
+Il s’agit d’exploiter des données brutes géolocalisées sur les tremblements de terre, pour in fine représenter quels sont les pays les plus dangereux sysmiquement parlant.
+On fait une analyse statistique par pays, et on représente les risques par une échelle de couleur.
+Là aussi atelier réussi par tout le monde!</p>
+
+<p>On installe aussi un plugin pour avoir les fonds de cartes OpenStreeMap : OpenLayers Plugin.</p>
+
+<p>Quelques liens intéressants : <a href="http://dropchop.io">dropchop.io</a> un mini SIG en client léger, <a href="http://thetruesize.com/">thetruesize.com</a>, <a href="https://www.jasondavies.com/maps/transition/">transition entre les projections</a>, <a href="http://qgis.org">qgis.org</a></p>
+
+<p>Prochaine réunion le <a href="http://www.meetup.com/fr/MaptimeAlpes/events/226880218/">Mardi 15 Décembre</a> pour parler de <a href="http://leafletjs.com/">leaflet.js</a></p>
+
+<p>Merci aux organisateurs de partager leurs connaissances de manière toujours très sympa!</p>
+
+<p>Note de Arnaud : merci Paul pour ton compte rendu</p>
 
 
             <div class="spacing"></div>
