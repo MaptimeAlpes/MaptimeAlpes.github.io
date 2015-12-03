@@ -14,7 +14,7 @@
     <meta name="author" content="">
     <link rel="shortcut icon" href="assets/ico/favicon.ico">
 
-    <title>MaptimeAlpes - Geospatial D3.js Workshop</title>
+    <title>MaptimeAlpes - Show us what you got</title>
 
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -123,7 +123,7 @@
     <div class="mini-map-banner">
     	<div class="container">
         	<div class="pull-left mini-text-block">
-            	<h3 id="page-title" class="pull-left">Geospatial D3.js Workshop</h3>
+            	<h3 id="page-title" class="pull-left">Show us what you got</h3>
             </div>
         </div>
     </div>
@@ -136,24 +136,119 @@
         <! -- SINGLE POST -->
         <div class="col-md-8">
             <! -- Blog Post  -->
-            <p><img class="img-responsive" src="/assets/img/blog/april_mtg.png"></p>
-            <a href="/en/2015/04/03/geospatial-d3"><h3 class="ctitle">Geospatial D3.js Workshop</h3></a>
+            <p><img class="img-responsive" src="/assets/img/blog/launch.png"></p>
+            <a href="/en/2015/06/11/YOU-make-the-maps"><h3 class="ctitle">Show us what you got</h3></a>
             <p><csmall>
                 
-    03 April, 2015
+    11 June, 2015
  by 
-<a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
+<a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
             </csmall></p>
               
-            <h4 id="d3js-does-maps">D3js does maps!</h4>
-<p>After the great presentation on <a href="http://www.meetup.com/MaptimeAlpes/events/221185352/">d3js for spatio-temporal visualizations</a>, we wanted to keep the momentum going and dive in with a hands-on d3 workshop. Since this is Maptime-Alpes, not Charttime-Alpes, we focused primarily on the geographic capabilities of d3.
+            <h4 id="maps-sharing-workshop">Maps sharing workshop</h4>
+<p>For this workshop, we turned the tables a bit, and handed the reigns over to the people. Participants were invited to share their personal map and/or geospatial projects.
 <!--more--></p>
 
-<p>Never ones to shy away from help, we borrowed heavily from <a href="http://maptimesea.github.io/2015/01/07/d3-mapping.html">MaptimeSea</a> and <a href="http://www.maori.geek.nz/post/d3_js_geo_fun">maori.geek</a>, as they had both done some great work on making d3 geospatial <em>accessible</em>, which is one of the primary hurdles in d3.</p>
+<h4 id="python--raster">python + raster</h4>
+<p>Adam presented on several python libraries for working with raster data (georeferenced NDVI tiffs, in this case.) For an agricultural/drought assesment project, he incorporated several of these libraries in order toprepare and compare NDVI and VCI data over various periods of several years. Some of the libraries he leveraged were:</p>
 
-<p>We did a review on the d3 components: Documents, Data, &amp; Driven (by data), and then dove in with a simple <a href="/en/2015/04/02/d3-geospatial">tutorial</a> and left time at the end to try and do some challenges to expand on what we had just learned.</p>
+<ul>
+  <li>
+    <p><a href="https://pypi.python.org/pypi/Fiona">fiona</a> for reading and writing shapefiles (in order to clip rasters)</p>
+  </li>
+  <li>
+    <p><a href="https://github.com/mapbox/rasterio">rasterio</a> pfor reading the raster files</p>
+  </li>
+  <li>
+    <p><a href="https://pypi.python.org/pypi/rasterstats">rasterstats</a> for running quick comparative statistics on the rasters</p>
+  </li>
+  <li>
+    <p><a href="http://matplotlib.org/">matplotlib</a> to dynamically create map thumbnails of analysis outputs</p>
+  </li>
+</ul>
 
-<p>Check out the <a href="/en/2015/04/02/d3-geospatial">tutorial</a> if you weren’t able to attend the meeting, and see you <a href="http://www.meetup.com/MaptimeAlpes/events/222128203/">next meeting</a> for OSM humaritarian mapping!</p>
+<p><img src="/assets/img/blog/cartes/IMG_0198_tiny.JPG" alt="image" /></p>
+
+<div class="hline"></div>
+
+<h4 id="etl">ETL</h4>
+<p>Vincent presented an ETL (kettle : <a href="http://community.pentaho.com/projects/data-integration/">pentaho data integrator</a>). He used this ETL professionally, and was also able to easily set it up to serve the needs of a nonprofit group as well. The project involves a leaflet map which allows for the localisation of the nonprofit’s members. The ETL is used to calculate the location of members by determining the member’s commune using their postal code.</p>
+
+<p><img src="/assets/img/blog/cartes/IMG_0199_tiny.JPG" alt="image" /></p>
+
+<div class="hline"></div>
+
+<h4 id="arcopole">ArcOpole</h4>
+<p>Séverine and Mathieu presented arcopole, a product of ESRI France on which they both work. They shared an example which showed the utilisation of arcopole for cadastre adn PLU in Nice. Arcopole is written in flex, and id downloadable free on the site <a href="http://www.arcopole.fr">www.arcopole.fr</a>.</p>
+
+<p><img src="/assets/img/blog/cartes/IMG_0200_tiny.JPG" alt="image" /></p>
+
+<div class="hline"></div>
+
+<h4 id="dynamic-mapping-with-leaflet">Dynamic mapping with Leaflet</h4>
+<p>Fabien presented:</p>
+
+<ul>
+  <li>
+    <p>an application which visualized store opening data as a heatmap</p>
+  </li>
+  <li>
+    <p>a mobile application (under development) which gathers information about store openings, and pushes that information to <a href="http://www.openstreetmap.org/">OSM</a>.</p>
+  </li>
+</ul>
+
+<p><img src="/assets/img/blog/cartes/IMG_0201_tiny.JPG" alt="image" /></p>
+
+<div class="hline"></div>
+
+<h4 id="d-libraries">3D libraries!</h4>
+<p>Thomas presented some of his postdoc work with a 3-dimensional visualisation  of biblical authors! The site is accessible at this address: http://biblindex.imag.fr/</p>
+
+<p>He used the following technologies:</p>
+
+<ul>
+  <li>
+    <p><a href="http://cesiumjs.org/">Cesium</a></p>
+  </li>
+  <li>
+    <p><a href="http://square.github.io/crossfilter/">Crossfilter</a></p>
+  </li>
+  <li>
+    <p><a href="https://dc-js.github.io/dc.js/">Dc.js</a></p>
+  </li>
+  <li>
+    <p><a href="http://d3js.org/">D3.js</a></p>
+  </li>
+</ul>
+
+<p><img src="/assets/img/blog/cartes/IMG_0202_tiny.JPG" alt="image" /></p>
+
+<div class="hline"></div>
+
+<h4 id="umap-and-overpass-turbo">Umap and overpass turbo</h4>
+<p>Guillaume presented <a href="http://umap.openstreetmap.fr/">UMap</a>. Umap is a tool which facilitates the creation of maps using OSM basemaps/data. Umap is an opensource project which can be found at https://bitbucket.org/yohanboniface/umap.</p>
+
+<p><a href="http://overpass-turbo.eu/">Overpass turbo</a> is a web interface pour for building queries of openstreetmap data, which also allows for the exportation of the query results as GeoJSON.</p>
+
+<p><img src="/assets/img/blog/cartes/IMG_0204_tiny.JPG" alt="image" /></p>
+
+<div class="hline"></div>
+
+<p>Arnaud presented several interesting projects he wanted to share about:</p>
+
+<h4 id="static-maps">Static maps</h4>
+<p>Site of travellers on the African continent, <a href="http://wasafiri.fr/">wasafiri.fr</a> which draws static map images (.jpg): <a href="http://wasafiri.fr/IMG/jpg/AFRICA.JPG">AFRICA.JPG</a></p>
+
+<h4 id="dynamic-mapping">Dynamic mapping</h4>
+<p>Due to his working at Esri, Arnaud wanted to compare the Esri javascript API with leaflet: <a href="http://gis.tsamaya.net/alps-peaks-map/">alps-peaks-map</a>.</p>
+
+<p>Using the Esri API to gather data on JCDecaux bicycles <a href="http://gis.tsamaya.net/findbikes/">findbikes</a></p>
+
+<p>Before the D3 workshop, he tried to get started with D3 by creating a visualisation of the departmental elections with results as pie charts by canton: <a href="http://tsamaya.github.io/departementales-2015/">departementales-2015</a></p>
+
+<div class="hline"></div>
+
+<h4 id="see-you-next-month-for-a-workshop-using-tour-de-france-data">See you next month for a workshop using Tour de France data!</h4>
 
 
             <div class="spacing"></div>
