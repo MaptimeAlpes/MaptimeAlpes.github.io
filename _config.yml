@@ -23,14 +23,13 @@ colors:  #in hex code if not noted else
   footer_content: "#bfc9d3"
 
 # locale settings
-default_locale:     "en"
-authorized_locales: ["en","fr"]
+default_locale:     "fr"
+authorized_locales: ["fr","en"]
 locale_links:
-  - tag: "en"
-    flag: "us.png"
   - tag: "fr"
     flag: "fr.png"
-
+  - tag: "en"
+    flag: "us.png"
 
 ### CONTACT SETTINGS ###
 

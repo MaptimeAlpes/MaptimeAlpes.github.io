@@ -5786,8 +5786,8 @@ button.close {
 
 /*	################################################################
 	CSS drastically different from, but based on:
-			SOLID - Bootstrap 3 Theme by Carlos Alvarez	
-################################################################# */ 
+			SOLID - Bootstrap 3 Theme by Carlos Alvarez
+################################################################# */
 
 @import url(http://fonts.googleapis.com/css?family=Titillium+Web:400,700);
 @import url(http://fonts.googleapis.com/css?family=PT+Sans:400);
@@ -5795,15 +5795,15 @@ button.close {
 /*	################################################################
 	1. GENERAL STRUCTURES
 ################################################################# */
-* { 
+* {
 	margin: 0;
 	padding: 0px;
-} 
+}
 
-body { 
+body {
 	background-image: url('../img/old_mathematics.png');
-	margin: 0; 
-	height: 100%; 
+	margin: 0;
+	height: 100%;
 	color: #384452;
 	font-family: 'Lato', sans-serif;
 	font-weight: 400;
@@ -5814,15 +5814,19 @@ h1, h2, h3, h4, h5, h6 {
 	font-weight: 700;
 }
 
-p { 
-	padding: 0; 
-	margin-bottom: 12px; 
+p {
+	padding: 0;
+	margin-bottom: 12px;
 	font-family: 'PT Sans', sans-serif;
 	font-weight: 400;
-	font-size: 14px; 
+	font-size: 14px;
 	line-height: 24px;
-	color: #384452; 
-	margin-top: 10px; 
+	color: #384452;
+	margin-top: 10px;
+}
+
+ul > li > p {
+	margin: 0;
 }
 
 img {
@@ -5832,8 +5836,8 @@ img {
   -o-box-shadow: 0 0 14px #888;
   -webkit-box-shadow: 0 0 14px #888;
   -moz-box-shadow: 0 0 14px #888;
-  -webkit-border-radius: 5px; 
-  -moz-border-radius: 5px; 
+  -webkit-border-radius: 5px;
+  -moz-border-radius: 5px;
   border-radius: 5px;
 }
 img.flag {
@@ -5843,17 +5847,17 @@ img.flag {
   -o-box-shadow: none;
   -webkit-box-shadow: none;
   -moz-box-shadow: none;
-  -webkit-border-radius: 0; 
-  -moz-border-radius: 0; 
+  -webkit-border-radius: 0;
+  -moz-border-radius: 0;
   border-radius: 0;
 }
 
-a { 
+a {
   color:#428bca;
   font-family: 'Lato', sans-serif;
   padding: 0;
 	margin: 0;
-	text-decoration: none; 
+	text-decoration: none;
 	-webkit-transition: background-color .4s linear, color .4s linear;
 	-moz-transition: background-color .4s linear, color .4s linear;
 	-o-transition: background-color .4s linear, color .4s linear;
@@ -6113,28 +6117,28 @@ a:focus {
 }
 
 /* Blog Page */
-.popular-posts { 
+.popular-posts {
 	margin: 0px;
 	padding-left: 0px;
 	}
-	
+
 .popular-posts li {
-	list-style: none; 
-	margin-bottom: 20px; 
+	list-style: none;
+	margin-bottom: 20px;
 	min-height: 50px;
 }
-.popular-posts li a, 
+.popular-posts li a,
 .popular-posts li a:hover {
-	color:#2f2f2f; 
+	color:#2f2f2f;
 	text-decoration: none;
 	}
-	
+
 .popular-posts li img {
-	float: left; 
+	float: left;
 	margin-right: 20px;
 	max-height: 50px;
 }
-	
+
 .popular-posts li em {
 	font-family: 'PT Sans', sans-serif;
 	font-size: 12px;
@@ -6144,7 +6148,7 @@ a:focus {
 .popular-posts p {
 	line-height: normal;
 	margin-bottom: auto;
-}	
+}
 
 .share i {
 	padding-right: 15px;

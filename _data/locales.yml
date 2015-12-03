@@ -1,20 +1,20 @@
 en:
     nav:
     - text:         "Home"
-      url:          "/"
+      url:          "/en/"
       class:        "home"
     - text:         "Blog"
-      url:          "/blog/"
+      url:          "/en/blog/"
       class:        "blog"
     - text:         "Workshops"
-      url:          "/workshops/"
+      url:          "/en/workshops/"
       class:        "workshops"
     - text:         "About"
-      url:          "/about/"
+      url:          "/en/about/"
       class:        "about"
     - text:         "Maptime.io"
       url:          "http://www.maptime.io"
-    header:      
+    header:
       title:        "It's Maptime Alpes!"
       subtitle:     "come play with maps in the Alps"
     recent_work:    "LOOK WHAT WE'VE BEEN WORKING ON:"
@@ -28,7 +28,7 @@ en:
 fr:
     nav:
     - text:         "Accueil"
-      url:          "/fr/"
+      url:          "/"
       class:        "home"
     - text:         "Blog"
       url:          "/fr/blog/"
@@ -41,7 +41,7 @@ fr:
       class:        "about"
     - text:         "Maptime.io"
       url:          "http://www.maptime.io"
-    header:      
+    header:
       title:        "Bienvenue chez Maptime Alpes !"
       subtitle:     "Rejoins le club des fans de cartographie "
     recent_work:    "VOICI CE QU'ON T'A PRÉPARÉ :"
