@@ -18,13 +18,13 @@ Durant cet atelier, chacun est invité à partler de ses expériences cartograph
 #### python et raster
 Adam présente des librairies pyhton pour travailler avec des fichiers Raster. Les fichiers Raster sont des images georéférencées. Ainis lors de son projet sur les données agricoles du Kazaksthan, Adam a mis en oeuvre un certain nombre de librairies python permettant de traiter les données afin d'en faire une analyse:
 
--[fiona](https://pypi.python.org/pypi/Fiona) pour lire un shaprefile
+- [fiona](https://pypi.python.org/pypi/Fiona) pour lire un shaprefile
 
--[rasterio](https://github.com/mapbox/rasterio) pour lire les raster
+- [rasterio](https://github.com/mapbox/rasterio) pour lire les raster
 
--[rasterstats](https://pypi.python.org/pypi/rasterstats) pour réaliser des statistiques sur les rasters
+- [rasterstats](https://pypi.python.org/pypi/rasterstats) pour réaliser des statistiques sur les rasters
 
--[matplotlib](http://matplotlib.org/) pour réaliser des imagettes
+- [matplotlib](http://matplotlib.org/) pour réaliser des imagettes
 
 ![image](/assets/img/blog/cartes/IMG_0198_tiny.JPG)
 
