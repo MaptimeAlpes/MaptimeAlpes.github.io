@@ -9,6 +9,10 @@ url: "http://www.maptime-alpes.com"
 # Build settings
 markdown: kramdown
 
+compress_html:
+  clippings: all
+  endings:   all
+
 permalink: /:categories/:year/:month/:day/:title
 excerpt_separator: <!--more--> #use this in posts to define how long the excerpt of the post (that is shown on the Blog page) is
 

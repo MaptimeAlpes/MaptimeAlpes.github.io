@@ -1,6 +1,5 @@
 <script>
   $(document).ready(function(){
-	  
 	  // sticky header with generated ids and anchors for <h1> tags
 	  var title = $("#page-title");
 	  title.after($("<div class='pull-left tutorial-navs'><ul id='tutorial-nav'></ul></div>"));
@@ -22,7 +21,6 @@
 
 	      // add id to h1 element in page
 	      heads[i].id = target;
-
 	    }
 	  }
 
@@ -49,7 +47,7 @@
 	  var aArray = [];
 	  var top = nav.offset().top;
 
-	  for (var i=0; i < aChildren.length; i++) {    
+	  for (var i=0; i < aChildren.length; i++) {
 	      var aChild = aChildren[i];
 	      var ahref = $(aChild).attr('href');
 	      aArray.push(ahref);

@@ -1,15 +1,14 @@
-{% include get_local.html %}
+---
+layout: default
+---
 
+{% include get_local.html %}
 <!DOCTYPE html>
 <html>
-
     {% include head.html %}
-
     <body>
         {% include nav.html %}
-
-            {{ content }}
-
+        {{ content }}
         {% include footer.html %}
         {% include js.html %}
     </body>

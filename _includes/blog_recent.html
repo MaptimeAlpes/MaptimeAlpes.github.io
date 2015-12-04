@@ -1,34 +1,29 @@
 {% include get_local.html %}
-
 <div class="centered recent-activity">
     <h4>{{ site.data.locales[locale].recent_work }}</h4>
 </div>
-
 <div class="container">
     <div class="row">
-
         <! -- BLOG POSTS LIST -->
         <div class="col-md-10 col-md-offset-1">
         {% assign posts = (site.categories[locale] | where: "layout" , "post") %}
         {% for post in posts limit:3 %}
-            {% assign blogpost = post %}
-            <! -- Blog Post -->
-            <div class="recent-post row">
-                <div class="col-sm-3">
-                    <a href="{{ blogpost.url }}"><img src="{{ "/assets/img/blog/thumbs/" | prepend: site.baseurl }}{{ blogpost.thumb }}" alt="Recent Post"></a>
-                </div>
-                <div class="col-sm-9">
-                    <a href="{{ blogpost.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ blogpost.title }}</h3></a>
-                    <p><csmall>
-                        {% include auth_date.html %}
-                    </csmall></p>
-                    {{ blogpost.excerpt }}
-                    <p><a href="{{ blogpost.url | prepend: site.baseurl }}">[{{ site.data.locales[locale].read_more }}]</a></p>
-                </div>
+        {% assign blogpost = post %}
+        <! -- Blog Post -->
+        <div class="recent-post row">
+            <div class="col-sm-3">
+                <a href="{{ blogpost.url }}"><img src="{{ "/assets/img/blog/thumbs/" | prepend: site.baseurl }}{{ blogpost.thumb }}" alt="Recent Post"></a>
             </div>
-        {% endfor %}
-
+            <div class="col-sm-9">
+                <a href="{{ blogpost.url | prepend: site.baseurl }}"><h3 class="ctitle">{{ blogpost.title }}</h3></a>
+                <p><csmall>
+                {% include auth_date.html %}
+                </csmall></p>
+                {{ blogpost.excerpt }}
+                <p><a href="{{ blogpost.url | prepend: site.baseurl }}">[{{ site.data.locales[locale].read_more }}]</a></p>
+            </div>
         </div>
-
-    </div><! --/row -->
-</div><! --/container -->
+        {% endfor %}
+        </div>
+    </div>
+</div>
