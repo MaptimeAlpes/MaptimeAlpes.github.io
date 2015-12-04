@@ -6220,6 +6220,7 @@ a:focus {
 }
 #mt_pin {
 	height: 40px;
+  width: 40px;
 }
 #mt_pin path {
 	fill: #00b3fe;
