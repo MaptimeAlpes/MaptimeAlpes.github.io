@@ -1,6 +1,6 @@
 {% if locale == site.default_locale %}
-    {{ blogpost.date | date: "%d %B, %Y" }}
-{% else %}
     {{ blogpost.date | localize: "%d %B, %Y" }}
-{% endif %} {{ site.data.locales[locale].by }} 
+{% else %}
+    {{ blogpost.date | date: "%d %B, %Y" }}
+{% endif %} {{ site.data.locales[locale].by }}
 <a href="http://www.github.com/{{ blogpost.author }}" target="_blank">{{ blogpost.author }}</a>
