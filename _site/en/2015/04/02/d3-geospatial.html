@@ -1,0 +1,541 @@
+
+
+<!DOCTYPE html>
+<html>
+    <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="description" content="We make maps in the Alps. On fait de la cartographie dans les Alpes!">
+    <meta name="author" content="Maptime-Alpes Contributors">
+    <link rel="apple-touch-icon-precomposed" sizes="57x57" href="/assets/img/apple-touch-icon-57x57.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="/assets/img/apple-touch-icon-114x114.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="/assets/img/apple-touch-icon-72x72.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="/assets/img/apple-touch-icon-144x144.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="120x120" href="/assets/img/apple-touch-icon-120x120.png" />
+    <link rel="apple-touch-icon-precomposed" sizes="152x152" href="/assets/img/apple-touch-icon-152x152.png" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon-32x32.png" />
+    <link rel="icon" type="image/png" href="/assets/img/favicon-16x16.png" />
+    <meta name="application-name" content="Maptime-Alpes"/>
+    <meta name="msapplication-TileColor" content="#FFFFFF" />
+    <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png" />
+
+    <title>MaptimeAlpes - d3 Geospatial</title>
+
+    <!-- Custom styles for this template -->
+    <link href="/assets/css/style.css" rel="stylesheet">
+    <link href="/assets/css/fontcustom/fontcustom.css" rel="stylesheet">
+    
+    <link href="/assets/css/prism.css" rel="stylesheet">
+    
+
+    <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
+    <!--[if lt IE 9]>
+      <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+      <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+    <![endif]-->
+
+    <script src="/assets/js/modernizr.js"></script>
+    <script src="/assets/js/prism.js"></script>
+</head>
+
+    <body>
+        
+
+<!-- Fixed navbar -->
+<div class="navbar navbar-default navbar-fixed-top" role="navigation">
+  <div class="container">
+    <div class="navbar-header">
+
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      <a class="navbar-brand" href="/">
+        <svg id="mt_pin" viewBox="0 0 29 41" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <g stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <path d="M12.7656702,16.506016 C13.1349844,16.6854737 13.5496704,16.7861333 13.9878667,16.7861333 C15.534264,16.7861333 16.7878667,15.5325306 16.7878667,13.9861333 C16.7878667,12.7669958 16.0087129,11.7298393 14.9212,11.3454587 L14.9212,5.58613333 L13.9878667,4.6528 L13.0545333,5.58613333 L13.0545333,11.3454587 C11.9670205,11.7298393 11.1878667,12.7669958 11.1878667,13.9861333 C11.1878667,14.4124673 11.2831501,14.8165465 11.4535834,15.1782375 L8.29929023,18.3325306 L8.29929023,19.6524633 L9.61922289,19.6524633 L12.7656702,16.506016 Z M14.0160043,0.016 C17.8989916,0.016 21.2027378,1.37751175 23.9272427,4.10053526 C26.6517476,6.82355876 28.014,10.1255085 28.014,14.0063846 C28.014,15.9468226 27.5282925,18.1690449 26.5568776,20.6730513 C25.5854627,23.1770577 24.4109458,25.5248141 23.0333271,27.7163205 C21.6557084,29.9078269 20.293456,31.9577735 18.9465698,33.8661603 C17.5996836,35.774547 16.4565674,37.2923088 15.5172212,38.4194455 L14.014,40.016 C13.6385288,39.5779658 13.137455,38.9990395 12.5107788,38.2792212 C11.8841026,37.5594028 10.7563527,36.119766 9.12752899,33.9603109 C7.49870532,31.8008558 6.07365163,29.7035 4.85236793,27.6682436 C3.63108423,25.6329872 2.51936865,23.33264 1.51722119,20.7672019 C0.515073729,18.2017639 0.014,15.9481581 0.014,14.0063846 C0.014,10.1255085 1.37625245,6.82355876 4.10075734,4.10053526 C6.82526223,1.37751175 10.1290084,0.016 14.0119957,0.016 L14.0160043,0.016 Z M13.9878667,24.2528 C19.6579901,24.2528 24.2545333,19.6562568 24.2545333,13.9861333 C24.2545333,8.3160099 19.6579901,3.71946667 13.9878667,3.71946667 C8.31774324,3.71946667 3.7212,8.3160099 3.7212,13.9861333 C3.7212,19.6562568 8.31774324,24.2528 13.9878667,24.2528 Z" id="Shape" fill="#231F20"></path>
+    </g>
+</svg>
+
+        <span>Maptime Alpes!</span>
+      </a>
+    </div>
+    <div class="navbar-collapse collapse navbar-right">
+      <ul class="nav navbar-nav">
+        
+        <li>
+          <a href="/en/">Home</a>
+        </li>
+        
+        <li>
+          <a href="/en/blog/">Blog</a>
+        </li>
+        
+        <li>
+          <a href="/en/workshops/">Workshops</a>
+        </li>
+        
+        <li>
+          <a href="/en/about/">About</a>
+        </li>
+        
+        <li>
+          <a href="http://www.maptime.io">Maptime.io</a>
+        </li>
+        
+        <li><div class="locale-links">
+          
+            
+              <a href="/"><img class="flag" src="/assets/img/fr.png"/>
+            
+              </a>
+          
+            
+              <a href="/en"><img class="flag" src="/assets/img/us.png"/>
+            
+              </a>
+          
+        </div></li>
+      </ul>
+    </div><!--/.nav-collapse -->
+  </div>
+</div>
+
+        
+
+<div id="miniheaderwrap" class='tut'>
+    <div class="mini-map-banner">
+    	<div class="container">
+        	<div class="pull-left mini-text-block">
+            	<h3 id="page-title" class="pull-left">d3 Geospatial</h3>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="tutorial container" id="tutorial">
+<p>As a simple web search will tell you, <a href="http://d3js.org/">D3</a> is a data visualization library that runs like lightning in your web browser. You may hear <em>data visualization</em> and think <em>I don’t need a data viz lib, I make maps</em>. Well, maps run on data, plus D3 is actually pretty good with maps, so keep an open mind. You might also wonder why you would choose D3 over another library like <a href="http://leafletjs.com/">Leaflet.js</a>. The short answer is it really depends on your use case and the type of data you want to display. The long answer is this tutorial.</p>
+
+<p>D3 stands for <strong>Data Driven Documents</strong>. We will unpack this title in three parts. First, we’ll take a look at <strong>Documents</strong>, then check out <strong>Data</strong> and finally explore <strong>Driven</strong>. By the time we dive into the meat and potatoes of the tutorial, you should have a pretty clear sense of how D3 relates to technology you’ve used in the past.
+<!--more--></p>
+
+<h2 id="house-keeping">House keeping</h2>
+
+<p>To successfully follow this tutorial you need a text editor (such as Notepad++ or Sublime Text). Go ahead and use your personal favorite, or if you don’t have one installed,
+download <a href="http://www.sublimetext.com/">Sublime Text</a>.</p>
+
+<h1 id="documents">Documents</h1>
+
+<p>At its core, D3 takes your information and transforms it into a visual output. That output is your document, and for all intents and purposes, your document is an <a href="http://www.w3.org/TR/SVG/">SVG</a>. Scalable Vector Graphics is a file format that encodes vector data for use in a wide array of applications, including your web browser. SVGs are used all over the place to display all kinds of data. If you’ve ever exported a map from <a href="http://www.qgis.org/en/site/">desktop GIS</a> and styled it in a <a href="https://inkscape.org/en/">graphics program</a>, chances are your data was stored as SVG at some stage of the process.</p>
+
+<p>SVGs are human readable, which works well for us because we aren’t computers. This is an SVG:</p>
+
+<pre><code class="language-markup">&lt;svg width="720" height="120"&gt;
+  &lt;circle cx="40" cy="60" r="10"&gt;&lt;/circle&gt;
+  &lt;circle cx="80" cy="60" r="10"&gt;&lt;/circle&gt;
+  &lt;circle cx="120" cy="60" r="10"&gt;&lt;/circle&gt;
+&lt;/svg&gt;
+</code></pre>
+
+<p>This <a href="http://bl.ocks.org/powersa/raw/dae5b2e58c5a813208f5/">circle example</a> is the same document embedded in a really simple web page. Right click one of the circles and select <em>Inspect element</em> from the drop down.</p>
+
+<p>Each of those circles is an element in your SVG, which has a width and height. This is the type of document D3 writes to your web browser. You can tell it to add circles or move circles or remove circles. Checkout this <a href="http://bost.ocks.org/mike/circles/">selection</a> tutorial for more on the subject. It’s also worth noting that D3 has the ability to write and edit many types of shapes, not just circles.</p>
+
+<h1 id="data">Data</h1>
+
+<p>So, you have a tool that can write a Scalable Vector Graphic in your web browser… That doesn’t really do anything for you unless you have something you want to draw. In D3, that <em>something</em> is almost always based on data.</p>
+
+<p>Let’s take a look at this <a href="http://bl.ocks.org/mbostock/3887118">scatterplot</a>. This type of visualization is familiar to most and easy to understand. <em>Sepia Width</em> is plotted on the x-axis and <em>Sepia Length</em> is plotted on the y-axis. D3 draws the entire graphic. But how does it know what to draw and where to draw it? Scroll down the page until you see <a href="http://bl.ocks.org/mbostock/3887118#data.tsv"><strong>data.tsv</strong></a> (or just click that link). When this web page loads, D3 reads this file and adds each record as a circle in the scatter plot. Each circle’s coordinates and color are defined by the data in the record.</p>
+
+<h1 id="driven">Driven</h1>
+
+<p>At this point <em>Driven</em> might not make sense. If we stopped here, we could probably make a case to change <em>Driven</em> to <em>Defined</em>. Let’s keep going.</p>
+
+<p><strong>Driven</strong> is actually one of the defining characteristics of D3. Remember the work flow we discussed where you export an SVG from desktop GIS to do custom design work in a graphics editor? As soon as your vector data leaves the GIS, features lose the data that defines them. At best, the great attributes you honed are represented graphically and at worst are totally gone.</p>
+
+<p>That type of thing doesn’t happen in D3. Not only does your data define the elements in your SVG, the data is also bound (joined) to the elements in your document. A circle isn’t just a circle element with an x,y and radius, it’s also the data that originated the element in the first place. This characteristic of D3 allows data to drive your visualization, not only upon creation, but throughout its life cycle.</p>
+
+<h1 id="tips">Tips</h1>
+
+<ul>
+  <li>The learning curve can be pretty steep. Stay positive</li>
+  <li>Start simple, add complexity piece by piece</li>
+  <li>Refer to documentation/tutorials</li>
+  <li><strong>Cannibalize code</strong> wherever/whenever you can. D3 has great examples and most the code is freely accessible. See something you like? Take a look at how it’s done</li>
+</ul>
+
+<h1 id="tutorial-time">Tutorial Time!</h1>
+
+<p>By the time we finish this tutorial, we will have built our first (or nth) D3 web map! This will not be the prettiest map you’ve ever made, but hopefully once you’ve made it, you will have a launching pad to make an even better D3 map in the future.</p>
+
+<h2 id="step-1-review-web-pages">STEP 1: Review Web Pages</h2>
+
+<p>If you need a primer (or review) of wep page compenents, check out this <a href="http://maptimesea.github.io/2014/11/05/web-map-intro.html#let-s-get-started">web map tutorial</a>. While there, go through the steps to make an empty html file (through <em>Add a boilerplate to map.html</em>).</p>
+
+<p>At this stage, you should have a <em>map.html</em> file on your machine that you can open in your web browser. Give that a shot by opening <em>map.html</em> in your web browser. This is what your file looks like:</p>
+
+<pre class="line-numbers"><code class="language-markup">&lt;!doctype html&gt;
+&lt;html lang="en"&gt;
+
+&lt;head&gt;
+  &lt;meta charset="utf-8"&gt;
+  &lt;style&gt;
+    body {
+      background-color: green;
+    }
+  &lt;/style&gt;
+
+&lt;/head&gt;
+
+&lt;body&gt;
+  &lt;script&gt;
+    var bestPlaceEver = "maptime";
+  &lt;/script&gt;
+&lt;/body&gt;
+&lt;/html&gt;
+</code></pre>
+
+<p>Save your eyes. Feel free to change the background color to white:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="nt">body</span> <span class="p">{</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="no">white</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+
+<h3 id="include-the-some-javascript-libraries">Include the some javascript libraries</h3>
+
+<p>In order for our code to do awesome things, we want to use some existing tools (d3.js bing one of them…)
+Now you can insert D3 into your page. For now we’ll use an externally hosted version of the library instead of copying it into a new file. We will also add the library to work with topojson. More on that later. Add the following directly after the <code class="highlighter-rouge">&lt;head&gt;</code> tag of <code class="highlighter-rouge">map.html</code>.</p>
+
+<pre><code class="language-markup">  &lt;script src="http://d3js.org/d3.v3.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://d3js.org/topojson.v0.min.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<h2 id="step-2-build-the-document">STEP 2: Build the document</h2>
+
+<p>Before we add a map to our web page, we need to make a place to put it. The following work will take place between <code class="highlighter-rouge">&lt;script&gt;</code> tags.</p>
+
+<h3 id="define-width-and-height-of-your-graphic">Define width and height of your graphic</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">width</span> <span class="o">=</span> <span class="mi">960</span><span class="p">,</span>
+      <span class="nx">height</span> <span class="o">=</span> <span class="mi">480</span><span class="p">;</span>
+</code></pre>
+</div>
+
+<h3 id="create-your-svg">Create your SVG</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">svg</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">select</span><span class="p">(</span><span class="s2">"body"</span><span class="p">).</span><span class="nx">append</span><span class="p">(</span><span class="s2">"svg"</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"width"</span><span class="p">,</span> <span class="nx">width</span><span class="p">)</span>
+        <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"height"</span><span class="p">,</span> <span class="nx">height</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>This chunk of code tells your browser that the variable <em>svg</em> is an SVG element under the body tag. If the SVG doesn’t exist, D3 creates one. Add this to <em>map.html</em> and reload the page. Right click in the upper left region of the page. Select <em>Inspect Element</em>, and you’ll see that your page contains an empty SVG element.</p>
+
+<h3 id="define-your-projection">Define your projection</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">projection</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">geo</span><span class="p">.</span><span class="nx">equirectangular</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">scale</span><span class="p">(</span><span class="mi">153</span><span class="p">)</span> <span class="c1">// scales your map</span>
+        <span class="p">.</span><span class="nx">translate</span><span class="p">([</span><span class="nx">width</span> <span class="o">/</span> <span class="mi">2</span><span class="p">,</span> <span class="nx">height</span> <span class="o">/</span> <span class="mi">2</span><span class="p">]);</span> <span class="c1">// centers in SVG</span>
+</code></pre>
+</div>
+
+<p>When you define a projection, you tell D3 how to transform your data from spherical to Cartesian coordinates. Take a look at the <a href="https://github.com/mbostock/d3/wiki/Geo-Projections">projection docs</a> to get a sense of how you can project your data with D3.</p>
+
+<h3 id="translate-to-screen-coordinates">Translate to screen coordinates</h3>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">path</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">geo</span><span class="p">.</span><span class="nx">path</span><span class="p">()</span>
+        <span class="p">.</span><span class="nx">projection</span><span class="p">(</span><span class="nx">projection</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>When D3 renders your SVG, it has to translate geo coordinates to pixel coordinates on your screen. This functionality is called a <em>path generator</em>. In this block, we store our path generator in the variable <em>path</em> so we can access it through out our code.</p>
+
+<p>At this point, all you have is an empty SVG on your page. Now that our <strong>document</strong> is ready, we need <strong>data</strong>.</p>
+
+<h2 id="step-3-grab-map-data">STEP 3: Grab map data</h2>
+
+<p>The data we’ll use for this map is stored in the TopoJSON format. We won’t address specifics here, but if you want to learn more about the spatial format TopoJSON, take a look at the <a href="https://github.com/mbostock/topojson/wiki">wiki</a>.</p>
+
+<p>Your data is waiting for you <a href="https://gist.github.com/abenrob/ab3de11f64071ddc4f68">here</a>. <em>(click “Download Gist”)</em></p>
+
+<p>Download the data and unpack it! If you don’t have software to unzip the data, you can also copy the raw contents to a file on your computer and save as <em>worldtopo.js</em>. Move <em>worldtopo.js</em> to the same location as <em>map.html</em>.</p>
+
+<h2 id="step-4-load-the-data">STEP 4: Load the data</h2>
+
+<p>If you look at the beginning of the <em>worldtopo.js</em> file, you will see</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">worldtopo</span> <span class="o">=</span> <span class="p">{...}</span>
+</code></pre>
+</div>
+
+<p>we went ahead and defined the data as a javascript variable, so you wouldn’t need a webserver to make this tutorial work. To use this data, we need to load it as a script. Just below the two other libraries, we’ll add one more that references this file. That section should now look like this:</p>
+
+<pre><code class="language-markup">  &lt;script src="http://d3js.org/d3.v3.min.js"&gt;&lt;/script&gt;
+  &lt;script src="http://d3js.org/topojson.v0.min.js"&gt;&lt;/script&gt;
+  &lt;script src="worldtopo.js"&gt;&lt;/script&gt;
+</code></pre>
+
+<p>When you complete this next step, you will have a map. Below your path generator, insert the following:</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="nx">svg</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"path"</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">datum</span><span class="p">(</span><span class="nx">topojson</span><span class="p">.</span><span class="nx">object</span><span class="p">(</span><span class="nx">worldtopo</span><span class="p">,</span> <span class="nx">worldtopo</span><span class="p">.</span><span class="nx">objects</span><span class="p">.</span><span class="nx">land</span><span class="p">))</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"class"</span><span class="p">,</span> <span class="s2">"land"</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"d"</span><span class="p">,</span> <span class="nx">path</span><span class="p">);</span>
+  <span class="nx">svg</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"path"</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">datum</span><span class="p">(</span><span class="nx">topojson</span><span class="p">.</span><span class="nx">mesh</span><span class="p">(</span><span class="nx">worldtopo</span><span class="p">,</span> <span class="nx">worldtopo</span><span class="p">.</span><span class="nx">objects</span><span class="p">.</span><span class="nx">countries</span><span class="p">,</span> <span class="kd">function</span><span class="p">(</span><span class="nx">a</span><span class="p">,</span> <span class="nx">b</span><span class="p">)</span> <span class="p">{</span> <span class="k">return</span> <span class="nx">a</span><span class="p">.</span><span class="nx">id</span> <span class="o">!==</span> <span class="nx">b</span><span class="p">.</span><span class="nx">id</span><span class="p">;</span> <span class="p">}))</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"class"</span><span class="p">,</span> <span class="s2">"boundary"</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"d"</span><span class="p">,</span> <span class="nx">path</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>This chunk of code goes through <em>worldtopo.js</em> and appends two features (land and boundaries) to the path generator. This is a great time to <em>Inspect Element</em> on your web page or dig into the TopoJSON. As you can see, your SVG has a “path” element (shape) for each feature in your TopoJSON. See how data drives this document?</p>
+
+<p>Now your map should look like this:</p>
+
+<p><img src="/assets/img/tutorials/bw_map.png" alt="bw map" /></p>
+
+<h2 id="step-5-make-it-pretty">STEP 5: Make it pretty</h2>
+
+<h3 id="add-some-basic-styles">add some basic styles</h3>
+
+<p>add these lines to the <code class="highlighter-rouge">&lt;style&gt;&lt;/style&gt;</code> section of the page to give a nice blue background and a border to the svg element, and to color the land and boundary elements</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="nt">svg</span> <span class="p">{</span>
+    <span class="nl">border</span><span class="p">:</span> <span class="m">2px</span> <span class="nb">solid</span> <span class="no">black</span><span class="p">;</span>
+    <span class="nl">background-color</span><span class="p">:</span> <span class="m">#a4bac7</span><span class="p">;</span>
+  <span class="p">}</span>
+  <span class="nc">.land</span> <span class="p">{</span>
+    <span class="py">fill</span><span class="p">:</span> <span class="m">#d7c7ad</span><span class="p">;</span>
+    <span class="py">stroke</span><span class="p">:</span> <span class="m">#766951</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nc">.boundary</span> <span class="p">{</span>
+    <span class="py">fill</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+    <span class="py">stroke</span><span class="p">:</span> <span class="m">#a5967e</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Looking better:</p>
+
+<p><img src="/assets/img/tutorials/color_map.png" alt="color map" /></p>
+
+<h3 id="add-the-graticule">Add the graticule</h3>
+
+<p>We don’t need a graticule, but it is a nice thing that is available in d3, so let’s use it!</p>
+
+<p>insert this graticle code at the bottom of your current <code class="highlighter-rouge">&lt;script&gt;&lt;/script&gt;</code> section</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">graticule</span> <span class="o">=</span> <span class="nx">d3</span><span class="p">.</span><span class="nx">geo</span><span class="p">.</span><span class="nx">graticule</span><span class="p">();</span>
+
+  <span class="nx">svg</span><span class="p">.</span><span class="nx">append</span><span class="p">(</span><span class="s2">"g"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">"path"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">data</span><span class="p">(</span><span class="nx">graticule</span><span class="p">.</span><span class="nx">lines</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">enter</span><span class="p">().</span><span class="nx">append</span><span class="p">(</span><span class="s2">"path"</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"d"</span><span class="p">,</span> <span class="nx">path</span><span class="p">)</span>
+    <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"class"</span><span class="p">,</span> <span class="s2">"graticule"</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<p>and add these styles to the <code class="highlighter-rouge">&lt;style&gt;&lt;/style&gt;</code> section</p>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="nc">.graticule</span> <span class="p">{</span>
+    <span class="py">fill</span><span class="p">:</span> <span class="nb">none</span><span class="p">;</span>
+    <span class="py">stroke</span><span class="p">:</span> <span class="m">#fff</span><span class="p">;</span>
+    <span class="py">stroke-width</span><span class="p">:</span> <span class="m">.5px</span><span class="p">;</span>
+  <span class="p">}</span>
+
+  <span class="nc">.graticule</span> <span class="nd">:nth-child</span><span class="o">(</span><span class="nt">2n</span><span class="o">)</span> <span class="p">{</span>
+    <span class="py">stroke-dasharray</span><span class="p">:</span> <span class="m">2</span><span class="p">,</span><span class="m">2</span><span class="p">;</span>
+  <span class="p">}</span>
+</code></pre>
+</div>
+
+<p>Hey - that looks like a real map!</p>
+
+<p><img src="/assets/img/tutorials/grat_map.png" alt="graticule map" /></p>
+
+<p><strong>Congratulations!</strong> You built a web map in D3.js!</p>
+
+<h2 id="step-6-challenges">STEP 6: Challenges</h2>
+
+<ol>
+  <li><strong>Change the translation</strong>. Try .translate([400,600])</li>
+  <li><strong>Change the scale</strong>. Try .scale(500)</li>
+  <li><strong>Change the projection</strong>. Try <a href="https://github.com/mbostock/d3/wiki/Geo-Projections">something else</a>. (this is a nice globe d3.geo.orthographic()!)</li>
+  <li><strong>Find the data</strong>. Use your JS console to access a element data. Hint: it involves a <a href="https://github.com/mbostock/d3/wiki/Selections">selection</a></li>
+  <li><strong>Load data from file</strong> Try this <a href="https://gist.github.com/abenrob/787723ca91772591b47e">TopoJSON</a> - instead of defining it with <code class="highlighter-rouge">var worldjson =</code> , load it using <a href="https://github.com/mbostock/d3/wiki/Requests#d3_json">d3.json</a>. Examples outlined <a href="http://bost.ocks.org/mike/map/">here</a></li>
+  <li><strong>Try rotating the projection</strong> Here’s a way to continuously update the rotation:</li>
+</ol>
+
+<div class="highlighter-rouge"><pre class="highlight"><code>  <span class="kd">var</span> <span class="nx">lat</span> <span class="o">=</span> <span class="mi">0</span><span class="p">;</span>
+  <span class="nx">setInterval</span><span class="p">(</span><span class="kd">function</span><span class="p">(){</span>
+    <span class="nx">lat</span> <span class="o">=</span> <span class="nx">lat</span> <span class="o">+</span><span class="p">.</span><span class="mi">25</span>
+    <span class="nx">projection</span><span class="p">.</span><span class="nx">rotate</span><span class="p">([</span><span class="nx">lat</span><span class="p">,</span><span class="mi">0</span><span class="p">]);</span>
+    <span class="nx">svg</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">".land"</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"d"</span><span class="p">,</span> <span class="nx">path</span><span class="p">);</span>
+    <span class="nx">svg</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">".boundary"</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"d"</span><span class="p">,</span> <span class="nx">path</span><span class="p">);</span>
+    <span class="nx">svg</span><span class="p">.</span><span class="nx">selectAll</span><span class="p">(</span><span class="s2">".graticule"</span><span class="p">)</span>
+      <span class="p">.</span><span class="nx">attr</span><span class="p">(</span><span class="s2">"d"</span><span class="p">,</span> <span class="nx">path</span><span class="p">);</span>
+  <span class="p">},</span><span class="mi">50</span><span class="p">);</span>
+</code></pre>
+</div>
+
+<h1 id="resources">Resources</h1>
+
+<ul>
+  <li><a href="http://bl.ocks.org/abenrob/27290f6dd43de81578af">Basic map example</a></li>
+  <li><a href="http://bl.ocks.org/abenrob/2d7a99385e44db333da7">Rotating map example</a></li>
+  <li><a href="http://bl.ocks.org/abenrob/c4ac3d581a7b16ff5f2f">JSON load example</a></li>
+</ul>
+
+<h2 id="fin">Fin.</h2>
+
+<p>Tutorial borrows HEAVILY from <a href="http://maptimesea.github.io/2015/01/07/d3-mapping.html">MaptimeSea</a> and <a href="http://www.maori.geek.nz/post/d3_js_geo_fun">maori.geek</a>. Check out their other stuff!</p>
+
+</div>
+<script src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
+<script>
+  $(document).ready(function(){
+	  // sticky header with generated ids and anchors for <h1> tags
+	  var title = $("#page-title");
+	  title.after($("<div class='pull-left tutorial-navs'><ul id='tutorial-nav'></ul></div>"));
+
+	  var heads = document.getElementsByTagName("h1");
+	  var tutNav = document.getElementById("tutorial-nav");
+	  for (var i=0; i<heads.length; i++) {
+	    if(heads[i].className!="tutorial-title") {
+	      var text = heads[i].innerHTML;
+	      var target = nice(text);
+
+	      // create list item and anchor
+	      var item = document.createElement("li");
+	      var anchor = document.createElement("a");
+	      anchor.href = "#"+target;
+	      anchor.innerHTML = text;
+	      item.appendChild(anchor);
+	      tutNav.appendChild(item);
+
+	      // add id to h1 element in page
+	      heads[i].id = target;
+	    }
+	  }
+
+	  // collapse sections
+	  $(".collapse-button").on("click", function(){
+	    $(this).next(".collapse").slideToggle(200);
+	  });
+
+	  // click navigation anchors and animate scroll
+	  $('a').on('click', function(){
+	    if($(this).attr('href').indexOf('#')>-1) {
+	      event.preventDefault();
+	      var id = $(this).attr("href");
+	      var top = $(id).offset().top - 160;
+	      $("html, body").animate({
+	        scrollTop: top
+	      }, 500); // you can set any time here
+	    }
+	  });
+
+	  var nav = $("#tutorial-nav");
+	  $("#tutorial-nav li:eq(0) a").addClass('nav-active');
+	  var aChildren = $("#tutorial-nav li").children();
+	  var aArray = [];
+	  var top = nav.offset().top;
+
+	  for (var i=0; i < aChildren.length; i++) {
+	      var aChild = aChildren[i];
+	      var ahref = $(aChild).attr('href');
+	      aArray.push(ahref);
+	  }
+
+	});
+
+	function nice(str) {
+	  var newString = str.replace(/[^A-Z0-9]+/ig, "-").toLowerCase();
+	  return newString;
+	}
+</script>
+
+
+        
+
+<div id="footerwrap">
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-6">
+                <h4>About</h4>
+                <div class="hline-w"></div>
+                <p>We make maps in the Alps. On fait de la cartographie dans les Alpes!</p>
+            </div>
+            <div class="col-sm-6">
+            
+
+
+
+
+<h4>Social links</h4>
+<div class="hline-w"></div>
+<p>
+    
+        <a href="https://twitter.com/MaptimeAlpes" class="btn-social btn-outline"><i class="icon-twitter"></i></a>
+    
+        <a href="https://github.com/MaptimeAlpes" class="btn-social btn-outline"><i class="icon-github"></i></a>
+    
+        <a href="http://www.meetup.com/MaptimeAlpes/" class="btn-social btn-outline"><i class="icon-meetup"></i></a>
+    
+</p>
+            </div>
+        </div>
+    </div>
+</div>
+
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55615382-1', 'auto');
+  ga('send', 'pageview');
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-55615382-1']);
+
+	// set custom variables
+	_gaq.push(['_setCustomVar',
+      1,
+      'Locale',
+      'en',
+      3                    // Sets the scope to page-level.  Optional parameter.
+   ]);
+
+	// track page view
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<script>
+!function(d,s,id){
+	var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s); js.id=id;js.async=true;js.src="https://a248.e.akamai.net/secure.meetupstatic.com/s/script/541522619002077648/api/mu.btns.js?id=7mne7asu2b3mogbtcckibuio6d";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","mu-bootjs");
+// put anchor snippet in post
+//<a href="http://www.meetup.com/MaptimeAlpes/events/222341190/" data-event="222341190" class="mu-rsvp-btn">RSVP</a>
+</script>
+    </body>
+</html>
