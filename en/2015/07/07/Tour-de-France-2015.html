@@ -20,7 +20,7 @@
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png" />
 
-    <title>MaptimeAlpes - Accueil</title>
+    <title>MaptimeAlpes - Tour de France 2015</title>
 
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -64,20 +64,20 @@
     <div class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
         
-        <li class="active">
-          <a href="/">Accueil</a>
+        <li>
+          <a href="/en/">Home</a>
         </li>
         
         <li>
-          <a href="/fr/blog/">Blog</a>
+          <a href="/en/blog/">Blog</a>
         </li>
         
         <li>
-          <a href="/fr/ateliers/">Ateliers</a>
+          <a href="/en/workshops/">Workshops</a>
         </li>
         
         <li>
-          <a href="/fr/apropos/">À propos</a>
+          <a href="/en/about/">About</a>
         </li>
         
         <li>
@@ -104,101 +104,150 @@
 
         
 
-
-
-<div id="headerwrap">
-    <div class="container map-banner">
-        <div class="header-text-block col-md-6 col-md-offset-3">
-            <h1>Bienvenue chez Maptime Alpes !</h1>
-            <h5>Rejoins le club des fans de cartographie </h5>
+<div id="miniheaderwrap" >
+    <div class="mini-map-banner">
+    	<div class="container">
+        	<div class="pull-left mini-text-block">
+            	<h3 id="page-title" class="pull-left">Tour de France 2015</h3>
+            </div>
         </div>
     </div>
 </div>
 
-
-
-
-
-<div class="centered recent-activity">
-    <h4>VOICI CE QU'ON T'A PRÉPARÉ :</h4>
-</div>
-<div class="container">
+<div class="container mtb">
     <div class="row">
-        <! -- BLOG POSTS LIST -->
-        <div class="col-md-10 col-md-offset-1">
-        
-        
-        
-        <! -- Blog Post -->
-        <div class="recent-post row">
-            <div class="col-sm-3">
-                <a href="/fr/2015/12/22/Leaflet-intro"><img src="/assets/img/blog/thumbs/leaflet-intro.png" alt="Recent Post"></a>
-            </div>
-            <div class="col-sm-9">
-                <a href="/fr/2015/12/22/Leaflet-intro"><h3 class="ctitle">Leaflet Intro</h3></a>
-                <p><csmall>
-                
-22 December, 2015
- par <a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
+        <! -- SINGLE POST -->
+        <div class="col-md-8">
+            <! -- Blog Post  -->
+            <p><img class="img-responsive" src="/assets/img/blog/tdf.png"></p>
+            <a href="/en/2015/07/07/Tour-de-France-2015"><h3 class="ctitle">Tour de France 2015</h3></a>
+            <p><csmall>
+            
+07 July, 2015
+ by <a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
 
-                </csmall></p>
-                <h2 id="introduction--leaflet">Introduction à Leaflet</h2>
-<p>Après reboot, la présentation d’une webmap, c’est autour de Leaflet de revenir pour une nouvelle session maptime</p>
+            </csmall></p>
+            <h4 id="tour-de-france-2015">Tour de France 2015</h4>
+<p>As it is the beginning of the Tour de France, we had the idea to make and share several maps of the route of this year’s Tour.
+<!--more-->
+We found this year’s route data in GPX format, which is the standard format of recreatoion-grade GPS receivers. The Github repo <a href="https://github.com/MaptimeAlpes/tour-de-france-2015">tour-de-france-2015</a> contains the stages in different formats. The data were sourced from <a href="http://www.mapmytracks.com/">MapMyTracks</a>, and as the ‘official’ route was not yet posted on their site, we used that of the <a href="https://www.mapmytracks.com/events/tour-de-force-2015">tour -de-force</a> which mimics the official route as much as is possible.</p>
 
+<p>Adam, Laurent and Arnaud each put together a little bit of javascript to show their approach for visualising the stages.</p>
 
-                <p><a href="/fr/2015/12/22/Leaflet-intro">[Continuer la lecture]</a></p>
-            </div>
+<ul>
+  <li>
+    <p>Adam used <a href="https://github.com/tmcw">Tom McWright’s</a> <a href="https://github.com/mapbox/running-map-example">running-map-example</a> as a starting point. Check out his Tour de France version here: <a href="http://abenrob.com/tdf-maptime/#1">tdf-maptime</a></p>
+  </li>
+  <li>
+    <p>Arnaud used leaflet GPX and elevation profile plugins to present his version:  <a href="http://maptime-alpes.com/tour-de-france-2015/visu/gpx-and-elevation/">gpx-and-elevation</a></p>
+  </li>
+  <li>
+    <p>Laurent dressed up his visualisation with information about each stage:  <a href="http://maptime-alpes.com/tour-de-france-2015/visu/gpx-elevation-and-custom-js/">gpx-elevation-and-custom-js</a></p>
+  </li>
+</ul>
+
+<p><img src="https://raw.githubusercontent.com/MaptimeAlpes/tour-de-france-2015/master/visu/gpx-elevation-and-custom-js/preview.png" alt="laurent preview" /></p>
+
+<p>One of the goals of the workshop was to take the data we had found, and try them out using different tools. Three of the tools we set out to use were:</p>
+
+<ul>
+  <li>
+    <p><a href="https://cartodb.com/">cartodb</a> with <a href="http://cartodb.github.io/odyssey.js/">odyssey</a></p>
+  </li>
+  <li>
+    <p><a href="http://arcgis.com">arcgis</a> with <a href="http://storymaps.arcgis.com/">storymaps</a></p>
+  </li>
+  <li>
+    <p><a href="umap.openstreetmap.fr">umap</a></p>
+  </li>
+</ul>
+
+<h4 id="cartodb">CartoDB</h4>
+<p>Adam started working with cartodb/odyssey. His concustion was that this combo was not really ready for primetime - cartodb is solid, but the integration with odyssey was demonstrative at best.</p>
+
+<h4 id="storymaps">Storymaps</h4>
+<p>Arnaud built his first storymap using arcgis.com, with the following results: <a href="http://arcg.is/1glDZs1">http://arcg.is/1glDZs1</a>. Though it is not necessary to have a paid account to make a storymap, or to explore the possibilities of the arcgis.com platform, creating a developer account does allow you 50 credits a month to leverage against paid features of the platform. Developer accounts can be created at  <a href="https://developers.arcgis.com">developers.arcgis.com</a></p>
+
+<p>To start an app using the same data, you can find the uploaded data  <a href="http://d8esrifrance.maps.arcgis.com/home/item.html?id=2bb274896a75435286e1e27f143a2718">here</a></p>
+
+<h4 id="umap">uMap</h4>
+<p>Without Guillaume’s presence, we lacked a verifiable uMap pro… We decided to hold off on uMap until a future workshop.</p>
+
+<h4 id="various">Various</h4>
+<p>Thomas found an interesting application which allows one to load GPX data and follow the route in 3d. Check it out <a href="http://www.doarama.com/">http://www.doarama.com/</a></p>
+
+<p>Jérôme showed some of his work on a bicycle route sharing app. Really nice example of French R&amp;D!</p>
+
+<h4 id="the-winners-cup">The winner’s cup</h4>
+<p>We celebrated our Tour victory with pints at a local pub…
+Next month, we’ll be focusing on planning out the things we want to learn over the next year of #maptime.</p>
+
+            <div class="spacing"></div>
         </div>
         
-        
-        <! -- Blog Post -->
-        <div class="recent-post row">
-            <div class="col-sm-3">
-                <a href="/fr/2015/11/19/GIS-Day"><img src="/assets/img/blog/thumbs/GIS_Day.png" alt="Recent Post"></a>
-            </div>
-            <div class="col-sm-9">
-                <a href="/fr/2015/11/19/GIS-Day"><h3 class="ctitle">GIS Day 2015</h3></a>
-                <p><csmall>
-                
-19 November, 2015
- par <a href="http://www.github.com/paul desgranges" target="_blank">paul desgranges</a>
-
-                </csmall></p>
-                <h2 id="gis-day-2015">GIS Day 2015</h2>
-<p>Le 3iéme Mercredi de Novembre, c’est le <a href="http://www.gisday.com/">GIS Day</a></p>
 
 
-                <p><a href="/fr/2015/11/19/GIS-Day">[Continuer la lecture]</a></p>
-            </div>
-        </div>
-        
-        
-        <! -- Blog Post -->
-        <div class="recent-post row">
-            <div class="col-sm-3">
-                <a href="/fr/2015/10/28/MissingMaps"><img src="/assets/img/blog/thumbs/hotosm_afgha.png" alt="Recent Post"></a>
-            </div>
-            <div class="col-sm-9">
-                <a href="/fr/2015/10/28/MissingMaps"><h3 class="ctitle">Missing maps</h3></a>
-                <p><csmall>
-                
-28 October, 2015
- par <a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
-
-                </csmall></p>
-                <h2 id="maptime-alpes--missing-maps-mapathon">Maptime-Alpes + Missing Maps Mapathon</h2>
-<p>Soirée missing maps</p>
+<div class="col-md-4">
+    
 
 
-                <p><a href="/fr/2015/10/28/MissingMaps">[Continuer la lecture]</a></p>
-            </div>
-        </div>
-        
-        </div>
+
+
+<h4>Social links</h4>
+<div class="hline"></div>
+<p>
+    
+        <a href="https://twitter.com/MaptimeAlpes" class="btn-social btn-outline"><i class="icon-twitter"></i></a>
+    
+        <a href="https://github.com/MaptimeAlpes" class="btn-social btn-outline"><i class="icon-github"></i></a>
+    
+        <a href="http://www.meetup.com/MaptimeAlpes/" class="btn-social btn-outline"><i class="icon-meetup"></i></a>
+    
+</p>
+    <h4>Recent posts</h4>
+    <div class="hline"></div>
+        <ul class="popular-posts">
+            
+            
+                <li>
+                    <a href="/en/2015/12/22/Leaflet-intro"><img src="/assets/img/blog/thumbs/leaflet-intro.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/12/22/Leaflet-intro">Leaflet Intro</a></p>
+                <em>
+                    Posted on
+                    
+                        22 December 2015
+                    
+                </em>
+                </li>
+            
+                <li>
+                    <a href="/en/2015/11/19/GIS-Day"><img src="/assets/img/blog/thumbs/GIS_Day.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/11/19/GIS-Day">GIS Day 2015</a></p>
+                <em>
+                    Posted on
+                    
+                        19 November 2015
+                    
+                </em>
+                </li>
+            
+                <li>
+                    <a href="/en/2015/10/28/MissingMaps"><img src="/assets/img/blog/thumbs/hotosm_afgha.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/10/28/MissingMaps">Missing maps</a></p>
+                <em>
+                    Posted on
+                    
+                        28 October 2015
+                    
+                </em>
+                </li>
+             
+        </ul>
+
+    <div class="spacing"></div>
+</div>
     </div>
 </div>
-
-
 
         
 
@@ -206,7 +255,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h4>À propos</h4>
+                <h4>About</h4>
                 <div class="hline-w"></div>
                 <p>We make maps in the Alps. On fait de la cartographie dans les Alpes!</p>
             </div>
@@ -216,7 +265,7 @@
 
 
 
-<h4>Réseaux sociaux</h4>
+<h4>Social links</h4>
 <div class="hline-w"></div>
 <p>
     
@@ -252,7 +301,7 @@
 	_gaq.push(['_setCustomVar',
       1,
       'Locale',
-      'fr',
+      'en',
       3                    // Sets the scope to page-level.  Optional parameter.
    ]);
 

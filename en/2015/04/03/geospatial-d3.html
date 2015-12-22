@@ -20,7 +20,7 @@
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png" />
 
-    <title>MaptimeAlpes - Accueil</title>
+    <title>MaptimeAlpes - Geospatial D3.js Workshop</title>
 
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -64,20 +64,20 @@
     <div class="navbar-collapse collapse navbar-right">
       <ul class="nav navbar-nav">
         
-        <li class="active">
-          <a href="/">Accueil</a>
+        <li>
+          <a href="/en/">Home</a>
         </li>
         
         <li>
-          <a href="/fr/blog/">Blog</a>
+          <a href="/en/blog/">Blog</a>
         </li>
         
         <li>
-          <a href="/fr/ateliers/">Ateliers</a>
+          <a href="/en/workshops/">Workshops</a>
         </li>
         
         <li>
-          <a href="/fr/apropos/">À propos</a>
+          <a href="/en/about/">About</a>
         </li>
         
         <li>
@@ -104,101 +104,105 @@
 
         
 
-
-
-<div id="headerwrap">
-    <div class="container map-banner">
-        <div class="header-text-block col-md-6 col-md-offset-3">
-            <h1>Bienvenue chez Maptime Alpes !</h1>
-            <h5>Rejoins le club des fans de cartographie </h5>
+<div id="miniheaderwrap" >
+    <div class="mini-map-banner">
+    	<div class="container">
+        	<div class="pull-left mini-text-block">
+            	<h3 id="page-title" class="pull-left">Geospatial D3.js Workshop</h3>
+            </div>
         </div>
     </div>
 </div>
 
-
-
-
-
-<div class="centered recent-activity">
-    <h4>VOICI CE QU'ON T'A PRÉPARÉ :</h4>
-</div>
-<div class="container">
+<div class="container mtb">
     <div class="row">
-        <! -- BLOG POSTS LIST -->
-        <div class="col-md-10 col-md-offset-1">
-        
-        
-        
-        <! -- Blog Post -->
-        <div class="recent-post row">
-            <div class="col-sm-3">
-                <a href="/fr/2015/12/22/Leaflet-intro"><img src="/assets/img/blog/thumbs/leaflet-intro.png" alt="Recent Post"></a>
-            </div>
-            <div class="col-sm-9">
-                <a href="/fr/2015/12/22/Leaflet-intro"><h3 class="ctitle">Leaflet Intro</h3></a>
-                <p><csmall>
-                
-22 December, 2015
- par <a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
+        <! -- SINGLE POST -->
+        <div class="col-md-8">
+            <! -- Blog Post  -->
+            <p><img class="img-responsive" src="/assets/img/blog/april_mtg.png"></p>
+            <a href="/en/2015/04/03/geospatial-d3"><h3 class="ctitle">Geospatial D3.js Workshop</h3></a>
+            <p><csmall>
+            
+03 April, 2015
+ by <a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
 
-                </csmall></p>
-                <h2 id="introduction--leaflet">Introduction à Leaflet</h2>
-<p>Après reboot, la présentation d’une webmap, c’est autour de Leaflet de revenir pour une nouvelle session maptime</p>
+            </csmall></p>
+            <h4 id="d3js-does-maps">D3js does maps!</h4>
+<p>After the great presentation on <a href="http://www.meetup.com/MaptimeAlpes/events/221185352/">d3js for spatio-temporal visualizations</a>, we wanted to keep the momentum going and dive in with a hands-on d3 workshop. Since this is Maptime-Alpes, not Charttime-Alpes, we focused primarily on the geographic capabilities of d3.
+<!--more--></p>
 
+<p>Never ones to shy away from help, we borrowed heavily from <a href="http://maptimesea.github.io/2015/01/07/d3-mapping.html">MaptimeSea</a> and <a href="http://www.maori.geek.nz/post/d3_js_geo_fun">maori.geek</a>, as they had both done some great work on making d3 geospatial <em>accessible</em>, which is one of the primary hurdles in d3.</p>
 
-                <p><a href="/fr/2015/12/22/Leaflet-intro">[Continuer la lecture]</a></p>
-            </div>
+<p>We did a review on the d3 components: Documents, Data, &amp; Driven (by data), and then dove in with a simple <a href="/en/2015/04/02/d3-geospatial">tutorial</a> and left time at the end to try and do some challenges to expand on what we had just learned.</p>
+
+<p>Check out the <a href="/en/2015/04/02/d3-geospatial">tutorial</a> if you weren’t able to attend the meeting, and see you <a href="http://www.meetup.com/MaptimeAlpes/events/222128203/">next meeting</a> for OSM humaritarian mapping!</p>
+
+            <div class="spacing"></div>
         </div>
         
-        
-        <! -- Blog Post -->
-        <div class="recent-post row">
-            <div class="col-sm-3">
-                <a href="/fr/2015/11/19/GIS-Day"><img src="/assets/img/blog/thumbs/GIS_Day.png" alt="Recent Post"></a>
-            </div>
-            <div class="col-sm-9">
-                <a href="/fr/2015/11/19/GIS-Day"><h3 class="ctitle">GIS Day 2015</h3></a>
-                <p><csmall>
-                
-19 November, 2015
- par <a href="http://www.github.com/paul desgranges" target="_blank">paul desgranges</a>
-
-                </csmall></p>
-                <h2 id="gis-day-2015">GIS Day 2015</h2>
-<p>Le 3iéme Mercredi de Novembre, c’est le <a href="http://www.gisday.com/">GIS Day</a></p>
 
 
-                <p><a href="/fr/2015/11/19/GIS-Day">[Continuer la lecture]</a></p>
-            </div>
-        </div>
-        
-        
-        <! -- Blog Post -->
-        <div class="recent-post row">
-            <div class="col-sm-3">
-                <a href="/fr/2015/10/28/MissingMaps"><img src="/assets/img/blog/thumbs/hotosm_afgha.png" alt="Recent Post"></a>
-            </div>
-            <div class="col-sm-9">
-                <a href="/fr/2015/10/28/MissingMaps"><h3 class="ctitle">Missing maps</h3></a>
-                <p><csmall>
-                
-28 October, 2015
- par <a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
-
-                </csmall></p>
-                <h2 id="maptime-alpes--missing-maps-mapathon">Maptime-Alpes + Missing Maps Mapathon</h2>
-<p>Soirée missing maps</p>
+<div class="col-md-4">
+    
 
 
-                <p><a href="/fr/2015/10/28/MissingMaps">[Continuer la lecture]</a></p>
-            </div>
-        </div>
-        
-        </div>
+
+
+<h4>Social links</h4>
+<div class="hline"></div>
+<p>
+    
+        <a href="https://twitter.com/MaptimeAlpes" class="btn-social btn-outline"><i class="icon-twitter"></i></a>
+    
+        <a href="https://github.com/MaptimeAlpes" class="btn-social btn-outline"><i class="icon-github"></i></a>
+    
+        <a href="http://www.meetup.com/MaptimeAlpes/" class="btn-social btn-outline"><i class="icon-meetup"></i></a>
+    
+</p>
+    <h4>Recent posts</h4>
+    <div class="hline"></div>
+        <ul class="popular-posts">
+            
+            
+                <li>
+                    <a href="/en/2015/12/22/Leaflet-intro"><img src="/assets/img/blog/thumbs/leaflet-intro.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/12/22/Leaflet-intro">Leaflet Intro</a></p>
+                <em>
+                    Posted on
+                    
+                        22 December 2015
+                    
+                </em>
+                </li>
+            
+                <li>
+                    <a href="/en/2015/11/19/GIS-Day"><img src="/assets/img/blog/thumbs/GIS_Day.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/11/19/GIS-Day">GIS Day 2015</a></p>
+                <em>
+                    Posted on
+                    
+                        19 November 2015
+                    
+                </em>
+                </li>
+            
+                <li>
+                    <a href="/en/2015/10/28/MissingMaps"><img src="/assets/img/blog/thumbs/hotosm_afgha.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/10/28/MissingMaps">Missing maps</a></p>
+                <em>
+                    Posted on
+                    
+                        28 October 2015
+                    
+                </em>
+                </li>
+             
+        </ul>
+
+    <div class="spacing"></div>
+</div>
     </div>
 </div>
-
-
 
         
 
@@ -206,7 +210,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h4>À propos</h4>
+                <h4>About</h4>
                 <div class="hline-w"></div>
                 <p>We make maps in the Alps. On fait de la cartographie dans les Alpes!</p>
             </div>
@@ -216,7 +220,7 @@
 
 
 
-<h4>Réseaux sociaux</h4>
+<h4>Social links</h4>
 <div class="hline-w"></div>
 <p>
     
@@ -252,7 +256,7 @@
 	_gaq.push(['_setCustomVar',
       1,
       'Locale',
-      'fr',
+      'en',
       3                    // Sets the scope to page-level.  Optional parameter.
    ]);
 
