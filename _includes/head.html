@@ -23,6 +23,8 @@
     <link href="{{ "/assets/css/fontcustom/fontcustom.css" | prepend: site.baseurl }}" rel="stylesheet">
     {% if page.posttype == 'tutorial' %}
     <link href="{{ "/assets/css/prism.css" | prepend: site.baseurl }}" rel="stylesheet">
+    <link rel="stylesheet" href="https://rawgit.com/lmenezes/json-tree/master/dist/css/jsontree.css" />
+    <script src="https://rawgit.com/lmenezes/json-tree/master/dist/js/jsontree.min.js"></script>
     {% endif %}
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -33,4 +35,5 @@
 
     <script src="{{ "/assets/js/modernizr.js" | prepend: site.baseurl }}"></script>
     <script src="{{ "/assets/js/prism.js" | prepend: site.baseurl }}"></script>
+    {% include js.html %}
 </head>
