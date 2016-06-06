@@ -27,6 +27,8 @@
     <link href="/assets/css/fontcustom/fontcustom.css" rel="stylesheet">
     
     <link href="/assets/css/prism.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://rawgit.com/lmenezes/json-tree/master/dist/css/jsontree.css" />
+    <script src="https://rawgit.com/lmenezes/json-tree/master/dist/js/jsontree.min.js"></script>
     
 
     <!-- HTML5 shim and Respond.js IE8 support of HTML5 elements and media queries -->
@@ -37,6 +39,41 @@
 
     <script src="/assets/js/modernizr.js"></script>
     <script src="/assets/js/prism.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55615382-1', 'auto');
+  ga('send', 'pageview');
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-55615382-1']);
+
+	// set custom variables
+	_gaq.push(['_setCustomVar',
+      1,
+      'Locale',
+      'en',
+      3                    // Sets the scope to page-level.  Optional parameter.
+   ]);
+
+	// track page view
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+
 </head>
 
     <body>
@@ -200,7 +237,6 @@ var map = L.mapbox.map('map', 'mapbox.streets')
 <!-- end codepen embed -->
 
 <h1 id="geolocation">Geolocation</h1>
-
 <p>Geolocation allows us to get the user’s location (in geographic coordinates) and is part of the HTML5 spec. Since we need a starting point for our route, we are going to play with geolocation in the process.</p>
 
 <p>The geolocation object is a part of the browser’s navigator object. Most modern browsers support geolocation, but Chrome 50+ (and probably all the others as well) no longer support it from unsecure origins. That means a public website without SSL (HTTP not HTTPS) can not use geolocation in chrome 50+. Luckily for us, Firefox still supports it, and localhost is a secure origin, so the demo should work locally, even in chrome.</p>
@@ -210,6 +246,10 @@ var map = L.mapbox.map('map', 'mapbox.streets')
 <pre><code class="language-javascript">// define global variables
 var pos = [];
 var posMarker;
+var addressPos = [];
+var addressMarker;
+var bikeRouteMM;
+var bikeRouteII;
 
 // function for successful geolocation
 function geoSuccess(position) {
@@ -250,13 +290,140 @@ function getUserLocation() {
 getUserLocation();
 </code></pre>
 
+<p>Something to notice is the use of callback functions (geoSuccess and geoError in this case). Functions in javascript can be either <em>synchronous</em> or <em>asynchronous</em>. <em>Synchronous</em> functions finish running before allowing the script to move on to the next step. That is fine for many things, as the time to run many functions is unnoticeable. For longer functions (especially those that need to <em>go get data</em>), we don’t want the application to finish getting all the data before moving on. We want to tell the app to get the data, and tell it what to do when the data are successfully received. This patten is called <em>asynchronous</em>.</p>
+
 <p>And the results again (try firefox, chrome 50+ will no longer function…)</p>
 
 <!-- codepen embed -->
 <p data-height="500" data-theme-id="0" data-slug-hash="pbJYZK" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
 <!-- end codepen embed -->
 
-<h1 id="tips">Tips</h1>
+<h1 id="apis">APIs</h1>
+<p>An API (Application Programming Interface) is a set of instructions that can be used to tell an application what to do. Recently, API is frequently used to describe a set of routes that can be accessed to get, update or put data from remote sources. In our case, we are only interested in getting data (Addresses and Routes) and in <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> (javascript object notation) format, which is an human-readable data structure which is easy to use and parse in javascript applications.</p>
+
+<p>To access these remote data sources, we are going to use <a href="https://jquery.com/">jQuery</a>, a javascript helper library which is useful for document traversal, user event handling, and data access via <a href="https://en.wikipedia.org/wiki/Ajax_(programming)">Ajax</a> (asynchronous javascript and xml, although we use it for JSON as well). jQuery has a json-specific helper-class called <a href="http://api.jquery.com/jquery.getjson/">getJSON</a> which we will use to get our data. A basic getJSON pattern is written like this:</p>
+
+<pre><code class="language-javascript">$.getJSON( 'url/to/my/data/', function( json ) {
+  // this part is the asynchronous callback
+  console.log('Look, I got this new data: ' + json.dataname);
+ });
+</code></pre>
+
+<h1 id="addresses">Addresses</h1>
+<p>In order to create a route, we need two points: start and end. We have the start (our geolocation), and for the end, we are going to use <a href="https://adresse.data.gouv.fr/">BAN</a> (la Base Addresse National Française).</p>
+
+<p>We are going to use the getJSON function, and log the results to the console sp we can explore them. (Feel free to delete the “getUserLocation();” line in script.js - we’ll use it later.)</p>
+
+<p>Add jQuery to index.html, right after the style.css reference</p>
+
+<pre><code class="language-markdown">&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js'&gt;&lt;/script&gt;
+</code></pre>
+
+<p>Relead your page, then open the console <a href="http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers">see this SO question for help</a>.</p>
+
+<p>Paste this in the console, and hit enter.</p>
+
+<pre><code class="language-javascript">$.getJSON('https://api-adresse.data.gouv.fr/search/?q=31 rue gustave eiffel', function (data) {
+  console.log(data);
+});
+</code></pre>
+
+<p>We can see the results here (each “feature” is a found address):</p>
+
+<!-- json embed -->
+<div id="json1" class="well"></div>
+<script>$(window).bind("load", function() {
+  $.getJSON('https://api-adresse.data.gouv.fr/search/?q=31 rue gustave eiffel', function (data) {
+    document.getElementById("json1").innerHTML = JSONTree.create(data);
+  });
+});</script>
+
+<!-- end json embed -->
+
+<p>The BAN API allows us to provide locational precision to our results, so we are returned the nearest matches first. Try the same console code from before (press the up arrow when in the console to access previous commands), but add latitude,longitude to the end of the request url like so: <code>&amp;lat=45.186502&amp;lon=5.736339</code>. Notice how the Grenoble result moves to first place?</p>
+
+<p>Let’s build a function to put a point on the map for a found address.</p>
+
+<p>Add to script.js:</p>
+
+<pre><code class="language-javascript">// get address from BAN database https://adresse.data.gouv.fr/api/
+function getBanAddressCoords(q, lat, lon, callback) {
+  // build uri for ban data
+  var uri = 'https://api-adresse.data.gouv.fr/search/?q=' + q;
+  if (lat &amp;&amp; lon) { uri = uri + '&amp;lat=' + lat + '&amp;lon=' + lon; };
+
+  $.getJSON(uri, function (data) {
+    // grab the first address (feature);
+    var coords = data.features[0].geometry.coordinates;
+
+    // remove marker from map if it exists
+    if (addressMarker) {map.removeLayer(addressMarker);};
+
+    addressPos = [coords[1], coords[0]];
+
+    // create a new mapbox marker for our position, add it to the map
+    addressMarker = L.marker(addressPos, {
+      icon: L.mapbox.marker.icon({
+        'marker-size': 'large',
+        'marker-symbol': 'rocket',
+        'marker-color': '#66ccff',
+      }),
+    }).addTo(map);
+
+    if (pos.length &gt; 0) {
+      // we have a position, use it to zoom to both points
+      var group = new L.featureGroup([posMarker, addressMarker]);
+      map.fitBounds(group.getBounds().pad(0.5));
+    } else {
+      // no position, just pan to new point
+      map.panTo(addressPos);
+    }
+
+    callback();
+  });
+};
+
+getBanAddressCoords('31 rue gustave eiffel', 45.186502, 5.736339, function () {
+  console.log('point added');
+});
+</code></pre>
+
+<p>And the results again:</p>
+
+<!-- codepen embed -->
+<p data-height="500" data-theme-id="0" data-slug-hash="EyVjbb" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
+<!-- end codepen embed -->
+
+<h1 id="routes">Routes</h1>
+<p>Now that we know how to get our start and end points, we can explore the routing APIs.</p>
+
+<h2 id="mtromobilit">Métromobilité</h2>
+<p>The <a href="http://www.metromobilite.fr/pages/opendata/OpenDataApi.html">Métromobilité API</a> has a resource called <a href="http://www.metromobilite.fr/pages/opendata/OpenDataApi.html#Otp">Horaires OTP</a>, which uses <a href="http://www.opentripplanner.org/">OpenTripPlanner</a> to provide multimodal route-finding based on their data. To get a bike route, we need only provide start coordinates, end coordinates and mode, which in our case is ‘BICYCLE’.</p>
+
+<p>Let’s try it out. Paste this in the console, and hit enter.</p>
+
+<pre><code class="language-javascript">$.getJSON('http://data.metromobilite.fr/otp/routers/default/plan?mode=BICYCLE&amp;fromPlace=45.1836656,5.703573&amp;toPlace=45.195926,5.735935', function (data) {
+  console.log(data);
+});
+</code></pre>
+
+<p>We can see the results here:</p>
+
+<!-- json embed -->
+<div id="json2" class="well"></div>
+<script>$(window).bind("load", function() {
+  $.getJSON('http://data.metromobilite.fr/otp/routers/default/plan?mode=BICYCLE&fromPlace=45.1836656,5.703573&toPlace=45.195926,5.735935', function (data) {
+    document.getElementById("json2").innerHTML = JSONTree.create(data);
+  });
+});</script>
+
+<!-- end json embed -->
+
+<h2 id="ininisre">IninIsère</h2>
+
+<h1 id="app-build">App Build</h1>
+
+<h1 id="resources">Resources</h1>
 
 <ul>
   <li>The learning curve can be pretty steep. Stay positive</li>
@@ -365,45 +532,5 @@ getUserLocation();
     </div>
 </div>
 
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-55615382-1', 'auto');
-  ga('send', 'pageview');
-
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-55615382-1']);
-
-	// set custom variables
-	_gaq.push(['_setCustomVar',
-      1,
-      'Locale',
-      'en',
-      3                    // Sets the scope to page-level.  Optional parameter.
-   ]);
-
-	// track page view
-	_gaq.push(['_trackPageview']);
-
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-</script>
-
-<script>
-!function(d,s,id){
-	var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s); js.id=id;js.async=true;js.src="https://a248.e.akamai.net/secure.meetupstatic.com/s/script/541522619002077648/api/mu.btns.js?id=7mne7asu2b3mogbtcckibuio6d";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","mu-bootjs");
-// put anchor snippet in post
-//<a href="http://www.meetup.com/MaptimeAlpes/events/222341190/" data-event="222341190" class="mu-rsvp-btn">RSVP</a>
-</script>
     </body>
 </html>
