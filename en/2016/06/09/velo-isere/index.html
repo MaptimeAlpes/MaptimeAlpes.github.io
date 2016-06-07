@@ -331,8 +331,9 @@ getUserLocation();
 <p>We can see the results here (each “feature” is a found address):</p>
 
 <!-- json embed -->
-<div id="json1" class="well"></div>
-<script>$(window).bind("load", function() {
+<div id="getJson1" class="btn btn-sm btn-primary">get JSON</div>
+<div id="json1" class="well json-block"></div>
+<script>$('#getJson1').click(function() {
   $.getJSON('https://api-adresse.data.gouv.fr/search/?q=31 rue gustave eiffel', function (data) {
     document.getElementById("json1").innerHTML = JSONTree.create(data);
   });
@@ -402,16 +403,18 @@ getBanAddressCoords('31 rue gustave eiffel', 45.186502, 5.736339, function () {
 
 <p>Let’s try it out. Paste this in the console, and hit enter.</p>
 
-<pre><code class="language-javascript">$.getJSON('http://data.metromobilite.fr/otp/routers/default/plan?mode=BICYCLE&amp;fromPlace=45.1836656,5.703573&amp;toPlace=45.195926,5.735935', function (data) {
-  console.log(data);
+<pre><code class="language-javascript">var results;
+$.getJSON('http://data.metromobilite.fr/otp/routers/default/plan?mode=BICYCLE&amp;fromPlace=45.1836656,5.703573&amp;toPlace=45.195926,5.735935', function (data) {
+  console.log(data);results = data;
 });
 </code></pre>
 
-<p>We can see the results here:</p>
+<p>We can see the results here (the routes are in plan.itineraries):</p>
 
 <!-- json embed -->
-<div id="json2" class="well"></div>
-<script>$(window).bind("load", function() {
+<div id="getJson2" class="btn btn-sm btn-primary">get JSON</div>
+<div id="json2" class="well json-block"></div>
+<script>$('#getJson2').click(function() {
   $.getJSON('http://data.metromobilite.fr/otp/routers/default/plan?mode=BICYCLE&fromPlace=45.1836656,5.703573&toPlace=45.195926,5.735935', function (data) {
     document.getElementById("json2").innerHTML = JSONTree.create(data);
   });
@@ -419,18 +422,290 @@ getBanAddressCoords('31 rue gustave eiffel', 45.186502, 5.736339, function () {
 
 <!-- end json embed -->
 
-<h2 id="ininisre">IninIsère</h2>
+<p>For the mapping exercise, we want the geometry of the trip. Since we assigned the returned data to the results variable, we can play with the data in the console. To see the route geometry, type <code>results.plan.itineraries[0].legs[0].legGeometry.points</code> in the console. We see an encoded string, which contains the geometry of the entire route. Also check out <code>results.plan.itineraries[0].legs[0].steps</code>. This provides coordinates and directions. Think how we could use this to message each part of the route to the user.</p>
+
+<p>Hold on, that geometry is nonsense! To make the route geometry useful, we’ll need to decode it. Mapbox created a helper library to do just that, called <a href="https://github.com/mapbox/polyline">polyline</a>.</p>
+
+<p>Add polyline to index.html, right after the jQuery reference</p>
+
+<pre><code class="language-markdown">&lt;script src='https://rawgithub.com/mapbox/polyline/master/src/polyline.js'&gt;&lt;/script&gt;
+</code></pre>
+
+<p>In script.js, you can remove the call to the address function for now. Add these functions to the bottom of the file now (Function to clear any routes from the map, function to create métromobilité route, call to route creator):</p>
+
+<pre><code class="language-javascript">// function to clear routes from map
+function clearRoutes() {
+  if (bikeRouteMM) {map.removeLayer(bikeRouteMM);};
+
+  if (bikeRouteII) {map.removeLayer(bikeRouteII);};
+};
+
+function getMetromobiliteRoute(fromPos, toPos, callback) {
+  clearRoutes();
+
+  // build uri for API
+  var uri = 'http://data.metromobilite.fr/otp/routers/default/plan' +
+            '?mode=BICYCLE&amp;fromPlace=' + fromPos + '&amp;toPlace=' + toPos;
+
+  $.getJSON(uri, function (data) {
+    // get all node points from first returned trip
+    var pts = data.plan.itineraries[0].legs[0].legGeometry.points;
+
+    //use mapbox.polyline to decode encoded polyline string
+    var decoded = polyline.decode(pts);
+
+    // create polyline, assign color, bind popup, add to map
+    bikeRouteMM = L.polyline(decoded, { color: '#21881c' }).bindPopup('Metromobilité').addTo(map);
+
+    callback();
+  });
+};
+
+getMetromobiliteRoute([45.1836656,5.703573], [45.195926,5.735935], function(){
+  console.log('route completed')
+});
+</code></pre>
+
+<p>And the results again:</p>
+
+<!-- codepen embed -->
+<p data-height="500" data-theme-id="0" data-slug-hash="gMamNd" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
+<!-- end codepen embed -->
+
+<h2 id="itinisre">ItinIsère</h2>
+<p>The <a href="http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservicesml">ItinIsère API</a> has a resource called <a href="http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices#!/journeyplanner/v2/BikeTripJsonGET_get_1">JourneyPlanner/v2/BikeTrip/json</a>, which we can use to get bike routes based on their data. To get a bike route, we need to provide start coordinates, end coordinates, start date, start time and algorithm. In our case, we will use the ‘FASTEST’ algorithm. ItinIsère requires an API key to use their API, which you can request in your profile. For this exercise, we can just use Maptime-Alpes’ key, but you should request your own for future development.</p>
+
+<p>Let’s try it out. Paste this in the console, and hit enter.</p>
+
+<pre><code class="language-javascript">var results;
+$.getJSON('http://www.itinisere.fr/webServices/TransinfoService/api/journeyplanner/v2/BikeTrip/json?DepLat=45.1837081&amp;DepLon=5.7035291&amp;ArrLat=45.195926&amp;ArrLon=5.735935&amp;Date=2016-06-07&amp;DepartureTime=10-48&amp;user_key=0016bf2ff47f630bab2e65bba954c091&amp;Algorithm=FASTEST&amp;callback&amp;callback=?', function (data) {
+  console.log(data);results = data;
+});
+</code></pre>
+
+<p>We can see the results here (the route segments are in trips.Trip[0].sections.Section[0].Leg.pathLinks.PathLink):</p>
+
+<!-- json embed -->
+<div id="getJson3" class="btn btn-sm btn-primary">get JSON</div>
+<div id="json3" class="well json-block"></div>
+<script>$('#getJson3').click(function() {
+  $.getJSON('http://www.itinisere.fr/webServices/TransinfoService/api/journeyplanner/v2/BikeTrip/json?DepLat=45.1837081&DepLon=5.7035291&ArrLat=45.195926&ArrLon=5.735935&Date=2016-06-07&DepartureTime=10-48&user_key=0016bf2ff47f630bab2e65bba954c091&Algorithm=FASTEST&callback&callback=?', function (data) {
+    document.getElementById("json3").innerHTML = JSONTree.create(data);
+  });
+});</script>
+
+<!-- end json embed -->
+
+<p>Again, for the mapping exercise, we want the geometry of the trip. To see the route geometry, type <code>results.trips.Trip[0].sections.Section[0].Leg.pathLinks.PathLink[0]</code> in the console. We see a “LINESTRING ()” string in the Geometry field, which contains the geometry of that specific segment of the route. We also have the directions for the segment, which could be used to communicate to the user.</p>
+
+<p>The Geometry are presented in <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT (Well-Known text)</a> format. To use in our map, we need to convert the WKT to a format the map can read. Mapbox (again) has created a helper library (<a href="https://github.com/mapbox/wellknown">wellknown</a>) to convert WKT to geoJSON, which we can then use or parse.</p>
+
+<p>The ItinIsère data will require a little bit more work to display on the map: we need to convert each segment’s WKT to geoJSON, but that would leave us with a feature for each segment, whereas we want a single line. Using javascript’s <em>map</em> and <em>reduce</em> functions, we can convert the wkt with <em>map</em>, combine all the segments to one line with <em>reduce</em> and then swap [longitude,latitude] to [latitude.longitude] with another <em>map</em>.</p>
+
+<p>First off, let’s include the wellknown library, by putting the reference under the polyline reference in index.html.</p>
+
+<pre><code class="language-markdown">&lt;script src='https://rawgithub.com/mapbox/wellknown/master/wellknown.js'&gt;&lt;/script&gt;
+</code></pre>
+
+<p>In script.js (you can remove the call to getMetromobiliteRoute() if you’d like) we will put this at the end of the file:</p>
+
+<pre><code class="language-javascript">function getItinisereRoute(fromPos, toPos, algorithm, callback) {
+  clearRoutes();
+
+  // get date elements to fill in date/time requirement of API
+  var d = new Date();
+  var dateString = d.toISOString().slice(0, 10);
+  var timeString = d.getHours() + '-' + (d.getMinutes() &lt; 10 ? '0' : '') + d.getMinutes();
+
+  // build uri for API
+  var uri = 'http://www.itinisere.fr/webServices/TransinfoService/api/journeyplanner/v2/' +
+            'BikeTrip/json?DepLat=' + fromPos[0] + '&amp;DepLon=' + fromPos[1] +
+            '&amp;ArrLat=' + toPos[0] + '&amp;ArrLon=' + toPos[1] +
+            '&amp;Date=' + dateString + '&amp;DepartureTime=' + timeString +
+            '&amp;user_key=0016bf2ff47f630bab2e65bba954c091&amp;Algorithm=' + algorithm + '&amp;callback=?';
+
+  $.getJSON(uri, function (data) {
+    // get links for first trip
+    var pathLinks = data.trips.Trip[0].sections.Section[0].Leg.pathLinks.PathLink;
+
+    // isolate geometry from WKT string
+    var linkCoords = pathLinks.map(function (link) {
+      return wellknown.parse(link.Geometry).coordinates;
+    });
+
+    // combine all legs into one line
+    var coords = linkCoords.reduce(function (a, b) {
+      return a.concat(b);
+    });
+
+    // swap long/lat to lat/log
+    var swappedCoords = coords.map(function (pair) {
+      return pair.reverse();
+    });
+
+    // create polyline, assign color, bind popup, add to map
+    bikeRouteII = L.polyline(swappedCoords, { color: '#044571' }).bindPopup('ItinIsère').addTo(map);
+
+    callback();
+  });
+};
+
+getItinisereRoute([45.1836656,5.703573], [45.195926,5.735935], 'FASTEST', function(){
+  console.log('route completed');
+})
+</code></pre>
+
+<p>And the results again:</p>
+
+<!-- codepen embed -->
+<p data-height="500" data-theme-id="0" data-slug-hash="EyVmEb" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
+<!-- end codepen embed -->
 
 <h1 id="app-build">App Build</h1>
 
-<h1 id="resources">Resources</h1>
+<p>All those parts are great, but we need to pull them together now… We will need to create buttons and inputs to trigger each of the steps: get location, get address, get métromobilité route, get itinisère route.</p>
 
-<ul>
-  <li>The learning curve can be pretty steep. Stay positive</li>
-  <li>Start simple, add complexity piece by piece</li>
-  <li>Refer to documentation/tutorials</li>
-  <li><strong>Cannibalize code</strong> wherever/whenever you can. Mapbox has great examples and most the code is freely accessible. See something you like? Take a look at how it’s done!</li>
-</ul>
+<p>We are going to use bootstrap to create a nice navbar, and put in buttons for each of the actions.</p>
+
+<p>Let’s reference the bootstrap libraries (we are going to use a pre-styled build of bootstrap, provided by <a href="https://bootswatch.com/">bootswatch</a>).</p>
+
+<p>Your &lt;head&gt; of index.html should look like this:</p>
+
+<pre><code class="language-markdown">&lt;head&gt;
+  &lt;meta charset=utf-8 /&gt;
+  &lt;title&gt;VéloIsère&lt;/title&gt;
+  &lt;meta name='viewport' content='initial-scale=1,maximum-scale=1,user-scalable=no' /&gt;
+  &lt;link href='https://maxcdn.bootstrapcdn.com/bootswatch/3.3.6/superhero/bootstrap.min.css' rel='stylesheet' /&gt;
+  &lt;link href='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.css' rel='stylesheet' /&gt;
+  &lt;link href='style.css' rel='stylesheet' /&gt;
+  &lt;script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js'&gt;&lt;/script&gt;
+  &lt;script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.3.6/js/bootstrap.min.js'&gt;&lt;/script&gt;
+  &lt;script src='https://rawgithub.com/mapbox/polyline/master/src/polyline.js'&gt;&lt;/script&gt;
+  &lt;script src='https://rawgithub.com/mapbox/wellknown/master/wellknown.js'&gt;&lt;/script&gt;
+  &lt;script src='https://api.mapbox.com/mapbox.js/v2.4.0/mapbox.js'&gt;&lt;/script&gt;
+&lt;/head&gt;
+</code></pre>
+
+<p>To add in the navbar and action buttons, replace your &lt;body&gt; block with this:</p>
+
+<pre><code class="language-markdown">&lt;body&gt;
+  &lt;div class="navbar navbar-default navbar-static-top"&gt;
+    &lt;div class="container"&gt;
+      &lt;div class="navbar-header"&gt;
+        &lt;div class="navbar-brand"&gt;
+          VéloIsère
+        &lt;/div&gt;
+
+        &lt;button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navHeaderCollapse"&gt;
+          &lt;span class="icon-bar"&gt;&lt;/span&gt;
+          &lt;span class="icon-bar"&gt;&lt;/span&gt;
+          &lt;span class="icon-bar"&gt;&lt;/span&gt;
+        &lt;/button&gt;
+      &lt;/div&gt;
+      &lt;div class="collapse navbar-collapse navHeaderCollapse"&gt;
+        &lt;ul class="nav navbar-nav navbar-right"&gt;
+          &lt;li&gt;&lt;button id="get_position" type="button" class="btn btn-primary"&gt;Get position&lt;/button&gt;&lt;/li&gt;
+          &lt;li&gt;&lt;form class="navbar-form" role="search"&gt;
+            &lt;div class="form-group"&gt;
+              &lt;input id="address_search" type="text" class="form-control" placeholder="Search"&gt;
+            &lt;/div&gt;
+            &lt;button id="get_address" class="btn btn-success" onclick="return false;"&gt;Get address&lt;/button&gt;
+          &lt;/form&gt;&lt;/li&gt;
+          &lt;li class="dropdown"&gt;
+            &lt;button id="route-menu" class="dropdown-toggle btn btn-info" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false" disabled&gt;Get route &lt;span class="caret"&gt;&lt;/span&gt;&lt;/button&gt;
+            &lt;ul class="dropdown-menu"&gt;
+              &lt;li&gt;&lt;button id="II-route" class="menu-btn btn btn-info"&gt;Itinisère&lt;/button&gt;&lt;/li&gt;
+              &lt;li&gt;&lt;button id="MM-route" class="menu-btn btn btn-info"&gt;Métromobilité&lt;/button&gt;&lt;/li&gt;
+            &lt;/ul&gt;
+          &lt;/li&gt;
+        &lt;/ul&gt;
+      &lt;/div&gt;
+    &lt;/div&gt;
+  &lt;/div&gt;
+
+  &lt;div id="map"&gt;&lt;/div&gt;
+  &lt;script src="script.js"&gt;&lt;/script&gt;
+&lt;/body&gt;
+</code></pre>
+
+<p>and your style.css file should now look like this:</p>
+
+<pre><code class="language-css">body {
+  margin: 0;
+  padding: 0;
+}
+.navbar {
+  z-index: 2000;
+}
+.menu-btn {
+  width: 100%;
+}
+#map {
+  position: absolute;
+  top: 41px;
+  bottom: 0;
+  width: 100%;
+}
+</code></pre>
+
+<p>To trigger actions, we are going to use jQuery’s ‘click’ binding. We tell the application that on click of a certain element, do something.</p>
+
+<pre><code class="language-javascript">$('#element_id').click(function () {
+  // do somrthing now!
+}
+</code></pre>
+
+<p>Add this to the bottom of your script.js file:</p>
+
+<pre><code class="language-javascript">// function to close mobile nav menu
+function closeNav() {
+  $('.navHeaderCollapse').collapse('hide');
+};
+
+// jQuery click actions
+// on get address click
+$('#get_address').click(function () {
+  // remove any routes
+  clearRoutes();
+
+  // get value of search box
+  var search = $('#address_search').val();
+
+  // call address function
+  getBanAddressCoords(search, pos[0] || 45.186502, pos[1] || 5.736339, function () {
+    $('#route-menu').prop('disabled', false);
+  });
+});
+
+// on get location button click
+$('#get_position').click(function () {
+  // remove any routes
+  clearRoutes();
+  getUserLocation();
+});
+
+// on dropdown select, get the route
+$('#MM-route').click(function () {
+  getMetromobiliteRoute(pos, addressPos, function () {
+    closeNav();
+  });
+});
+
+// on dropdown select, get the route
+$('#II-route').click(function () {
+  getItinisereRoute(pos, addressPos, 'FASTEST', function () {
+    closeNav();
+  });
+});
+</code></pre>
+
+<p>Now we have an app! (Try firefox to use the geolocation…)</p>
+
+<!-- codepen embed -->
+<p data-height="500" data-theme-id="0" data-slug-hash="rLOmQG" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
+<!-- end codepen embed -->
+
+<h2 id="fin-">Fin !</h2>
 
 </div>
 <script src="https://code.jquery.com/jquery-1.11.1.min.js" type="text/javascript"></script>
@@ -466,7 +741,7 @@ getBanAddressCoords('31 rue gustave eiffel', 45.186502, 5.736339, function () {
 	  });
 
 	  // click navigation anchors and animate scroll
-	  $('a').on('click', function(){
+	  $('a').on('click', function(event){
 	    if($(this).attr('href').indexOf('#')>-1) {
 	      event.preventDefault();
 	      var id = $(this).attr("href");
