@@ -20,7 +20,7 @@
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png" />
 
-    <title>MaptimeAlpes - Workshops</title>
+    <title>MaptimeAlpes - Tour de France 2015</title>
 
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -35,41 +35,6 @@
 
     <script src="/assets/js/modernizr.js"></script>
     <script src="/assets/js/prism.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-55615382-1', 'auto');
-  ga('send', 'pageview');
-
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-55615382-1']);
-
-	// set custom variables
-	_gaq.push(['_setCustomVar',
-      1,
-      'Locale',
-      'en',
-      3                    // Sets the scope to page-level.  Optional parameter.
-   ]);
-
-	// track page view
-	_gaq.push(['_trackPageview']);
-
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-</script>
-
-
 </head>
 
     <body>
@@ -107,7 +72,7 @@
           <a href="/en/blog/">Blog</a>
         </li>
         
-        <li class="active">
+        <li>
           <a href="/en/workshops/">Workshops</a>
         </li>
         
@@ -143,66 +108,82 @@
     <div class="mini-map-banner">
     	<div class="container">
         	<div class="pull-left mini-text-block">
-            	<h3 id="page-title" class="pull-left">Workshops</h3>
+            	<h3 id="page-title" class="pull-left">Tour de France 2015</h3>
             </div>
         </div>
     </div>
 </div>
 
-
-
-
-
-
 <div class="container mtb">
     <div class="row">
-
-        <! -- TUT POSTS LIST -->
+        <! -- SINGLE POST -->
         <div class="col-md-8">
-
+            <! -- Blog Post  -->
+            <p><img class="img-responsive" src="/assets/img/blog/tdf.png"></p>
+            <a href="/en/2015/07/07/Tour-de-France-2015"><h3 class="ctitle">Tour de France 2015</h3></a>
+            <p><csmall>
             
-            
-                
-                <! -- Blog Post -->
-                
-                <a href="/en/2016/06/09/velo-isere"><h3 class="ctitle">Vélo Isère</h3></a>
-                <p><csmall>
-                    
-09 June, 2016
- by <a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
+07 July, 2015
+ by <a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
 
-                </csmall></p>
-                <p>In this tutorial, we are going to explore the components of route-finding APIs, and build a simple application to find a bike route between two points. We are going to use html5 geolocation to pin-point our location, the <a href="https://adresse.data.gouv.fr/api/">BAN</a> database of french addresses to find our destination, and <a href="http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices">itinIsère</a> and <a href="http://www.metromobilite.fr/pages/opendata/OpenDataApi.html">métromobilité</a> to find the actual routes.</p>
+            </csmall></p>
+            <h4 id="tour-de-france-2015">Tour de France 2015</h4>
+<p>As it is the beginning of the Tour de France, we had the idea to make and share several maps of the route of this year’s Tour.
+<!--more-->
+We found this year’s route data in GPX format, which is the standard format of recreatoion-grade GPS receivers. The Github repo <a href="https://github.com/MaptimeAlpes/tour-de-france-2015">tour-de-france-2015</a> contains the stages in different formats. The data were sourced from <a href="http://www.mapmytracks.com/">MapMyTracks</a>, and as the ‘official’ route was not yet posted on their site, we used that of the <a href="https://www.mapmytracks.com/events/tour-de-force-2015">tour -de-force</a> which mimics the official route as much as is possible.</p>
 
+<p>Adam, Laurent and Arnaud each put together a little bit of javascript to show their approach for visualising the stages.</p>
 
-                <p><a href="/en/2016/06/09/velo-isere">[Read more]</a></p>
-                <div class="hline"></div>
+<ul>
+  <li>
+    <p>Adam used <a href="https://github.com/tmcw">Tom McWright’s</a> <a href="https://github.com/mapbox/running-map-example">running-map-example</a> as a starting point. Check out his Tour de France version here: <a href="http://abenrob.com/tdf-maptime/#1">tdf-maptime</a></p>
+  </li>
+  <li>
+    <p>Arnaud used leaflet GPX and elevation profile plugins to present his version:  <a href="http://maptime-alpes.com/tour-de-france-2015/visu/gpx-and-elevation/">gpx-and-elevation</a></p>
+  </li>
+  <li>
+    <p>Laurent dressed up his visualisation with information about each stage:  <a href="http://maptime-alpes.com/tour-de-france-2015/visu/gpx-elevation-and-custom-js/">gpx-elevation-and-custom-js</a></p>
+  </li>
+</ul>
 
-                <div class="spacing"></div>
-            
-                
-                <! -- Blog Post -->
-                
-                <a href="/en/2015/04/02/d3-geospatial"><h3 class="ctitle">d3 Geospatial</h3></a>
-                <p><csmall>
-                    
-02 April, 2015
- by <a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
+<p><img src="https://raw.githubusercontent.com/MaptimeAlpes/tour-de-france-2015/master/visu/gpx-elevation-and-custom-js/preview.png" alt="laurent preview" /></p>
 
-                </csmall></p>
-                <p>As a simple web search will tell you, <a href="http://d3js.org/">D3</a> is a data visualization library that runs like lightning in your web browser. You may hear <em>data visualization</em> and think <em>I don’t need a data viz lib, I make maps</em>. Well, maps run on data, plus D3 is actually pretty good with maps, so keep an open mind. You might also wonder why you would choose D3 over another library like <a href="http://leafletjs.com/">Leaflet.js</a>. The short answer is it really depends on your use case and the type of data you want to display. The long answer is this tutorial.</p>
+<p>One of the goals of the workshop was to take the data we had found, and try them out using different tools. Three of the tools we set out to use were:</p>
 
-<p>D3 stands for <strong>Data Driven Documents</strong>. We will unpack this title in three parts. First, we’ll take a look at <strong>Documents</strong>, then check out <strong>Data</strong> and finally explore <strong>Driven</strong>. By the time we dive into the meat and potatoes of the tutorial, you should have a pretty clear sense of how D3 relates to technology you’ve used in the past.</p>
+<ul>
+  <li>
+    <p><a href="https://cartodb.com/">cartodb</a> with <a href="http://cartodb.github.io/odyssey.js/">odyssey</a></p>
+  </li>
+  <li>
+    <p><a href="http://arcgis.com">arcgis</a> with <a href="http://storymaps.arcgis.com/">storymaps</a></p>
+  </li>
+  <li>
+    <p><a href="umap.openstreetmap.fr">umap</a></p>
+  </li>
+</ul>
 
+<h4 id="cartodb">CartoDB</h4>
+<p>Adam started working with cartodb/odyssey. His concustion was that this combo was not really ready for primetime - cartodb is solid, but the integration with odyssey was demonstrative at best.</p>
 
-                <p><a href="/en/2015/04/02/d3-geospatial">[Read more]</a></p>
-                <div class="hline"></div>
+<h4 id="storymaps">Storymaps</h4>
+<p>Arnaud built his first storymap using arcgis.com, with the following results: <a href="http://arcg.is/1glDZs1">http://arcg.is/1glDZs1</a>. Though it is not necessary to have a paid account to make a storymap, or to explore the possibilities of the arcgis.com platform, creating a developer account does allow you 50 credits a month to leverage against paid features of the platform. Developer accounts can be created at  <a href="https://developers.arcgis.com">developers.arcgis.com</a></p>
 
-                <div class="spacing"></div>
-            
+<p>To start an app using the same data, you can find the uploaded data  <a href="http://d8esrifrance.maps.arcgis.com/home/item.html?id=2bb274896a75435286e1e27f143a2718">here</a></p>
 
-        </div><! --/col-lg-8 -->
+<h4 id="umap">uMap</h4>
+<p>Without Guillaume’s presence, we lacked a verifiable uMap pro… We decided to hold off on uMap until a future workshop.</p>
 
+<h4 id="various">Various</h4>
+<p>Thomas found an interesting application which allows one to load GPX data and follow the route in 3d. Check it out <a href="http://www.doarama.com/">http://www.doarama.com/</a></p>
+
+<p>Jérôme showed some of his work on a bicycle route sharing app. Really nice example of French R&amp;D!</p>
+
+<h4 id="the-winners-cup">The winner’s cup</h4>
+<p>We celebrated our Tour victory with pints at a local pub…
+Next month, we’ll be focusing on planning out the things we want to learn over the next year of #maptime.</p>
+
+            <div class="spacing"></div>
+        </div>
         
 
 
@@ -265,10 +246,8 @@
 
     <div class="spacing"></div>
 </div>
-
-    </div><! --/row -->
-</div><! --/container -->
-
+    </div>
+</div>
 
         
 
@@ -302,5 +281,45 @@
     </div>
 </div>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55615382-1', 'auto');
+  ga('send', 'pageview');
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-55615382-1']);
+
+	// set custom variables
+	_gaq.push(['_setCustomVar',
+      1,
+      'Locale',
+      'en',
+      3                    // Sets the scope to page-level.  Optional parameter.
+   ]);
+
+	// track page view
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<script>
+!function(d,s,id){
+	var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s); js.id=id;js.async=true;js.src="https://a248.e.akamai.net/secure.meetupstatic.com/s/script/541522619002077648/api/mu.btns.js?id=7mne7asu2b3mogbtcckibuio6d";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","mu-bootjs");
+// put anchor snippet in post
+//<a href="http://www.meetup.com/MaptimeAlpes/events/222341190/" data-event="222341190" class="mu-rsvp-btn">RSVP</a>
+</script>
     </body>
 </html>

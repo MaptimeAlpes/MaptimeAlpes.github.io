@@ -20,7 +20,7 @@
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png" />
 
-    <title>MaptimeAlpes - Ateliers</title>
+    <title>MaptimeAlpes - GIS Day 2015</title>
 
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -35,41 +35,6 @@
 
     <script src="/assets/js/modernizr.js"></script>
     <script src="/assets/js/prism.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-55615382-1', 'auto');
-  ga('send', 'pageview');
-
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-55615382-1']);
-
-	// set custom variables
-	_gaq.push(['_setCustomVar',
-      1,
-      'Locale',
-      'fr',
-      3                    // Sets the scope to page-level.  Optional parameter.
-   ]);
-
-	// track page view
-	_gaq.push(['_trackPageview']);
-
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-</script>
-
-
 </head>
 
     <body>
@@ -100,19 +65,19 @@
       <ul class="nav navbar-nav">
         
         <li>
-          <a href="/">Accueil</a>
+          <a href="/en/">Home</a>
         </li>
         
         <li>
-          <a href="/fr/blog/">Blog</a>
-        </li>
-        
-        <li class="active">
-          <a href="/fr/ateliers/">Ateliers</a>
+          <a href="/en/blog/">Blog</a>
         </li>
         
         <li>
-          <a href="/fr/apropos/">À propos</a>
+          <a href="/en/workshops/">Workshops</a>
+        </li>
+        
+        <li>
+          <a href="/en/about/">About</a>
         </li>
         
         <li>
@@ -143,66 +108,53 @@
     <div class="mini-map-banner">
     	<div class="container">
         	<div class="pull-left mini-text-block">
-            	<h3 id="page-title" class="pull-left">Ateliers</h3>
+            	<h3 id="page-title" class="pull-left">GIS Day 2015</h3>
             </div>
         </div>
     </div>
 </div>
 
-
-
-
-
-
 <div class="container mtb">
     <div class="row">
-
-        <! -- TUT POSTS LIST -->
+        <! -- SINGLE POST -->
         <div class="col-md-8">
-
+            <! -- Blog Post  -->
+            <p><img class="img-responsive" src="/assets/img/blog/maptimealpes-gisday.jpg"></p>
+            <a href="/en/2015/11/19/GIS-Day"><h3 class="ctitle">GIS Day 2015</h3></a>
+            <p><csmall>
             
-            
-                
-                <! -- Blog Post -->
-                
-                <a href="/fr/2015/04/04/leaflet-first-webmap"><h3 class="ctitle">Créer une carte avec leaflet</h3></a>
-                <p><csmall>
-                    
-04 April, 2015
- par <a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
+19 November, 2015
+ by <a href="http://www.github.com/paul desgranges" target="_blank">paul desgranges</a>
 
-                </csmall></p>
-                <p>Cet article fait suite à la <a href="http://maptime-alpes.com/leaflet-first-webmap/">présentation</a> “Débuter avec Leaflet” lors du Meet-Up <a href="http://maptime-alpes.com">Maptime-Alpes</a> de février.</p>
+            </csmall></p>
+            <h2 id="gis-day-2015">GIS Day 2015</h2>
+<p>The third Wednesday of each November is <a href="http://www.gisday.com/">GIS Day</a>!
+<!--more-->
+Arnaud started us off with a gereral presentation about GIS <a href="http://tsamaya.github.io/intro-sig/">in French</a>.
+- GIS are systems for representing spatial and geographic data: vector and raster, capable of loading many geographic filetypes, and projecting these data onto a 2d plane (the screen).
+- We got sidetracked by important discussions about Null Island (lat 0°, long 0°) which can become a graveyard for geocoding errors… see the <a href="https://en.wikipedia.org/wiki/Null_Island">wikipedia article</a>
+- Inventory of different GIS software, with a nod to the goal of tonight’s presentation: QGIS</p>
 
+<p>Adam then led us through two tutorial from <a href="http://www.qgistutorials.com">qgistutorials.com</a>.
+After downloading and installing QGIS, we dove into the first tutorial:
+1) <a href="http://www.qgistutorials.com/en/docs/working_with_attributes.html">Working with attributes</a>
+The goal was to work with the data in order to find cities with more than 1 million inhabitants, which were also capital cities. We did this by creating attribute selections, and also by querying the data source. Workshop successfully completed by all participants!</p>
 
-                <p><a href="/fr/2015/04/04/leaflet-first-webmap">[Continuer la lecture]</a></p>
-                <div class="hline"></div>
+<p>On to the next:
+2) <a href="http://www.qgistutorials.com/en/docs/points_in_polygon.html">point in polygon</a>
+Here we wanted to associate earthquake data to the country in which the earthquake occured, in order to ascertain the country with the most significant earthquakes.
+We added on to the workshop by symbolising each polygon in the output dataset by the number of recorded significant earthquakes, as determined in our analysis. Again, workshop successfully completed by all participants!</p>
 
-                <div class="spacing"></div>
-            
-                
-                <! -- Blog Post -->
-                
-                <a href="/fr/2015/04/02/d3-geospatial"><h3 class="ctitle">d3 Geospatiale</h3></a>
-                <p><csmall>
-                    
-02 April, 2015
- par <a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
+<p>We then checked out a QGIS plugin (OpenLayers Plugin) to enable OSM basemaps in QGIS, which gives us instant reference for our data.</p>
 
-                </csmall></p>
-                <p>Une simple recherche sur internet vous indiquera que, <a href="http://d3js.org/">D3</a> est une librairie dédiée à la visualisation des données fonctionnant à merveilles dans votre navigateur. Vous entendez <em>visualisation des données</em> et pensez <em>je n’ai pas besoin d’un lib de viz des données</em>, je fais des cartes. Et bien, les cartes reposent sur des données, de plus D3 est vraiement doué avec les cartes. Pourquoi choisir D3 plutôt qu’une autre librairie comme <a href="http://leafletjs.com/">Leaflet.js</a> par exemple. La réponse immédiate est que cela dépend du cas d’usage et de votre besoin d’affichage. Dans ce tutoriel nous allons étudier plus amplement la réponse à apporter.</p>
+<p>A few interesting links: <a href="http://dropchop.io">dropchop.io</a> super lightweight GIS client, <a href="http://thetruesize.com/">thetruesize.com</a> view how the Google mercator projection can be misleading, <a href="https://www.jasondavies.com/maps/transition/">Jason Davies’ Projection transitions</a>, and finally <a href="http://qgis.org">qgis.org</a>.</p>
 
-<p>D3 signifie  <strong>Documents Dirigés par les Données (Data Driven Documents)</strong>. Ainsi, nous allons découvrir cela en trois parties. Premièrement, nous allons regarder l’aspect <strong>Documents</strong>, puis l’aspect <strong>Données</strong> et enfin explorer l’aspect <strong>Dirigés</strong>. Au moment de nous plonger dans le vif du sujet de ce tutoriel, vous devriez avec une idée assez claire de la façon dont D3 se positionne par rapport à ce que vous connaisez jusqu’à présent.</p>
+<p>Next meetup scheduled - <a href="http://www.meetup.com/fr/MaptimeAlpes/events/226880218/">Tuesday 15 December</a> for another <a href="http://leafletjs.com/">leaflet.js</a> tutorial.</p>
 
+<p>Thanks again to our organisers for sharing their knowledge in a kind manner!</p>
 
-                <p><a href="/fr/2015/04/02/d3-geospatial">[Continuer la lecture]</a></p>
-                <div class="hline"></div>
-
-                <div class="spacing"></div>
-            
-
-        </div><! --/col-lg-8 -->
-
+            <div class="spacing"></div>
+        </div>
         
 
 
@@ -212,7 +164,7 @@
 
 
 
-<h4>Réseaux sociaux</h4>
+<h4>Social links</h4>
 <div class="hline"></div>
 <p>
     
@@ -223,40 +175,40 @@
         <a href="http://www.meetup.com/MaptimeAlpes/" class="btn-social btn-outline"><i class="icon-meetup"></i></a>
     
 </p>
-    <h4>Derniers articles</h4>
+    <h4>Recent posts</h4>
     <div class="hline"></div>
         <ul class="popular-posts">
             
             
                 <li>
-                    <a href="/fr/2015/12/22/Leaflet-intro"><img src="/assets/img/blog/thumbs/leaflet-intro.png" alt="Popular Post"></a>
-                    <p><a href="/fr/2015/12/22/Leaflet-intro">Leaflet Intro</a></p>
+                    <a href="/en/2015/12/22/Leaflet-intro"><img src="/assets/img/blog/thumbs/leaflet-intro.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/12/22/Leaflet-intro">Leaflet Intro</a></p>
                 <em>
-                    Publié le
+                    Posted on
                     
-                        22 December, 2015
+                        22 December 2015
                     
                 </em>
                 </li>
             
                 <li>
-                    <a href="/fr/2015/11/19/GIS-Day"><img src="/assets/img/blog/thumbs/GIS_Day.png" alt="Popular Post"></a>
-                    <p><a href="/fr/2015/11/19/GIS-Day">GIS Day 2015</a></p>
+                    <a href="/en/2015/11/19/GIS-Day"><img src="/assets/img/blog/thumbs/GIS_Day.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/11/19/GIS-Day">GIS Day 2015</a></p>
                 <em>
-                    Publié le
+                    Posted on
                     
-                        19 November, 2015
+                        19 November 2015
                     
                 </em>
                 </li>
             
                 <li>
-                    <a href="/fr/2015/10/28/MissingMaps"><img src="/assets/img/blog/thumbs/hotosm_afgha.png" alt="Popular Post"></a>
-                    <p><a href="/fr/2015/10/28/MissingMaps">Missing maps</a></p>
+                    <a href="/en/2015/10/28/MissingMaps"><img src="/assets/img/blog/thumbs/hotosm_afgha.png" alt="Popular Post"></a>
+                    <p><a href="/en/2015/10/28/MissingMaps">Missing maps</a></p>
                 <em>
-                    Publié le
+                    Posted on
                     
-                        28 October, 2015
+                        28 October 2015
                     
                 </em>
                 </li>
@@ -265,9 +217,8 @@
 
     <div class="spacing"></div>
 </div>
-
-    </div><! --/row -->
-</div><! --/container -->
+    </div>
+</div>
 
         
 
@@ -275,7 +226,7 @@
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h4>À propos</h4>
+                <h4>About</h4>
                 <div class="hline-w"></div>
                 <p>We make maps in the Alps. On fait de la cartographie dans les Alpes!</p>
             </div>
@@ -285,7 +236,7 @@
 
 
 
-<h4>Réseaux sociaux</h4>
+<h4>Social links</h4>
 <div class="hline-w"></div>
 <p>
     
@@ -301,5 +252,45 @@
     </div>
 </div>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55615382-1', 'auto');
+  ga('send', 'pageview');
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-55615382-1']);
+
+	// set custom variables
+	_gaq.push(['_setCustomVar',
+      1,
+      'Locale',
+      'en',
+      3                    // Sets the scope to page-level.  Optional parameter.
+   ]);
+
+	// track page view
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<script>
+!function(d,s,id){
+	var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s); js.id=id;js.async=true;js.src="https://a248.e.akamai.net/secure.meetupstatic.com/s/script/541522619002077648/api/mu.btns.js?id=7mne7asu2b3mogbtcckibuio6d";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","mu-bootjs");
+// put anchor snippet in post
+//<a href="http://www.meetup.com/MaptimeAlpes/events/222341190/" data-event="222341190" class="mu-rsvp-btn">RSVP</a>
+</script>
     </body>
 </html>

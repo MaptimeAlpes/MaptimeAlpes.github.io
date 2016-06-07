@@ -20,7 +20,7 @@
     <meta name="msapplication-TileColor" content="#FFFFFF" />
     <meta name="msapplication-TileImage" content="/assets/img/mstile-144x144.png" />
 
-    <title>MaptimeAlpes - Ateliers</title>
+    <title>MaptimeAlpes - Reboot</title>
 
     <!-- Custom styles for this template -->
     <link href="/assets/css/style.css" rel="stylesheet">
@@ -35,41 +35,6 @@
 
     <script src="/assets/js/modernizr.js"></script>
     <script src="/assets/js/prism.js"></script>
-    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
-<script src="/assets/js/bootstrap.min.js"></script>
-
-
-<script>
-  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
-  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
-  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
-  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
-
-  ga('create', 'UA-55615382-1', 'auto');
-  ga('send', 'pageview');
-
-	var _gaq = _gaq || [];
-	_gaq.push(['_setAccount', 'UA-55615382-1']);
-
-	// set custom variables
-	_gaq.push(['_setCustomVar',
-      1,
-      'Locale',
-      'fr',
-      3                    // Sets the scope to page-level.  Optional parameter.
-   ]);
-
-	// track page view
-	_gaq.push(['_trackPageview']);
-
-	(function() {
-		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-	})();
-</script>
-
-
 </head>
 
     <body>
@@ -107,7 +72,7 @@
           <a href="/fr/blog/">Blog</a>
         </li>
         
-        <li class="active">
+        <li>
           <a href="/fr/ateliers/">Ateliers</a>
         </li>
         
@@ -143,66 +108,38 @@
     <div class="mini-map-banner">
     	<div class="container">
         	<div class="pull-left mini-text-block">
-            	<h3 id="page-title" class="pull-left">Ateliers</h3>
+            	<h3 id="page-title" class="pull-left">Reboot</h3>
             </div>
         </div>
     </div>
 </div>
 
-
-
-
-
-
 <div class="container mtb">
     <div class="row">
-
-        <! -- TUT POSTS LIST -->
+        <! -- SINGLE POST -->
         <div class="col-md-8">
-
+            <! -- Blog Post  -->
+            <p><img class="img-responsive" src="/assets/img/blog/launch.png"></p>
+            <a href="/fr/2015/09/30/Reboot"><h3 class="ctitle">Reboot</h3></a>
+            <p><csmall>
             
-            
-                
-                <! -- Blog Post -->
-                
-                <a href="/fr/2015/04/04/leaflet-first-webmap"><h3 class="ctitle">Créer une carte avec leaflet</h3></a>
-                <p><csmall>
-                    
-04 April, 2015
+30 September, 2015
  par <a href="http://www.github.com/tsamaya" target="_blank">tsamaya</a>
 
-                </csmall></p>
-                <p>Cet article fait suite à la <a href="http://maptime-alpes.com/leaflet-first-webmap/">présentation</a> “Débuter avec Leaflet” lors du Meet-Up <a href="http://maptime-alpes.com">Maptime-Alpes</a> de février.</p>
+            </csmall></p>
+            <h2 id="reboot">Reboot</h2>
+<p>C’est le début d’une nouvelle saison Maptime-Alpes ! Alors pour bien recommencer l’année, Laurent nous présente anatomie d’une webmap
+<!--more--></p>
 
+<p>Laurent a traduit et nous a présenté anatomie d’une webmap. La présentation originale dans la langue maternelle d’Adam avait ouvert le premier maptime-alpes <a href="http://www.maptime.io/anatomy-of-a-web-map">voir la présentation</a>.</p>
 
-                <p><a href="/fr/2015/04/04/leaflet-first-webmap">[Continuer la lecture]</a></p>
-                <div class="hline"></div>
+<p>Celle de cette soirée en français dans le texte est ici : <a href="http://maptime-alpes.com/anatomie-d-une-webmap/">maptime-alpes.com/anatomie-d-une-webmap/</a></p>
 
-                <div class="spacing"></div>
-            
-                
-                <! -- Blog Post -->
-                
-                <a href="/fr/2015/04/02/d3-geospatial"><h3 class="ctitle">d3 Geospatiale</h3></a>
-                <p><csmall>
-                    
-02 April, 2015
- par <a href="http://www.github.com/abenrob" target="_blank">abenrob</a>
+<h4 id="le-verre-de-la-fin">le verre de la fin</h4>
+<p>L’atelier s’est terminé autour d’une pression dans un pub du quartier, cela devient un rituel. Le mois prochain la réunion est dédiée à un maphathon : <a href="http://www.missingmaps.org/">MissingMaps</a>.</p>
 
-                </csmall></p>
-                <p>Une simple recherche sur internet vous indiquera que, <a href="http://d3js.org/">D3</a> est une librairie dédiée à la visualisation des données fonctionnant à merveilles dans votre navigateur. Vous entendez <em>visualisation des données</em> et pensez <em>je n’ai pas besoin d’un lib de viz des données</em>, je fais des cartes. Et bien, les cartes reposent sur des données, de plus D3 est vraiement doué avec les cartes. Pourquoi choisir D3 plutôt qu’une autre librairie comme <a href="http://leafletjs.com/">Leaflet.js</a> par exemple. La réponse immédiate est que cela dépend du cas d’usage et de votre besoin d’affichage. Dans ce tutoriel nous allons étudier plus amplement la réponse à apporter.</p>
-
-<p>D3 signifie  <strong>Documents Dirigés par les Données (Data Driven Documents)</strong>. Ainsi, nous allons découvrir cela en trois parties. Premièrement, nous allons regarder l’aspect <strong>Documents</strong>, puis l’aspect <strong>Données</strong> et enfin explorer l’aspect <strong>Dirigés</strong>. Au moment de nous plonger dans le vif du sujet de ce tutoriel, vous devriez avec une idée assez claire de la façon dont D3 se positionne par rapport à ce que vous connaisez jusqu’à présent.</p>
-
-
-                <p><a href="/fr/2015/04/02/d3-geospatial">[Continuer la lecture]</a></p>
-                <div class="hline"></div>
-
-                <div class="spacing"></div>
-            
-
-        </div><! --/col-lg-8 -->
-
+            <div class="spacing"></div>
+        </div>
         
 
 
@@ -265,9 +202,8 @@
 
     <div class="spacing"></div>
 </div>
-
-    </div><! --/row -->
-</div><! --/container -->
+    </div>
+</div>
 
         
 
@@ -301,5 +237,45 @@
     </div>
 </div>
 
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.0/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.min.js"></script>
+
+
+<script>
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', 'UA-55615382-1', 'auto');
+  ga('send', 'pageview');
+
+	var _gaq = _gaq || [];
+	_gaq.push(['_setAccount', 'UA-55615382-1']);
+
+	// set custom variables
+	_gaq.push(['_setCustomVar',
+      1,
+      'Locale',
+      'fr',
+      3                    // Sets the scope to page-level.  Optional parameter.
+   ]);
+
+	// track page view
+	_gaq.push(['_trackPageview']);
+
+	(function() {
+		var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+		ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+		var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+	})();
+</script>
+
+<script>
+!function(d,s,id){
+	var js,fjs=d.getElementsByTagName(s)[0];if(!d.getElementById(id)){js=d.createElement(s); js.id=id;js.async=true;js.src="https://a248.e.akamai.net/secure.meetupstatic.com/s/script/541522619002077648/api/mu.btns.js?id=7mne7asu2b3mogbtcckibuio6d";fjs.parentNode.insertBefore(js,fjs);}}(document,"script","mu-bootjs");
+// put anchor snippet in post
+//<a href="http://www.meetup.com/MaptimeAlpes/events/222341190/" data-event="222341190" class="mu-rsvp-btn">RSVP</a>
+</script>
     </body>
 </html>
