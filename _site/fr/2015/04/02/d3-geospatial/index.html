@@ -458,7 +458,7 @@ A cette étape, nous avons un SVG vide sur notre page. Notre <strong>document</s
 	  });
 
 	  // click navigation anchors and animate scroll
-	  $('a').on('click', function(){
+	  $('a').on('click', function(event){
 	    if($(this).attr('href').indexOf('#')>-1) {
 	      event.preventDefault();
 	      var id = $(this).attr("href");

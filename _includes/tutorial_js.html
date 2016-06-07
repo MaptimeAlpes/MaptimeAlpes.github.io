@@ -30,7 +30,7 @@
 	  });
 
 	  // click navigation anchors and animate scroll
-	  $('a').on('click', function(){
+	  $('a').on('click', function(event){
 	    if($(this).attr('href').indexOf('#')>-1) {
 	      event.preventDefault();
 	      var id = $(this).attr("href");

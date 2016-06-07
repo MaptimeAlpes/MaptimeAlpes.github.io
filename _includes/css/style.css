@@ -500,3 +500,6 @@ a:focus {
 .tutorial li {
 	width: 100%;
 }
+.json-block {
+	margin-top: 10px;
+}
