@@ -148,7 +148,7 @@ function getUserLocation() {
 getUserLocation();
 ~~~
 
-Something to notice is the use of callback functions (geoSuccess and geoError in this case). Functions in javascript can be either *synchronous* or *asynchronous*. *Synchronous* functions finish running before allowing the script to move on to the next step. That is fine for many things, as the time to run many functions is unnoticeable. For longer functions (especially those that need to *go get data*), we don't want the application to finish getting all the data before moving on. We want to tell the app to get the data, and tell it what to do when the data are successfully received. This patten is called *asynchronous*.
+Something to notice is the use of callback functions (geoSuccess and geoError in this case). Functions in javascript can be either *synchronous* or *asynchronous*. *Synchronous* functions finish running before allowing the script to move on to the next step. That is fine for many things, as the time to run many functions is unnoticeable. For longer functions (especially those that need to *go get data*), we don't want the application to finish getting all the data before moving on. We want to tell the app to get the data, and tell it what to do when the data are successfully received, but to continue running the rest of the script without waiting for the data. This pattern is called *asynchronous*.
 
 And the results again (try firefox, chrome 50+ will no longer function...)
 
