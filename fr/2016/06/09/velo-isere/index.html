@@ -59,7 +59,7 @@
 	_gaq.push(['_setCustomVar',
       1,
       'Locale',
-      'en',
+      'fr',
       3                    // Sets the scope to page-level.  Optional parameter.
    ]);
 
@@ -104,19 +104,19 @@
       <ul class="nav navbar-nav">
         
         <li>
-          <a href="/en/">Home</a>
+          <a href="/">Accueil</a>
         </li>
         
         <li>
-          <a href="/en/blog/">Blog</a>
+          <a href="/fr/blog/">Blog</a>
         </li>
         
         <li>
-          <a href="/en/workshops/">Workshops</a>
+          <a href="/fr/ateliers/">Ateliers</a>
         </li>
         
         <li>
-          <a href="/en/about/">About</a>
+          <a href="/fr/apropos/">À propos</a>
         </li>
         
         <li>
@@ -154,29 +154,26 @@
 </div>
 
 <div class="tutorial container" id="tutorial">
-<p>In this tutorial, we are going to explore the components of route-finding APIs, and build a simple application to find a bike route between two points. We are going to use html5 geolocation to pin-point our location, the <a href="https://adresse.data.gouv.fr/api/">BAN</a> database of french addresses to find our destination, and <a href="http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices">itinIsère</a> and <a href="http://www.metromobilite.fr/pages/opendata/OpenDataApi.html">métromobilité</a> to find the actual routes.
+<p>Dans ce tutoriel nous allons explorer les caractéristiques d’APIs de calcul d’itinéraire et construire une application simple pour trouver un itinéraire vélo entre deux points. Nous allons utiliser la géolocalisation par HTML5 pour indiquer notre localisation. La Base Adresse Nationale <a href="https://adresse.data.gouv.fr/api/">BAN</a> nous permettra de trouver notre destination et les sites  [itinIsère] (http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices) et <a href="http://www.metromobilite.fr/pages/opendata/OpenDataApi.html">Métromobilité</a> nous aiderons à trouver les itinéraires.
 <!--more--></p>
 
-<h2 id="house-keeping">House keeping</h2>
+<h2 id="avant-de-commencer">Avant de commencer</h2>
+<p>Pour bien suivre ce tutoriel vous aurez besoin d’un éditeur de texte (comme Notepad++ ou Atom). Pas de problème si vous souhaitez utiliser le vôtre mais si vous n’en n’avez pas d’installé, vous pouvez télécharger  <a href="https://atom.io/">Atom Editor</a>.
+Vous aurez également besoin de lancer un serveur web en local sur votre machine pour accéder à des ressources distantes comme des APIs. La manière la plus simple de le faire si vous avez Python installé est de naviguer avec la console à la racine du projet et de lancer la commande  <code>python -m SimpleHTTPServer</code>. Cela lancera une page web à l’adresse suivante :  <a href="http://localhost:8000">http://localhost:8000</a> .</p>
 
-<p>To successfully follow this tutorial you need a text editor (such as Notepad++ or Atom). Go ahead and use your personal favorite, or if you don’t have one installed,
-download <a href="https://atom.io/">Atom Editor</a>.</p>
+<h1 id="dmarrage">Démarrage</h1>
 
-<p>You will also need to be able to run a local webserver in order to access remote resources, such as APIs. The easiest way to do this if you have python installed is to navigate in the console to the root of the project, and run <code>python -m SimpleHTTPServer</code>. This will enable a webpage at <a href="http://localhost:8000">http://localhost:8000</a>.</p>
+<h2 id="sites-web">Sites web</h2>
+<p>Au cours de cet atelier, nous allons construire une application web simple. Pour commencer, nous devons donc évoquer certains éléments d’un site web.</p>
 
-<h1 id="getting-started">Getting Started</h1>
+<p>Un site web simple est composé de fichiers HTML, CSS et Javascript. Le HTML (Hyper Text Markup Language) fournit la structure de la page - il indique la position de chaque élément et fait référence aux autres composants de la page. Les CSS (Cascading Style Sheets) forment les règles de style qui sont mises en place pour décrire comment les éléments HTML doivent apparaître. Javascript est un langage de programmation utilisé par les sites web pour <em>agir</em> - recevoir des données, gérer les interactions, manipuler les données, etc. <a href="https://jquery.com/">jQuery</a>  est une bibliothèque Javascript qui facilite grandement la manipulation du document, la gestion des événements et l’accès aux données. <a href="http://getbootstrap.com/">Bootstrap</a> est un “framework”, fait de CSS et de Javascript, qui permet de façonner un site web plus facilement, sans écrire les fichiers de style par soi-même. Ces ressources sont très utiles pour prototyper un site, ou donner rapidement un aspect soigné à un tutoriel ;)</p>
 
-<h2 id="websites">Websites</h2>
-<p>Since we will be building a simple web application in the workshop, we should touch on some of the components of a website first.</p>
+<h2 id="une-carte-web-simple">Une carte web simple</h2>
+<p>Nous allons utiliser <a href="https://www.mapbox.com/mapbox.js/api/v2.4.0/">MapboxJS</a> (qui est une extension de <a href="http://leafletjs.com/">LeafletJS</a>) pour mettre en place la carte dans l’application en très peu de lignes de code.</p>
 
-<p>A basic website is comprised of HTML, css, and javascript files. The HTML (Hyper Text Markup Language) is the structure of the page - it indicates what goes where, as well as referencing the other components of the page. CSS (Cascading Style Sheets) are the style rules we put in place to dictate how we want the HTML elements to appear. Javascript is a programming language used by websites to <em>do</em> things - get data, manage interactions, format data, etc. <a href="https://jquery.com/">jQuery</a> is a javascript library that can make document manipulation, event handling and data fetching much simpler. <a href="http://getbootstrap.com/">Bootstrap</a> is a framework that includes css and javascript helpers to make styling a website much easier as well (without developing the styles ourselves.) This can be great for prototyping sites, or making a decent looking tutorial in less time ;).</p>
+<p>A la racine de notre projet, nous allons créer un fichier nommé ‘index.html’, un second nommé ‘style.css’ et un troisième nommé ‘script.js’.</p>
 
-<h2 id="the-basic-webmap">The basic webmap</h2>
-<p>We are also going to use <a href="https://www.mapbox.com/mapbox.js/api/v2.4.0/">MapboxJS</a> (which extends <a href="http://leafletjs.com/">LeafletJS</a>) to get the map part of the application in place in very few lines of code.</p>
-
-<p>In our project root, we will create a file called ‘index.html’, a file called ‘style.css’ and a file called ‘script.js’.</p>
-
-<p>In index.html we put this content:</p>
+<p>Dans index.html nous plaçons ce contenu :</p>
 
 <pre><code class="language-markup">&lt;!DOCTYPE html&gt;
 &lt;html&gt;
@@ -198,9 +195,9 @@ download <a href="https://atom.io/">Atom Editor</a>.</p>
 &lt;/html&gt;
 </code></pre>
 
-<p>You will notice in the &lt;head&gt; section that we have included references to our style.css, as well as the mapbox.js. Below the map container (&lt;div id="map"&gt;&lt;/div&gt;) we put our script.js reference, so the mapping library isn’t called before the map container is rendered.</p>
+<p>Dans la balise &lt;head&gt;, vous noterez les références à notre style.css, ainsi qu’à mapbox.js. La référence à ‘script.js’ est située sous le conteur de la carte (&lt;div id="map"&gt;&lt;/div&gt;) pour que la bibliothèque de cartographie ne soit pas appelée avant que le conteneur de la carte soit affiché.</p>
 
-<p>In style.css, put this content:</p>
+<p>Placez ce contenu dans style.css :</p>
 
 <pre><code class="language-css">body {
   margin: 0;
@@ -214,9 +211,9 @@ download <a href="https://atom.io/">Atom Editor</a>.</p>
 }
 </code></pre>
 
-<p>Here we tell the page and map container to be full width and height.</p>
+<p>Nous précisons ici que la page et le conteneur de la carte doivent prendre toute la largeur et toute la hauteur.</p>
 
-<p>And in script.js, put this content:</p>
+<p>Et placez ce contenu dans script.js :</p>
 
 <pre><code class="language-javascript">// define mapbox token for map creation
 L.mapbox.accessToken = 'pk.eyJ1IjoiYWJlbnJvYiIsImEiOiJEYmh3WWNJIn0.fus8CLBKPBHDvSxiayhJyg';
@@ -226,9 +223,9 @@ var map = L.mapbox.map('map', 'mapbox.streets')
     .setView([45.186502, 5.736339], 13);
 </code></pre>
 
-<p>Here we tell the mapbox library to use our token (mapbox is a subscription service, with a free tier) and to create a map using the ‘streets’ style, centered on Grenoble, and assigned it to the HTML element with the id of ‘map’.</p>
+<p>Ici nous fournissons notre jeton (mapbox est un service soumis à abonnement, avec un premier niveau gratuit) et nous appelons la bibliothèque mapbox pour créer une carte avec le style ‘streets’ centrée sur Grenoble. Cette carte sera assignée à l’élément HTML dont l’identifiant (id) est ‘map’.</p>
 
-<p>Fire up your webserver, and check out the page we created:</p>
+<p>Démarrez votre serveur web et admirez la page que nous avons créé :</p>
 
 <!-- codepen embed -->
 <p data-height="500" data-theme-id="0" data-slug-hash="YWXdPN" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
@@ -236,12 +233,12 @@ var map = L.mapbox.map('map', 'mapbox.streets')
 
 <!-- end codepen embed -->
 
-<h1 id="geolocation">Geolocation</h1>
-<p>Geolocation allows us to get the user’s location (in geographic coordinates) and is part of the HTML5 spec. Since we need a starting point for our route, we are going to play with geolocation in the process.</p>
+<h1 id="golocalisation">Géolocalisation</h1>
+<p>La géolocalisation nous permet de connaître la localisation de l’utilisateur (ses coordonnées géographiques), elle fait partie de la spécification HTML5. Comme nous avons besoin d’un point de départ pour notre itinéraire, nous allons utiliser cette géolocalisation.</p>
 
-<p>The geolocation object is a part of the browser’s navigator object. Most modern browsers support geolocation, but Chrome 50+ (and probably all the others as well) no longer support it from unsecure origins. That means a public website without SSL (HTTP not HTTPS) can not use geolocation in chrome 50+. Luckily for us, Firefox still supports it, and localhost is a secure origin, so the demo should work locally, even in chrome.</p>
+<p>L’objet géolocalisation fait partie des objets du navigateur. La plupart des navigateurs modernes prennent en charge la géolocalisation, mais à partir de la version 50, Chrome (avec probablement d’autres navigateurs) n’en permet plus l’accès depuis une origine non sécurisée. Cela signifie qu’un site public sans SSL (HTTP, pas HTTPS) ne peut plus utiliser la géolocalisation dans Chrome. Heureusement pour nous, Firefox le permet toujours, et localhost est une origine sécurisée, donc le tutoriel devrait fonctionner même sur Chrome.</p>
 
-<p>Add to script.js:</p>
+<p>Ajoutez à script.js :</p>
 
 <pre><code class="language-javascript">// define global variables
 var pos = [];
@@ -290,48 +287,48 @@ function getUserLocation() {
 getUserLocation();
 </code></pre>
 
-<p>Something to notice is the use of callback functions (geoSuccess and geoError in this case). Functions in javascript can be either <em>synchronous</em> or <em>asynchronous</em>. <em>Synchronous</em> functions finish running before allowing the script to move on to the next step. That is fine for many things, as the time to run many functions is unnoticeable. For longer functions (especially those that need to <em>go get data</em>), we don’t want the application to finish getting all the data before moving on. We want to tell the app to get the data, and tell it what to do when the data are successfully received, but to continue running the rest of the script without waiting for the data. This pattern is called <em>asynchronous</em>.</p>
+<p>Attention à l’usage des fonctions de “callback” (geoSuccess and geoError dans ce cas). Les fonctions en javascript peuvent être soit <em>synchrones</em> soit <em>asynchrones</em>. Les fonctions synchrone s’arrêtent de fonctionner avant d’autoriser le script à passer à l’étape suivante. Cela ne pose pas de problème dans beaucoup de cas car la durée de d’exécution de beaucoup de fonctions est négligeable. Mais pour des fonctions plus lourdes (surtout celles qui ont besoin d’aller chercher des données), on ne souhaite pas que l’application ait finit d’obtenir toutes ses données avant de passer à la suite. C’est pourquoi on demande à l’application d’obtenir ses premières données et de les traiter dès leur réception tout en continuant à exécuter le script.</p>
 
-<p>And the results again (try firefox, chrome 50+ will no longer function…)</p>
+<p>Et les résultats (essayez firefox, chrome 50+ ne function plus ):</p>
 
 <!-- codepen embed -->
 <p data-height="500" data-theme-id="0" data-slug-hash="pbJYZK" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
 <!-- end codepen embed -->
 
 <h1 id="apis">APIs</h1>
-<p>An API (Application Programming Interface) is a set of instructions that can be used to tell an application what to do. Recently, API is frequently used to describe a set of routes that can be accessed to get, update or put data from remote sources. In our case, we are only interested in getting data (Addresses and Routes) and in <a href="https://en.wikipedia.org/wiki/JSON">JSON</a> (javascript object notation) format, which is an human-readable data structure which is easy to use and parse in javascript applications.</p>
+<p>Une API (ou interface de programmation) est un ensemble d’instructions que nous pouvons utiliser pour communiquer avec une application. Récemment, on utilise le terme API pour décrire un ensemble d’URLs qui peuvent être utilisées pour créer, lire, mettre à jour et supprimer des données distantes. Dans notre cas, nous voulons seulement récupérer des données (adresses et itinéraires) au format <a href="https://fr.wikipedia.org/wiki/JavaScript_Object_Notation">JSON</a> (JavaScript Object Notation). Ce format humainement lisible permet de décrire des structures des données tout en restant facile à utiliser par l’interpréteur Javascript.</p>
 
-<p>To access these remote data sources, we are going to use <a href="https://jquery.com/">jQuery</a>, a javascript helper library which is useful for document traversal, user event handling, and data access via <a href="https://en.wikipedia.org/wiki/Ajax_(programming)">Ajax</a> (asynchronous javascript and xml, although we use it for JSON as well). jQuery has a json-specific helper-class called <a href="http://api.jquery.com/jquery.getjson/">getJSON</a> which we will use to get our data. A basic getJSON pattern is written like this:</p>
+<p>Pour accéder à ces données distantes, nous allons utiliser <a href="https://jquery.com/">jQuery</a>, une bibliothèque javascript qui aide à traverser le HTML, gérer les événements, et accéder aux données avec <a href="https://fr.wikipedia.org/wiki/Ajax_(informatique)">Ajax</a> (asynchronous javascript and xml, mais utile pour JSON aussi). jQuery a une classe spécifique pour ajax+json <a href="http://api.jquery.com/jquery.getjson/">getJSON</a> que nous allons utiliser pour chercher nos données. getJSON s’utilise comme ça :</p>
 
-<pre><code class="language-javascript">$.getJSON( 'url/to/my/data/', function( json ) {
-  // this part is the asynchronous callback
-  console.log('Look, I got this new data: ' + json.dataname);
+<pre><code class="language-javascript">$.getJSON( 'url/des/données/', function( json ) {
+  // partie asynchronome
+  console.log('Regardez mes données: ' + json.dataname);
  });
 </code></pre>
 
-<h1 id="addresses">Addresses</h1>
-<p>In order to create a route, we need two points: start and end. We have the start (our geolocation), and for the end, we are going to use <a href="https://adresse.data.gouv.fr/">BAN</a> (la Base Addresse National Française).</p>
+<h1 id="adresses">Adresses</h1>
+<p>Afin d’obtenir un ordinateur nous avons besoin de deux points : départ et arrivée. Nous avons le point de départ (notre géolocalisation) et pour l’arrivée nous allons utiliser la Basse Adresse Nationale : <a href="https://adresse.data.gouv.fr/">BAN</a></p>
 
-<p>We are going to use the getJSON function, and log the results to the console sp we can explore them. (Feel free to delete the “getUserLocation();” line in script.js - we’ll use it later.)</p>
+<p>Nous allons utiliser également la fonction getJSON et appeler les résultats sur la console afin de les explorer. (vous pouvez détruire la ligne “getUserLocation();” dans script.js, nous l’utiliserons plus tard).</p>
 
-<p>Add jQuery to index.html, right after the style.css reference</p>
+<p>Ajoutez ensuite JQuery à index.html, juste après la référence à style.css</p>
 
 <pre><code class="language-markdown">&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js'&gt;&lt;/script&gt;
 </code></pre>
 
-<p>Relead your page, then open the console <a href="http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers">see this SO question for help</a>.</p>
+<p>Rechargez votre page et ouvrez ensuite la console [voir cette question sur Stackoverflow pour un peu d’aide]](http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers).</p>
 
-<p>Paste this in the console, and hit enter.</p>
+<p>Collez ensuite ce qui suit et appuyez sur entrée.</p>
 
 <pre><code class="language-javascript">$.getJSON('https://api-adresse.data.gouv.fr/search/?q=31 rue gustave eiffel', function (data) {
   console.log(data);
 });
 </code></pre>
 
-<p>We can see the results here (each “feature” is a found address):</p>
+<p>Nous pouvons voir les résultats ici (chaque item est une adresse trouvée) :</p>
 
 <!-- json embed -->
-<div id="getJson1" class="btn btn-sm btn-primary">get JSON</div>
+<div id="getJson1" class="btn btn-sm btn-primary">obtenir JSON</div>
 <div id="json1" class="well json-block"></div>
 <script>$('#getJson1').click(function() {
   $.getJSON('https://api-adresse.data.gouv.fr/search/?q=31 rue gustave eiffel', function (data) {
@@ -341,11 +338,11 @@ getUserLocation();
 
 <!-- end json embed -->
 
-<p>The BAN API allows us to provide locational precision to our results, so we are returned the nearest matches first. Try the same console code from before (press the up arrow when in the console to access previous commands), but add latitude,longitude to the end of the request url like so: <code>&amp;lat=45.186502&amp;lon=5.736339</code>. Notice how the Grenoble result moves to first place?</p>
+<p>L’API de la BAN nous permet d’apporter une précision sur la localisation de nos résultats en fournissant en premier les adresses correspondantes les plus proches. Essayez le même code que précédemment dans la console (pour cela appuyez sur la flèche du haut pour accéder aux commandes précédentes dans la console) mais en ajoutant latitude, longitude à la fin de l’URL de requête comme suit :  <code>&amp;lat=45.186502&amp;lon=5.736339</code> Vous pouvez voir comme le résultat Grenoble arrive en premier ?</p>
 
-<p>Let’s build a function to put a point on the map for a found address.</p>
+<p>Construisons maintenant une fonction pour placer un point sur la carte correspondant à une adresse recherchée.</p>
 
-<p>Add to script.js:</p>
+<p>Ajoutez à script.js :</p>
 
 <pre><code class="language-javascript">// get address from BAN database https://adresse.data.gouv.fr/api/
 function getBanAddressCoords(q, lat, lon, callback) {
@@ -389,19 +386,19 @@ getBanAddressCoords('31 rue gustave eiffel', 45.186502, 5.736339, function () {
 });
 </code></pre>
 
-<p>And the results again:</p>
+<p>Et les résultats :</p>
 
 <!-- codepen embed -->
 <p data-height="500" data-theme-id="0" data-slug-hash="EyVjbb" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
 <!-- end codepen embed -->
 
-<h1 id="routes">Routes</h1>
-<p>Now that we know how to get our start and end points, we can explore the routing APIs.</p>
+<h1 id="itinraires">Itinéraires</h1>
+<p>Maintenant que l’on sait obtenir les points de départ et d’arrivée, nous pouvons maintenant explorer les APIs d’itinéraires</p>
 
 <h2 id="mtromobilit">Métromobilité</h2>
-<p>The <a href="http://www.metromobilite.fr/pages/opendata/OpenDataApi.html">Métromobilité API</a> has a resource called <a href="http://www.metromobilite.fr/pages/opendata/OpenDataApi.html#Otp">Horaires OTP</a>, which uses <a href="http://www.opentripplanner.org/">OpenTripPlanner</a> to provide multimodal route-finding based on their data. To get a bike route, we need only provide start coordinates, end coordinates and mode, which in our case is ‘BICYCLE’.</p>
+<p>L’<a href="http://www.metromobilite.fr/pages/opendata/OpenDataApi.html">API Métromobilité</a> a une ressource <a href="http://www.metromobilite.fr/pages/opendata/OpenDataApi.html#Otp">Horaires OTP</a>, qui utilise <a href="http://www.opentripplanner.org/">OpenTripPlanner</a> pour fournir les itinéraires multimodaux avec leur données. Pour chercher un itinéraire vélo, il faut fournir les coordonnées de départ, celles de l’arrivé et le mode de transport, qui pour nous sera ‘BICYCLE’.</p>
 
-<p>Let’s try it out. Paste this in the console, and hit enter.</p>
+<p>Nous allons essayer. Collez ensuite ce qui suit et appuyez sur entrée.</p>
 
 <pre><code class="language-javascript">var results;
 $.getJSON('http://data.metromobilite.fr/otp/routers/default/plan?mode=BICYCLE&amp;fromPlace=45.1836656,5.703573&amp;toPlace=45.195926,5.735935', function (data) {
@@ -409,10 +406,10 @@ $.getJSON('http://data.metromobilite.fr/otp/routers/default/plan?mode=BICYCLE&am
 });
 </code></pre>
 
-<p>We can see the results here (the routes are in plan.itineraries):</p>
+<p>Nous pouvons voir les résultats ici (les itinéraires sont dans plan.itineraries) :</p>
 
 <!-- json embed -->
-<div id="getJson2" class="btn btn-sm btn-primary">get JSON</div>
+<div id="getJson2" class="btn btn-sm btn-primary">obtenir JSON</div>
 <div id="json2" class="well json-block"></div>
 <script>$('#getJson2').click(function() {
   $.getJSON('http://data.metromobilite.fr/otp/routers/default/plan?mode=BICYCLE&fromPlace=45.1836656,5.703573&toPlace=45.195926,5.735935', function (data) {
@@ -422,16 +419,16 @@ $.getJSON('http://data.metromobilite.fr/otp/routers/default/plan?mode=BICYCLE&am
 
 <!-- end json embed -->
 
-<p>For the mapping exercise, we want the geometry of the trip. Since we assigned the returned data to the results variable, we can play with the data in the console. To see the route geometry, type <code>results.plan.itineraries[0].legs[0].legGeometry.points</code> in the console. We see an encoded string, which contains the geometry of the entire route. Also check out <code>results.plan.itineraries[0].legs[0].steps</code>. This provides coordinates and directions. Think how we could use this to message each part of the route to the user.</p>
+<p>Pour la partie cartographique, nous voulons la géométrie du trajet. Comme le résultat a été affecté a une variable, nous pouvons accéder le données dans la console. Pour voir le tracé de l’itinéraire, tapez <code>results.plan.itineraries[0].legs[0].legGeometry.points</code> dans la console. Nous voyons une chaine de caractères encodé, qui contient le tracé. Voyez aussi <code>results.plan.itineraries[0].legs[0].steps</code> pour voir les coordonnées et instructions de direction.</p>
 
-<p>Hold on, that geometry is nonsense! To make the route geometry useful, we’ll need to decode it. Mapbox created a helper library to do just that, called <a href="https://github.com/mapbox/polyline">polyline</a>.</p>
+<p>Attendez ! Ce tracé était n’importe quoi ! Pour rendre le tracé utile, il faut le décoder. Mapbox a créé une bibliothèque pour faire cela : <a href="https://github.com/mapbox/polyline">polyline</a>.</p>
 
-<p>Add polyline to index.html, right after the jQuery reference</p>
+<p>Ajoutez ensuite polyline à index.html, juste après la référence à jQuery</p>
 
 <pre><code class="language-markdown">&lt;script src='https://rawgithub.com/mapbox/polyline/master/src/polyline.js'&gt;&lt;/script&gt;
 </code></pre>
 
-<p>In script.js, you can remove the call to the address function for now. Add these functions to the bottom of the file now (Function to clear any routes from the map, function to create métromobilité route, call to route creator):</p>
+<p>Dans script.js, vous pouvez effacer l’appelle de la function getBanAddressCoords(). On mettra ceci à la fin du fichier :</p>
 
 <pre><code class="language-javascript">// function to clear routes from map
 function clearRoutes() {
@@ -466,16 +463,16 @@ getMetromobiliteRoute([45.1836656,5.703573], [45.195926,5.735935], function(){
 });
 </code></pre>
 
-<p>And the results again:</p>
+<p>Ce qui donne comme résultat :</p>
 
 <!-- codepen embed -->
 <p data-height="500" data-theme-id="0" data-slug-hash="gMamNd" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
 <!-- end codepen embed -->
 
 <h2 id="itinisre">ItinIsère</h2>
-<p>The <a href="http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservicesml">ItinIsère API</a> has a resource called <a href="http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices#!/journeyplanner/v2/BikeTripJsonGET_get_1">JourneyPlanner/v2/BikeTrip/json</a>, which we can use to get bike routes based on their data. To get a bike route, we need to provide start coordinates, end coordinates, start date, start time and algorithm. In our case, we will use the ‘FASTEST’ algorithm. ItinIsère requires an API key to use their API, which you can request in your profile. For this exercise, we can just use Maptime-Alpes’ key, but you should request your own for future development.</p>
+<p>L’ <a href="http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservicesml">API ItinIsère</a> propose une fonction appelée <a href="http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices#!/journeyplanner/v2/BikeTripJsonGET_get_1">JourneyPlanner/v2/BikeTrip/json</a> que l’on peut utiliser pour obtenir des itinéraires vélo à partir des données ItinIsère. Pour obtenir un itinéraire vélo nous devons fournir des coordonnées de départ, d’arrivée, une date de départ, un horaire de départ et un algorithme. Dans notre cas nous allons utiliser l’algorithme ‘FASTEST’. Itinisère requiert une clé d’authentification pour pouvoir être utilisée, vous pouvez utiliser la clé Maptime-Alpes, mais vous devrez demander la vôtre pour vos propres développement futurs.</p>
 
-<p>Let’s try it out. Paste this in the console, and hit enter.</p>
+<p>Essayons en copiant/collant dans la console :</p>
 
 <pre><code class="language-javascript">var results;
 $.getJSON('http://www.itinisere.fr/webServices/TransinfoService/api/journeyplanner/v2/BikeTrip/json?DepLat=45.1837081&amp;DepLon=5.7035291&amp;ArrLat=45.195926&amp;ArrLon=5.735935&amp;Date=2016-06-07&amp;DepartureTime=10-48&amp;user_key=0016bf2ff47f630bab2e65bba954c091&amp;Algorithm=FASTEST&amp;callback&amp;callback=?', function (data) {
@@ -483,10 +480,10 @@ $.getJSON('http://www.itinisere.fr/webServices/TransinfoService/api/journeyplann
 });
 </code></pre>
 
-<p>We can see the results here (the route segments are in trips.Trip[0].sections.Section[0].Leg.pathLinks.PathLink):</p>
+<p>On peut voir les résultats ci-après (les segments de l’itinéraire sont en trips.Trip[0].sections.Section[0].Leg.pathLinks.PathLink):</p>
 
 <!-- json embed -->
-<div id="getJson3" class="btn btn-sm btn-primary">get JSON</div>
+<div id="getJson3" class="btn btn-sm btn-primary">obtenir JSON</div>
 <div id="json3" class="well json-block"></div>
 <script>$('#getJson3').click(function() {
   $.getJSON('http://www.itinisere.fr/webServices/TransinfoService/api/journeyplanner/v2/BikeTrip/json?DepLat=45.1837081&DepLon=5.7035291&ArrLat=45.195926&ArrLon=5.735935&Date=2016-06-07&DepartureTime=10-48&user_key=0016bf2ff47f630bab2e65bba954c091&Algorithm=FASTEST&callback&callback=?', function (data) {
@@ -496,18 +493,16 @@ $.getJSON('http://www.itinisere.fr/webServices/TransinfoService/api/journeyplann
 
 <!-- end json embed -->
 
-<p>Again, for the mapping exercise, we want the geometry of the trip. To see the route geometry, type <code>results.trips.Trip[0].sections.Section[0].Leg.pathLinks.PathLink[0]</code> in the console. We see a “LINESTRING ()” string in the Geometry field, which contains the geometry of that specific segment of the route. We also have the directions for the segment, which could be used to communicate to the user.</p>
+<p>Là encore, pour l’exercice de cartographie, on souhaite le tracé du parcours. Pour voir la forme géométrique, tapez  <code>results.trips.Trip[0].sections.Section[0].Leg.pathLinks.PathLink[0]</code> dans la console. On obtient dans le champ “Geometry” une chaîne de caractères de type “LINESTRING ()” et qui contient le tracé spécifique du segment d’itinéraire. Nous obtenons également les instructions de direction du segment qui doivent être fournies à l’utilisateur.</p>
 
-<p>The Geometry are presented in <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT (Well-Known text)</a> format. To use in our map, we need to convert the WKT to a format the map can read. Mapbox (again) has created a helper library (<a href="https://github.com/mapbox/wellknown">wellknown</a>) to convert WKT to geoJSON, which we can then use or parse.</p>
+<p>Le tracé est présenté au format  <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT (Well-Known text)</a>. Pour l’utiliser dans notre carte nous avons besoin de convertir le WKT dans un format lisible pour la carte. Mapbox (encore) a créé une bibliothèque  (<a href="https://github.com/mapbox/wellknown">wellknown</a>) pour convertir le WKT en geoJSON mais cela nous oblige à avoir ces caractéristiaues pour chaque segment alors que l’on souhaite un simple tracé. En utilisant les fonctions  javascript <em>map</em> et <em>reduce</em> on peut convertir le WKT avec <em>map</em>, combiner tous les segments en une ligne avec <em>reduce</em> et ensuite intervertir [longitude,latitude] to [latitude.longitude] avec un autre <em>map</em>.</p>
 
-<p>The ItinIsère data will require a little bit more work to display on the map: we need to convert each segment’s WKT to geoJSON, but that would leave us with a feature for each segment, whereas we want a single line. Using javascript’s <em>map</em> and <em>reduce</em> functions, we can convert the wkt with <em>map</em>, combine all the segments to one line with <em>reduce</em> and then swap [longitude,latitude] to [latitude.longitude] with another <em>map</em>.</p>
-
-<p>First off, let’s include the wellknown library, by putting the reference under the polyline reference in index.html.</p>
+<p>Ajoutez ensuite wellknown à index.html, juste après la référence à polyline.</p>
 
 <pre><code class="language-markdown">&lt;script src='https://rawgithub.com/mapbox/wellknown/master/wellknown.js'&gt;&lt;/script&gt;
 </code></pre>
 
-<p>In script.js (you can remove the call to getMetromobiliteRoute() if you’d like) we will put this at the end of the file:</p>
+<p>Dans script.js (vous pouvez enlever si vous préférez l’appel de getMetromobiliteRoute() ) on mettra ceci à la fin du fichier :</p>
 
 <pre><code class="language-javascript">function getItinisereRoute(fromPos, toPos, algorithm, callback) {
   clearRoutes();
@@ -555,7 +550,7 @@ getItinisereRoute([45.1836656,5.703573], [45.195926,5.735935], 'FASTEST', functi
 })
 </code></pre>
 
-<p>And the results again:</p>
+<p>Ce qui donne comme résultat :</p>
 
 <!-- codepen embed -->
 <p data-height="500" data-theme-id="0" data-slug-hash="EyVmEb" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
@@ -563,13 +558,12 @@ getItinisereRoute([45.1836656,5.703573], [45.195926,5.735935], 'FASTEST', functi
 
 <h1 id="app-build">App Build</h1>
 
-<p>All those parts are great, but we need to pull them together now… We will need to create buttons and inputs to trigger each of the steps: get location, get address, get métromobilité route, get itinisère route.</p>
+<p>Maintenant que toutes ces parties ont été exécutées nous avons besoin maintenant de les assembler. Il nous faut créer les boutons et entrées qui vont déclencher chacune des étapes : get location, get address, get métromobilité route, get itinisère route.</p>
 
-<p>We are going to use bootstrap to create a nice navbar, and put in buttons for each of the actions.</p>
+<p>Nous utiliserons les bibliothèques Bootstrap pour créer une barre de navigation sympathique et thémer les boutons pour chacune des actions.
+Pour retrouvez les librairies Bootstrap : nous utiliserons une version déjà stylisée de Bootstrap, fournie par <a href="https://bootswatch.com/">bootswatch</a>).</p>
 
-<p>Let’s reference the bootstrap libraries (we are going to use a pre-styled build of bootstrap, provided by <a href="https://bootswatch.com/">bootswatch</a>).</p>
-
-<p>Your &lt;head&gt; of index.html should look like this:</p>
+<p>La balise &lt;head&gt; du fichier index.html devra ressembler à ça :</p>
 
 <pre><code class="language-markdown">&lt;head&gt;
   &lt;meta charset=utf-8 /&gt;
@@ -586,7 +580,7 @@ getItinisereRoute([45.1836656,5.703573], [45.195926,5.735935], 'FASTEST', functi
 &lt;/head&gt;
 </code></pre>
 
-<p>To add in the navbar and action buttons, replace your &lt;body&gt; block with this:</p>
+<p>Pour ajouter la barre de navigation, remplacez votre balise &lt;body&gt; par ceci :</p>
 
 <pre><code class="language-markdown">&lt;body&gt;
   &lt;div class="navbar navbar-default navbar-static-top"&gt;
@@ -628,7 +622,7 @@ getItinisereRoute([45.1836656,5.703573], [45.195926,5.735935], 'FASTEST', functi
 &lt;/body&gt;
 </code></pre>
 
-<p>and your style.css file should now look like this:</p>
+<p>Votre style.css doit ressembler à ceci :</p>
 
 <pre><code class="language-css">body {
   margin: 0;
@@ -648,14 +642,14 @@ getItinisereRoute([45.1836656,5.703573], [45.195926,5.735935], 'FASTEST', functi
 }
 </code></pre>
 
-<p>To trigger actions, we are going to use jQuery’s ‘click’ binding. We tell the application that on click of a certain element, do something.</p>
+<p>Pour déclencher les actions nous allons utiliser une fonction jQuery qui réagit au click : Quand on clique sur un élémént en particulier, l’application lance une action particulière.</p>
 
 <pre><code class="language-javascript">$('#element_id').click(function () {
-  // do somrthing now!
+  // fait qqch maintenant !
 }
 </code></pre>
 
-<p>Add this to the bottom of your script.js file:</p>
+<p>Ajoutez ceci à la fin du fichier script.js :</p>
 
 <pre><code class="language-javascript">// function to close mobile nav menu
 function closeNav() {
@@ -699,7 +693,7 @@ $('#II-route').click(function () {
 });
 </code></pre>
 
-<p>Now we have an app! (Try firefox to use the geolocation…)</p>
+<p>Nous avons une vraie application ! (Essayez avec firefox pour le coté  géolocalisation)</p>
 
 <!-- codepen embed -->
 <p data-height="500" data-theme-id="0" data-slug-hash="rLOmQG" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
@@ -779,7 +773,7 @@ $('#II-route').click(function () {
     <div class="container">
         <div class="row">
             <div class="col-sm-6">
-                <h4>About</h4>
+                <h4>À propos</h4>
                 <div class="hline-w"></div>
                 <p>We make maps in the Alps. On fait de la cartographie dans les Alpes!</p>
             </div>
@@ -791,7 +785,7 @@ $('#II-route').click(function () {
   
 
 
-<h4>Social links</h4>
+<h4>Réseaux sociaux</h4>
 <div class="hline-w"></div>
 <p>
     
