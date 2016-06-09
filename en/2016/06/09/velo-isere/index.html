@@ -317,16 +317,16 @@ getUserLocation();
 </code></pre>
 
 <h1 id="addresses">Addresses</h1>
-<p>In order to create a route, we need two points: start and end. We have the start (our geolocation), and for the end, we are going to use <a href="https://adresse.data.gouv.fr/">BAN</a> (la Base Addresse National Française).</p>
+<p>In order to create a route, we need two points: start and end. We have the start (our geolocation), and for the end, we are going to use <a href="https://adresse.data.gouv.fr/">BAN</a> (la Base Addresse National française).</p>
 
-<p>We are going to use the getJSON function, and log the results to the console sp we can explore them. (Feel free to delete the “getUserLocation();” line in script.js - we’ll use it later.)</p>
+<p>We are going to use the getJSON function, and log the results to the console so we can explore them. (Feel free to delete the “getUserLocation();” line in script.js - we’ll use it later.)</p>
 
 <p>Add jQuery to index.html, right after the style.css reference</p>
 
 <pre><code class="language-markdown">&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js'&gt;&lt;/script&gt;
 </code></pre>
 
-<p>Relead your page, then open the console <a href="http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers">see this SO question for help</a>.</p>
+<p>Reload your page, then open the console <a href="http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers">see this SO question for help</a>.</p>
 
 <p>Paste this in the console, and hit enter.</p>
 
@@ -658,7 +658,7 @@ getItinisereRoute([45.1836656,5.703573], [45.195926,5.735935], 'FASTEST', functi
 <p>To trigger actions, we are going to use jQuery’s ‘click’ binding. We tell the application that on click of a certain element, do something.</p>
 
 <pre><code class="language-javascript">$('#element_id').click(function () {
-  // do somrthing now!
+  // do something now!
 }
 </code></pre>
 

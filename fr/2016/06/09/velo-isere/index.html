@@ -166,7 +166,7 @@
 
 <h2 id="avant-de-commencer">Avant de commencer</h2>
 <p>Pour bien suivre ce tutoriel vous aurez besoin d’un éditeur de texte (comme Notepad++ ou Atom). Pas de problème si vous souhaitez utiliser le vôtre mais si vous n’en n’avez pas d’installé, vous pouvez télécharger  <a href="https://atom.io/">Atom Editor</a>.
-Vous aurez également besoin de lancer un serveur web en local sur votre machine pour accéder à des ressources distantes comme des APIs. La manière la plus simple de le faire si vous avez Python installé est de naviguer avec la console à la racine du projet et de lancer la commande  <code>python -m SimpleHTTPServer</code>. Cela lancera une page web à l’adresse suivante :  <a href="http://localhost:8000">http://localhost:8000</a> .</p>
+Vous aurez également besoin de lancer un serveur web en local sur votre machine pour accéder à des ressources distantes comme des APIs. La manière la plus simple de le faire si vous avez Python installé est de naviguer avec la console à la racine du projet et de taper la commande  <code>python -m SimpleHTTPServer</code>. Cela activera une page web à l’adresse suivante :  <a href="http://localhost:8000">http://localhost:8000</a> .</p>
 
 <h1 id="dmarrage">Démarrage</h1>
 
@@ -202,7 +202,7 @@ Vous aurez également besoin de lancer un serveur web en local sur votre machine
 &lt;/html&gt;
 </code></pre>
 
-<p>Dans la balise &lt;head&gt;, vous noterez les références à notre style.css, ainsi qu’à mapbox.js. La référence à ‘script.js’ est située sous le conteur de la carte (&lt;div id="map"&gt;&lt;/div&gt;) pour que la bibliothèque de cartographie ne soit pas appelée avant que le conteneur de la carte soit affiché.</p>
+<p>Dans la balise &lt;head&gt;, vous noterez les références à notre style.css, ainsi qu’à mapbox.js. La référence à ‘script.js’ est située sous le conteneur de la carte (&lt;div id="map"&gt;&lt;/div&gt;) pour que la bibliothèque de cartographie ne soit pas appelée avant que le conteneur de la carte soit affiché.</p>
 
 <p>Placez ce contenu dans style.css :</p>
 
@@ -241,7 +241,7 @@ var map = L.mapbox.map('map', 'mapbox.streets')
 <!-- end codepen embed -->
 
 <h1 id="golocalisation">Géolocalisation</h1>
-<p>La géolocalisation nous permet de connaître la localisation de l’utilisateur (ses coordonnées géographiques), elle fait partie de la spécification HTML5. Comme nous avons besoin d’un point de départ pour notre itinéraire, nous allons utiliser cette géolocalisation.</p>
+<p>La géolocalisation nous permet de connaître la position de l’utilisateur (ses coordonnées géographiques), elle fait partie de la spécification HTML5. Comme nous avons besoin d’un point de départ pour notre itinéraire, nous allons utiliser cette géolocalisation.</p>
 
 <p>L’objet géolocalisation fait partie des objets du navigateur. La plupart des navigateurs modernes prennent en charge la géolocalisation, mais à partir de la version 50, Chrome (avec probablement d’autres navigateurs) n’en permet plus l’accès depuis une origine non sécurisée. Cela signifie qu’un site public sans SSL (HTTP, pas HTTPS) ne peut plus utiliser la géolocalisation dans Chrome. Heureusement pour nous, Firefox le permet toujours, et localhost est une origine sécurisée, donc le tutoriel devrait fonctionner même sur Chrome.</p>
 
@@ -294,7 +294,7 @@ function getUserLocation() {
 getUserLocation();
 </code></pre>
 
-<p>Attention à l’usage des fonctions de “callback” (geoSuccess and geoError dans ce cas). Les fonctions en javascript peuvent être soit <em>synchrones</em> soit <em>asynchrones</em>. Les fonctions synchrone s’arrêtent de fonctionner avant d’autoriser le script à passer à l’étape suivante. Cela ne pose pas de problème dans beaucoup de cas car la durée de d’exécution de beaucoup de fonctions est négligeable. Mais pour des fonctions plus lourdes (surtout celles qui ont besoin d’aller chercher des données), on ne souhaite pas que l’application ait finit d’obtenir toutes ses données avant de passer à la suite. C’est pourquoi on demande à l’application d’obtenir ses premières données et de les traiter dès leur réception tout en continuant à exécuter le script.</p>
+<p>Attention à l’usage des fonctions de “callback” (geoSuccess and geoError dans ce cas). Les fonctions en javascript peuvent être soit <em>synchrones</em> soit <em>asynchrones</em>. Les fonctions synchrones sont exécutées entièrement avant de permettre le passage à l’étape suivante. Cela ne pose pas de problème dans beaucoup de cas car la durée d’exécution de beaucoup de fonctions est négligeable. Mais pour des fonctions plus lourdes (surtout celles qui ont besoin d’aller chercher des données), on ne souhaite pas que l’application ait finit d’obtenir toutes ses données avant de passer à la suite. C’est pourquoi on demande à l’application d’obtenir ses premières données et de les traiter dès leur réception tout en continuant à exécuter le script.</p>
 
 <p>Et les résultats (essayez firefox, chrome 50+ ne function plus ):</p>
 
@@ -314,16 +314,16 @@ getUserLocation();
 </code></pre>
 
 <h1 id="adresses">Adresses</h1>
-<p>Afin d’obtenir un ordinateur nous avons besoin de deux points : départ et arrivée. Nous avons le point de départ (notre géolocalisation) et pour l’arrivée nous allons utiliser la Basse Adresse Nationale : <a href="https://adresse.data.gouv.fr/">BAN</a></p>
+<p>Afin d’obtenir un itinéraire nous avons besoin de deux points : départ et arrivée. Nous avons le point de départ (notre géolocalisation) et pour l’arrivée nous allons utiliser la Basse Adresse Nationale : <a href="https://adresse.data.gouv.fr/">BAN</a></p>
 
-<p>Nous allons utiliser également la fonction getJSON et appeler les résultats sur la console afin de les explorer. (vous pouvez détruire la ligne “getUserLocation();” dans script.js, nous l’utiliserons plus tard).</p>
+<p>Nous allons utiliser également la fonction getJSON et afficher les résultats sur la console afin de les explorer. (vous pouvez supprimer la ligne “getUserLocation();” dans script.js, nous l’utiliserons plus tard).</p>
 
 <p>Ajoutez ensuite JQuery à index.html, juste après la référence à style.css</p>
 
 <pre><code class="language-markdown">&lt;script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js'&gt;&lt;/script&gt;
 </code></pre>
 
-<p>Rechargez votre page et ouvrez ensuite la console [voir cette question sur Stackoverflow pour un peu d’aide]](http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers).</p>
+<p>Rechargez votre page et ouvrez ensuite la console <a href="http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers">voir cette question sur Stackoverflow pour un peu d’aide</a>.</p>
 
 <p>Collez ensuite ce qui suit et appuyez sur entrée.</p>
 
@@ -426,7 +426,7 @@ $.getJSON('http://data.metromobilite.fr/otp/routers/default/plan?mode=BICYCLE&am
 
 <!-- end json embed -->
 
-<p>Pour la partie cartographique, nous voulons la géométrie du trajet. Comme le résultat a été affecté a une variable, nous pouvons accéder le données dans la console. Pour voir le tracé de l’itinéraire, tapez <code>results.plan.itineraries[0].legs[0].legGeometry.points</code> dans la console. Nous voyons une chaine de caractères encodé, qui contient le tracé. Voyez aussi <code>results.plan.itineraries[0].legs[0].steps</code> pour voir les coordonnées et instructions de direction.</p>
+<p>Pour la partie cartographique, nous voulons la géométrie du trajet. Comme le résultat a été affecté a une variable, nous pouvons jouer avec les données dans la console. Pour voir le tracé de l’itinéraire, tapez <code>results.plan.itineraries[0].legs[0].legGeometry.points</code> dans la console. Nous voyons une chaîne de caractères encodée, qui contient le tracé. Voyez aussi <code>results.plan.itineraries[0].legs[0].steps</code> pour voir les coordonnées et instructions de direction.</p>
 
 <p>Attendez ! Ce tracé était n’importe quoi ! Pour rendre le tracé utile, il faut le décoder. Mapbox a créé une bibliothèque pour faire cela : <a href="https://github.com/mapbox/polyline">polyline</a>.</p>
 
@@ -435,7 +435,7 @@ $.getJSON('http://data.metromobilite.fr/otp/routers/default/plan?mode=BICYCLE&am
 <pre><code class="language-markdown">&lt;script src='https://rawgithub.com/mapbox/polyline/master/src/polyline.js'&gt;&lt;/script&gt;
 </code></pre>
 
-<p>Dans script.js, vous pouvez effacer l’appelle de la function getBanAddressCoords(). On mettra ceci à la fin du fichier :</p>
+<p>Dans script.js, vous pouvez effacer l’appel de la function getBanAddressCoords(). On mettra ceci à la fin du fichier :</p>
 
 <pre><code class="language-javascript">// function to clear routes from map
 function clearRoutes() {
@@ -487,7 +487,7 @@ $.getJSON('http://www.itinisere.fr/webServices/TransinfoService/api/journeyplann
 });
 </code></pre>
 
-<p>On peut voir les résultats ci-après (les segments de l’itinéraire sont en trips.Trip[0].sections.Section[0].Leg.pathLinks.PathLink):</p>
+<p>On peut voir les résultats ci-après (les segments de l’itinéraire sont dans trips.Trip[0].sections.Section[0].Leg.pathLinks.PathLink):</p>
 
 <!-- json embed -->
 <div id="getJson3" class="btn btn-sm btn-primary">obtenir JSON</div>
@@ -502,7 +502,7 @@ $.getJSON('http://www.itinisere.fr/webServices/TransinfoService/api/journeyplann
 
 <p>Là encore, pour l’exercice de cartographie, on souhaite le tracé du parcours. Pour voir la forme géométrique, tapez  <code>results.trips.Trip[0].sections.Section[0].Leg.pathLinks.PathLink[0]</code> dans la console. On obtient dans le champ “Geometry” une chaîne de caractères de type “LINESTRING ()” et qui contient le tracé spécifique du segment d’itinéraire. Nous obtenons également les instructions de direction du segment qui doivent être fournies à l’utilisateur.</p>
 
-<p>Le tracé est présenté au format  <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT (Well-Known text)</a>. Pour l’utiliser dans notre carte nous avons besoin de convertir le WKT dans un format lisible pour la carte. Mapbox (encore) a créé une bibliothèque  (<a href="https://github.com/mapbox/wellknown">wellknown</a>) pour convertir le WKT en geoJSON mais cela nous oblige à avoir ces caractéristiaues pour chaque segment alors que l’on souhaite un simple tracé. En utilisant les fonctions  javascript <em>map</em> et <em>reduce</em> on peut convertir le WKT avec <em>map</em>, combiner tous les segments en une ligne avec <em>reduce</em> et ensuite intervertir [longitude,latitude] to [latitude.longitude] avec un autre <em>map</em>.</p>
+<p>Le tracé est présenté au format  <a href="https://en.wikipedia.org/wiki/Well-known_text">WKT (Well-Known text)</a>. Pour l’utiliser dans notre carte nous avons besoin de convertir le WKT dans un format lisible pour la carte. Mapbox (encore) a créé une bibliothèque  (<a href="https://github.com/mapbox/wellknown">wellknown</a>) pour convertir le WKT en geoJSON mais cela nous oblige à avoir ces caractéristiques pour chaque segment alors que l’on souhaite un simple tracé. En utilisant les fonctions  javascript <em>map</em> et <em>reduce</em> on peut convertir le WKT avec <em>map</em>, combiner tous les segments en une ligne avec <em>reduce</em> et ensuite intervertir [longitude,latitude] en [latitude.longitude] avec un autre <em>map</em>.</p>
 
 <p>Ajoutez ensuite wellknown à index.html, juste après la référence à polyline.</p>
 
@@ -563,11 +563,11 @@ getItinisereRoute([45.1836656,5.703573], [45.195926,5.735935], 'FASTEST', functi
 <p data-height="500" data-theme-id="0" data-slug-hash="EyVmEb" data-default-tab="result" data-user="abenrob" data-embed-version="2" data-preview="true" class="codepen"></p>
 <!-- end codepen embed -->
 
-<h1 id="app-build">App Build</h1>
+<h1 id="assemblage">Assemblage</h1>
 
 <p>Maintenant que toutes ces parties ont été exécutées nous avons besoin maintenant de les assembler. Il nous faut créer les boutons et entrées qui vont déclencher chacune des étapes : get location, get address, get métromobilité route, get itinisère route.</p>
 
-<p>Nous utiliserons les bibliothèques Bootstrap pour créer une barre de navigation sympathique et thémer les boutons pour chacune des actions.
+<p>Nous utiliserons les bibliothèques Bootstrap pour créer une barre de navigation sympathique et appliquer un thème aux boutons pour chacune des actions.
 Pour retrouvez les librairies Bootstrap : nous utiliserons une version déjà stylisée de Bootstrap, fournie par <a href="https://bootswatch.com/">bootswatch</a>).</p>
 
 <p>La balise &lt;head&gt; du fichier index.html devra ressembler à ça :</p>
