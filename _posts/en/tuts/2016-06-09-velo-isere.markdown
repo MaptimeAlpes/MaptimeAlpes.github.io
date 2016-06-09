@@ -169,9 +169,9 @@ $.getJSON( 'url/to/my/data/', function( json ) {
 ~~~
 
 # Addresses
-In order to create a route, we need two points: start and end. We have the start (our geolocation), and for the end, we are going to use [BAN](https://adresse.data.gouv.fr/) (la Base Addresse National Française).
+In order to create a route, we need two points: start and end. We have the start (our geolocation), and for the end, we are going to use [BAN](https://adresse.data.gouv.fr/) (la Base Addresse National française).
 
-We are going to use the getJSON function, and log the results to the console sp we can explore them. (Feel free to delete the "getUserLocation();" line in script.js - we'll use it later.)
+We are going to use the getJSON function, and log the results to the console so we can explore them. (Feel free to delete the "getUserLocation();" line in script.js - we'll use it later.)
 
 Add jQuery to index.html, right after the style.css reference
 
@@ -179,7 +179,7 @@ Add jQuery to index.html, right after the style.css reference
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.0/jquery.min.js'></script>
 ~~~
 
-Relead your page, then open the console [see this SO question for help](http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers).
+Reload your page, then open the console [see this SO question for help](http://webmasters.stackexchange.com/questions/8525/how-to-open-the-javascript-console-in-different-browsers).
 
 Paste this in the console, and hit enter.
 
@@ -520,7 +520,7 @@ To trigger actions, we are going to use jQuery's 'click' binding. We tell the ap
 
 ~~~javascript
 $('#element_id').click(function () {
-  // do somrthing now!
+  // do something now!
 }
 ~~~
 
