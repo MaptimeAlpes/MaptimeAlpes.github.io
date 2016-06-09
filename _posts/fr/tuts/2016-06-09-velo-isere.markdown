@@ -334,7 +334,7 @@ Ce qui donne comme résultat :
 <!-- end codepen embed -->
 
 ## ItinIsère
-L' [API ItinIsère](http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservicesml) propose une fonction appelée [JourneyPlanner/v2/BikeTrip/json](http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices#!/journeyplanner/v2/BikeTripJsonGET_get_1) que l'on peut utiliser pour obtenir des itinéraires vélo à partir des données ItinIsère. Pour obtenir un itinéraire vélo nous devons fournir des coordonnées de départ, d'arrivée, une date de départ, un horaire de départ et un algorithme. Dans notre cas nous allons utiliser l'algorithme 'FASTEST'. Itinisère requiert une clé d'authentification pour pouvoir être utilisée, vous pouvez utiliser la clé Maptime-Alpes, mais vous devrez demander la vôtre pour vos propres développement futurs.
+L' [API ItinIsère](http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices) propose une fonction appelée [JourneyPlanner/v2/BikeTrip/json](http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices#!/journeyplanner/v2/BikeTripJsonGET_get_1) que l'on peut utiliser pour obtenir des itinéraires vélo à partir des données ItinIsère. Pour obtenir un itinéraire vélo nous devons fournir des coordonnées de départ, d'arrivée, une date de départ, un horaire de départ et un algorithme. Dans notre cas nous allons utiliser l'algorithme 'FASTEST'. Itinisère requiert une clé d'authentification pour pouvoir être utilisée, vous pouvez utiliser la clé Maptime-Alpes, mais vous devrez demander la vôtre pour vos propres développement futurs.
 
 Essayons en copiant/collant dans la console :
 
