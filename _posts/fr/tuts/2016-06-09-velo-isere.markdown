@@ -9,7 +9,7 @@ lang: fr
 categories:
 - fr
 ---
-Dans ce tutoriel nous allons explorer les caractéristiques d'APIs de calcul d'itinéraire et construire une application simple pour trouver un itinéraire vélo entre deux points. Nous allons utiliser la géolocalisation par HTML5 pour indiquer notre localisation. La Base Adresse Nationale [BAN](https://adresse.data.gouv.fr/api/ ) nous permettra de trouver notre destination et les sites  [itinIsère] (http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices) et [Métromobilité](http://www.metromobilite.fr/pages/opendata/OpenDataApi.html) nous aiderons à trouver les itinéraires.
+Dans ce tutoriel nous allons explorer les caractéristiques d'APIs de calcul d'itinéraire et construire une application simple pour trouver un itinéraire vélo entre deux points. Nous allons utiliser la géolocalisation par HTML5 pour indiquer notre localisation. La Base Adresse Nationale [BAN](https://adresse.data.gouv.fr/api/ ) nous permettra de trouver notre destination et les sites  [itinIsère](http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices) et [Métromobilité](http://www.metromobilite.fr/pages/opendata/OpenDataApi.html) nous aiderons à trouver les itinéraires.
 <!--more-->
 
 ##Avant de commencer
