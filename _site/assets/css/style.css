@@ -6289,3 +6289,8 @@ a:focus {
 .json-block {
 	margin-top: 10px;
 }
+.tut_auth_date {
+	margin-top: 6px;
+	margin-bottom: 4px;
+	font-style: italic;
+}
