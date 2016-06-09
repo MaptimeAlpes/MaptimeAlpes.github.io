@@ -336,7 +336,7 @@ And the results again:
 <!-- end codepen embed -->
 
 ## ItinIsère
-The [ItinIsère API](http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices) has a resource called [JourneyPlanner/v2/BikeTrip/json](http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices#!/journeyplanner/v2/BikeTripJsonGET_get_1), which we can use to get bike routes based on their data. To get a bike route, we need to provide start coordinates, end coordinates, start date, start time and algorithm. In our case, we will use the 'FASTEST' algorithm. ItinIsère requires an API key to use their API, which you can request in your profile. For this exercise, we can just use Maptime-Alpes' key, but you should request your own for future development.
+The [ItinIsère API](http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices/) has a resource called [JourneyPlanner/v2/BikeTrip/json](http://www.itinisere.fr/fr/api-open-services/169/OpenData/openservices#!/journeyplanner/v2/BikeTripJsonGET_get_1), which we can use to get bike routes based on their data. To get a bike route, we need to provide start coordinates, end coordinates, start date, start time and algorithm. In our case, we will use the 'FASTEST' algorithm. ItinIsère requires an API key to use their API, which you can request in your profile. For this exercise, we can just use Maptime-Alpes' key, but you should request your own for future development.
 
 Let's try it out. Paste this in the console, and hit enter.
 
